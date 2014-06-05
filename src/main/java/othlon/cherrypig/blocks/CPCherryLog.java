@@ -4,6 +4,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockWood;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
@@ -14,13 +15,11 @@ import javax.swing.*;
 /**
  * Created by Jen on 30/05/14.
  */
-public class CPCherryLog extends Block{
+public class CPCherryLog extends BlockWood{
     @SideOnly(Side.CLIENT)
     IIcon logIcon;
     IIcon logIconTopBtm;
    public CPCherryLog(){
-         super(Material.wood);
-
          this.setStepSound(soundTypeWood);
          this.setBlockName("CherryPig Wood");
       // logIcon       = thisdude.registerIcon("cherrypig:cherrypig_treebark");
@@ -28,9 +27,8 @@ public class CPCherryLog extends Block{
 
    }
 
-    @Override
     @SideOnly(Side.CLIENT)
-     public void registerBlockIcon(IIconRegister thisdude) {
+     public void registerBlockIcons(IIconRegister thisdude) {
         logIcon       = thisdude.registerIcon("cherrypig:cherrypig_treebark");
        logIconTopBtm = thisdude.registerIcon("cherrypig:cherrypig_treelog");
      }
