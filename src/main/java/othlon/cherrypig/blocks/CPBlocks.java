@@ -9,8 +9,5 @@ import net.minecraft.block.Block;
 import othlon.cherrypig.blocks.CPCherryLog;
 public class CPBlocks {
 
-    //used for initalising the blocks for use elsewhere
-    public final static Block cherryLog = new CPCherryLog();
 
-   // GameRegistry.registerBlock(CPCherryLog, 'cherryLog');
 }
