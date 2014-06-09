@@ -10,6 +10,7 @@ import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.IShearable;
 import net.minecraft.util.IIcon;
+import othlon.cherrypig.CherryPig;
 
 import java.util.ArrayList;
 
@@ -23,9 +24,11 @@ public class CPCherryLeaf extends BlockLeavesBase implements IShearable{
     int[] adjacentTreeBlocks;
 
     public CPCherryLeaf(){
+
         super(Material.leaves, false);
         this.setTickRandomly(true);
         this.setStepSound(Block.soundTypeGrass);
+        this.setCreativeTab(CherryPig.tabCherryPig);
     }
 
 

@@ -9,6 +9,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.oredict.OreDictionary;
+import othlon.cherrypig.CherryPig;
 
 import javax.swing.*;
 
@@ -20,17 +21,19 @@ public class CPCherryLog extends BlockWood{
     IIcon logIcon;
     IIcon logIconTopBtm;
    public CPCherryLog(){
+
+         this.setHardness(2.0F);
+         this.setHarvestLevel("axe", 0);
+         this.setResistance(5.0F);
          this.setStepSound(soundTypeWood);
          this.setBlockName("CherryPig Wood");
-      // logIcon       = thisdude.registerIcon("cherrypig:cherrypig_treebark");
-      // logIconTopBtm = thisdude.registerIcon("cherrypig:cherrypig_treelog");
+         this.setCreativeTab(CherryPig.tabCherryPig);
 
    }
-
-    @SideOnly(Side.CLIENT)
+    @Override
      public void registerBlockIcons(IIconRegister thisdude) {
         logIcon       = thisdude.registerIcon("cherrypig:cherrypig_treebark");
-       logIconTopBtm = thisdude.registerIcon("cherrypig:cherrypig_treelog");
+        logIconTopBtm = thisdude.registerIcon("cherrypig:cherrypig_treelog");
      }
 
 
