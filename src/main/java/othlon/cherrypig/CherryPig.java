@@ -19,11 +19,10 @@ public class CherryPig {
     public static CreativeTabs tabCherryPig;
 
     @Mod.EventHandler
-    public static void preInit( FMLPreInitializationEvent event)
-    {
+    public static void preInit(FMLPreInitializationEvent event) {
         tabCherryPig = new CPCreativeTab(CreativeTabs.getNextID(), "tabCherryPig");
-        final Block cherryLog     = new CPCherryLog();
-        final Block cherryLeaf    = new CPCherryLeaf();
+        final Block cherryLog = new CPCherryLog();
+        final Block cherryLeaf = new CPCherryLeaf();
         final Block cherrySapling = new CPCherrySapling();
 
 
