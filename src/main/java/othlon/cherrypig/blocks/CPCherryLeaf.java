@@ -30,7 +30,6 @@ public class CPCherryLeaf extends BlockLeavesBase implements IShearable {
         this.setCreativeTab(CherryPig.tabCherryPig);
     }
 
-
     //textures
     @Override
     public void registerBlockIcons(IIconRegister iconRegister) {

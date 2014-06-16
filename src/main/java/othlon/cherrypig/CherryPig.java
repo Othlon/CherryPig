@@ -25,7 +25,6 @@ public class CherryPig {
         final Block cherryLeaf = new CPCherryLeaf();
         final Block cherrySapling = new CPCherrySapling();
 
-
         GameRegistry.registerBlock(cherryLog, "Cherry Log");
         GameRegistry.registerBlock(cherryLeaf, "Cherry Leaf");
         GameRegistry.registerBlock(cherrySapling, "Cherry Sapling");
