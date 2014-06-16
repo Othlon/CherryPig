@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -11,8 +12,10 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import othlon.cherrypig.CherryPig;
+import othlon.cherrypig.worldgen.CPCherryTreeGen;
 
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Jen on 30/05/14.
@@ -28,6 +31,11 @@ public class CPCherrySapling extends BlockSapling {
         this.setStepSound(Block.soundTypeGrass);
         this.setCreativeTab(CherryPig.tabCherryPig);
 
+    }
+
+    @Override
+    public boolean onBlockActivated(World p_149727_1_, int p_149727_2_, int p_149727_3_, int p_149727_4_, EntityPlayer p_149727_5_, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
+        return p_149727_1_.isRemote || new CPCherryTreeGen().generate(p_149727_1_, p_149727_1_.rand, p_149727_2_, p_149727_3_, p_149727_4_);
     }
 
     @Override
@@ -56,5 +64,9 @@ public class CPCherrySapling extends BlockSapling {
         return isValidPosition(world, x, y, z, -1);
     }
 
+    @Override
+    public void func_149878_d(World world, int x, int y, int z, Random rand) {
+//        super.func_149878_d(world, x, y, z, rand);
 
+    }
 }
