@@ -28,6 +28,7 @@ public class CPCherryLeaf extends BlockLeavesBase implements IShearable {
         this.setTickRandomly(true);
         this.setStepSound(Block.soundTypeGrass);
         this.setCreativeTab(CherryPig.tabCherryPig);
+        this.setBlockName("CherryPig Leaves");
     }
 
     //textures

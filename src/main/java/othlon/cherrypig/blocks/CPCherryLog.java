@@ -2,6 +2,7 @@ package othlon.cherrypig.blocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.BlockLog;
 import net.minecraft.block.BlockWood;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -15,7 +16,7 @@ import java.util.List;
 /**
  * Created by Jen on 30/05/14.
  */
-public class CPCherryLog extends BlockWood {
+public class CPCherryLog extends BlockLog {
     @SideOnly(Side.CLIENT)
     IIcon logIcon;
     IIcon logIconTopBtm;
