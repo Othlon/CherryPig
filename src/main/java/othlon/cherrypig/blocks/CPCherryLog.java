@@ -40,7 +40,7 @@ public class CPCherryLog extends BlockLog {
 
     @Override
     public void registerBlockIcons(IIconRegister thisdude) {
-        logIcon = thisdude.registerIcon("cherrypig:cherrypig_treebark");
+        logIcon       = thisdude.registerIcon("cherrypig:cherrypig_treebark");
         logIconTopBtm = thisdude.registerIcon("cherrypig:cherrypig_treelog");
     }
 

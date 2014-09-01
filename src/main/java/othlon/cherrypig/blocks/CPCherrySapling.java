@@ -17,9 +17,6 @@ import othlon.cherrypig.worldgen.CPCherryTreeGen;
 import java.util.List;
 import java.util.Random;
 
-/**
- * Created by Jen on 30/05/14.
- */
 public class CPCherrySapling extends BlockSapling {
 
     private IIcon texture;
@@ -30,10 +27,7 @@ public class CPCherrySapling extends BlockSapling {
         this.setHardness(0.0F);
         this.setStepSound(Block.soundTypeGrass);
         this.setCreativeTab(CherryPig.tabCherryPig);
-        this.setBlockName("CherryPig Sapling");
-
-
-
+        this.setBlockName("CherryPigSapling");
     }
 
     @Override
@@ -42,12 +36,14 @@ public class CPCherrySapling extends BlockSapling {
     }
 
     @Override
-    public void registerBlockIcons(IIconRegister iconRegister) {
-
+    public void registerBlockIcons(IIconRegister iconRegister){
 
         texture = iconRegister.registerIcon("cherrypig:cherrypig_sapling");
     }
 
+    public IIcon getIcon(int side, int metadata){
+        return texture;
+    }
     public boolean isValidPosition(World world, int x, int y, int z, int metadata) {
 
         Block block = world.getBlock(x, y - 1, z);

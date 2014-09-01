@@ -9,9 +9,6 @@ import othlon.cherrypig.blocks.CPCherryLog;
 import othlon.cherrypig.blocks.CPCherrySapling;
 import othlon.cherrypig.helpers.CPCreativeTab;
 
-/**
- * Created by Jen on 25/05/14.
- */
 @Mod(modid = "cherrypig")
 public class CherryPig {
     @Mod.Instance
