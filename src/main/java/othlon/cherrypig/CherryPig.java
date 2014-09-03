@@ -4,6 +4,7 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.creativetab.CreativeTabs;
+import othlon.cherrypig.blocks.CPBlocks;
 import othlon.cherrypig.blocks.CPCherryLeaf;
 import othlon.cherrypig.blocks.CPCherryLog;
 import othlon.cherrypig.blocks.CPCherrySapling;
@@ -15,19 +16,11 @@ public class CherryPig {
     public static CherryPig instance;
 
     public static CreativeTabs tabCherryPig;
-    public CPCherryLeaf cherryLeaf;
-    public CPCherryLog cherryLog;
-    public CPCherrySapling cherrySapling;
 
+    public CPBlocks blockInit;
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         tabCherryPig = new CPCreativeTab(CreativeTabs.getNextID(), "tabCherryPig");
-        cherryLog = new CPCherryLog();
-        cherrySapling = new CPCherrySapling();
-        cherryLeaf = new CPCherryLeaf();
-
-        GameRegistry.registerBlock(cherryLog, "Cherry Log");
-        GameRegistry.registerBlock(cherryLeaf, "Cherry Leaf");
-        GameRegistry.registerBlock(cherrySapling, "Cherry Sapling");
+        blockInit.init();
     }//end pre init
 }
