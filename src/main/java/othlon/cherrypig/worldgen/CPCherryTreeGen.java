@@ -7,6 +7,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraftforge.common.util.ForgeDirection;
 import othlon.cherrypig.CherryPig;
+import othlon.cherrypig.blocks.CPBlocks;
 
 import java.util.Random;
 
@@ -91,7 +92,7 @@ public class CPCherryTreeGen extends WorldGenTrees {
                                     Block block1 = par1World.getBlock(i2, k1, k2);
 
                                     if (block1.isAir(par1World, i2, k1, k2) || block1.isLeaves(par1World, i2, k1, k2)) {
-                                        this.setBlockAndNotifyAdequately(par1World, i2, k1, k2, CherryPig.instance.cherryLeaf, 0);
+                                        this.setBlockAndNotifyAdequately(par1World, i2, k1, k2, CPBlocks.cherryLeaf, 0);
                                     }
                                 }
                             }
@@ -101,8 +102,8 @@ public class CPCherryTreeGen extends WorldGenTrees {
                     for (k1 = 0; k1 < l; ++k1) {
                         block = par1World.getBlock(par3, par4 + k1, par5);
 
-                        if (block.isAir(par1World, par3, par4 + k1, par5) || block.isLeaves(par1World, par3, par4 + k1, par5) || block == CherryPig.instance.cherrySapling) {
-                            this.setBlockAndNotifyAdequately(par1World, par3, par4 + k1, par5, CherryPig.instance.cherryLog, 0);
+                        if (block.isAir(par1World, par3, par4 + k1, par5) || block.isLeaves(par1World, par3, par4 + k1, par5) || block == CPBlocks.cherrySapling) {
+                            this.setBlockAndNotifyAdequately(par1World, par3, par4 + k1, par5, CPBlocks.cherryLog, 0);
                         }
                     }
 
@@ -123,6 +124,6 @@ public class CPCherryTreeGen extends WorldGenTrees {
     }
 
     private boolean isCherryTreeBlock(Block block) {
-        return block == CherryPig.instance.cherryLeaf || block == CherryPig.instance.cherryLog || block == CherryPig.instance.cherrySapling;
+        return block == CPBlocks.cherryLeaf || block == CPBlocks.cherryLog || block == CPBlocks.cherrySapling;
     }
 }

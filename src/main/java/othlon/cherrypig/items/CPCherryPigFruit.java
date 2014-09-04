@@ -26,7 +26,7 @@ public class CPCherryPigFruit extends Item {
 
     private Class<? extends Entity> entityClass;
 
-    private CPCherryPigFruit(Class<? extends Entity> entityClass)
+    public CPCherryPigFruit(Class<? extends Entity> entityClass)
     {
         this.entityClass = entityClass;
         this.setHasSubtypes(true);
