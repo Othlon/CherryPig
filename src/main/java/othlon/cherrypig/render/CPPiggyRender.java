@@ -6,9 +6,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import othlon.cherrypig.entity.CPEntityPiggy;
 
-/**
- * Created by Jen on 2/09/2014.
- */
 public class CPPiggyRender extends RenderLiving{
 
     private static final ResourceLocation piggyTexture = new ResourceLocation("cherrypig", "textures/entity/minipigpig.png");

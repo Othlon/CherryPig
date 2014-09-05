@@ -18,17 +18,15 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import othlon.cherrypig.CherryPig;
+import othlon.cherrypig.entity.CPEntityPiggy;
 
 /**
  * Created by Jen on 3/09/2014.
  */
 public class CPCherryPigFruit extends Item {
 
-    private Class<? extends Entity> entityClass;
-
-    public CPCherryPigFruit(Class<? extends Entity> entityClass)
+    public CPCherryPigFruit()
     {
-        this.entityClass = entityClass;
         this.setHasSubtypes(true);
         this.setUnlocalizedName("CherryPigFruit");
         this.setCreativeTab(CherryPig.tabCherryPig);
@@ -40,37 +38,37 @@ public class CPCherryPigFruit extends Item {
         return "SpawnCherryPig";
     }
 
-    public boolean onItemUse(ItemStack p_77648_1_, EntityPlayer p_77648_2_, World p_77648_3_, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_)
+    public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float p_77648_8_, float p_77648_9_, float p_77648_10_)
     {
-        if(p_77648_3_.isRemote)
+        if(world.isRemote)
         {
             return true;
         }
         else
         {
-            Block block = p_77648_3_.getBlock(p_77648_4_, p_77648_5_, p_77648_6_);
-            p_77648_4_ += Facing.offsetsXForSide[p_77648_7_];
-            p_77648_5_ += Facing.offsetsYForSide[p_77648_7_];
-            p_77648_6_ += Facing.offsetsZForSide[p_77648_7_];
+            Block block = world.getBlock(x, y, z);
+            x += Facing.offsetsXForSide[side];
+            y += Facing.offsetsYForSide[side];
+            z += Facing.offsetsZForSide[side];
             double d0 = 0.0D;
 
-            if(p_77648_7_ == 1 && block.getRenderType() == 11)
+            if(side == 1 && block.getRenderType() == 11)
             {
                 d0 = 0.5D;
             }
 
-            Entity entity = spawnCreature(p_77648_3_, p_77648_4_ + 0.5D, p_77648_5_ + d0, p_77648_6_ + 0.5D);
+            Entity entity = spawnCreature(world, x + 0.5D, y + d0, z + 0.5D);
 
             if(entity != null)
             {
-                if(entity instanceof EntityLivingBase && p_77648_1_.hasDisplayName())
+                if(entity instanceof EntityLivingBase && item.hasDisplayName())
                 {
-                    ((EntityLiving) entity).setCustomNameTag(p_77648_1_.getDisplayName());
+                    ((EntityLiving) entity).setCustomNameTag(item.getDisplayName());
                 }
 
-                if(!p_77648_2_.capabilities.isCreativeMode)
+                if(!player.capabilities.isCreativeMode)
                 {
-                    --p_77648_1_.stackSize;
+                    --item.stackSize;
                 }
             }
 
@@ -79,19 +77,19 @@ public class CPCherryPigFruit extends Item {
     }
 
     @Override
-    public ItemStack onItemRightClick(ItemStack p_77659_1_, World p_77659_2_, EntityPlayer p_77659_3_)
+    public ItemStack onItemRightClick(ItemStack item, World world, EntityPlayer player)
     {
-        if(p_77659_2_.isRemote)
+        if(world.isRemote)
         {
-            return p_77659_1_;
+            return item;
         }
         else
         {
-            MovingObjectPosition movingobjectposition = this.getMovingObjectPositionFromPlayer(p_77659_2_, p_77659_3_, true);
+            MovingObjectPosition movingobjectposition = this.getMovingObjectPositionFromPlayer(world, player, true);
 
             if(movingobjectposition == null)
             {
-                return p_77659_1_;
+                return item;
             }
             else
             {
@@ -101,84 +99,41 @@ public class CPCherryPigFruit extends Item {
                     int j = movingobjectposition.blockY;
                     int k = movingobjectposition.blockZ;
 
-                    if(!p_77659_2_.canMineBlock(p_77659_3_, i, j, k)) { return p_77659_1_; }
+                    if(!world.canMineBlock(player, i, j, k)) { return item; }
 
-                    if(!p_77659_3_.canPlayerEdit(i, j, k, movingobjectposition.sideHit, p_77659_1_)) { return p_77659_1_; }
+                    if(!player.canPlayerEdit(i, j, k, movingobjectposition.sideHit, item)) { return item; }
 
-                    if(p_77659_2_.getBlock(i, j, k) instanceof BlockLiquid)
+                    if(world.getBlock(i, j, k) instanceof BlockLiquid)
                     {
-                        Entity entity = spawnCreature(p_77659_2_, i, j, k);
+                        Entity entity = spawnCreature(world, i, j, k);
 
                         if(entity != null)
                         {
-                            if(entity instanceof EntityLivingBase && p_77659_1_.hasDisplayName())
+                            if(entity instanceof EntityLivingBase && item.hasDisplayName())
                             {
-                                ((EntityLiving) entity).setCustomNameTag(p_77659_1_.getDisplayName());
+                                ((EntityLiving) entity).setCustomNameTag(item.getDisplayName());
                             }
 
-                            if(!p_77659_3_.capabilities.isCreativeMode)
+                            if(!player.capabilities.isCreativeMode)
                             {
-                                --p_77659_1_.stackSize;
+                                --item.stackSize;
                             }
                         }
                     }
                 }
 
-                return p_77659_1_;
+                return item;
             }
         }
     }
 
-    private Entity spawnCreature(World world, double p_77840_2_, double p_77840_4_, double p_77840_6_)
+    private Entity spawnCreature(World world, double x, double y, double z)
     {
-        Entity entity = null;
+        Entity piggeh = new CPEntityPiggy(world);
+        piggeh.setPosition(x, y, z);
+        world.spawnEntityInWorld(piggeh);
 
-        for(int j = 0; j < 1; ++j)
-        {
-            try
-            {
-                entity = this.entityClass.getConstructor(new Class[]
-                        { World.class }).newInstance(new Object[]
-                        { world });
-            }
-            catch(InstantiationException e)
-            {
-                e.printStackTrace();
-            }
-            catch(IllegalAccessException e)
-            {
-                e.printStackTrace();
-            }
-            catch(IllegalArgumentException e)
-            {
-                e.printStackTrace();
-            }
-            catch(InvocationTargetException e)
-            {
-                e.printStackTrace();
-            }
-            catch(NoSuchMethodException e)
-            {
-                e.printStackTrace();
-            }
-            catch(SecurityException e)
-            {
-                e.printStackTrace();
-            }
-
-            if(entity != null && entity instanceof EntityLivingBase)
-            {
-                EntityLiving entityliving = (EntityLiving) entity;
-                entity.setLocationAndAngles(p_77840_2_, p_77840_4_, p_77840_6_, MathHelper.wrapAngleTo180_float(world.rand.nextFloat() * 360.0F), 0.0F);
-                entityliving.rotationYawHead = entityliving.rotationYaw;
-                entityliving.renderYawOffset = entityliving.rotationYaw;
-                entityliving.onSpawnWithEgg((IEntityLivingData) null);
-                world.spawnEntityInWorld(entity);
-                entityliving.playLivingSound();
-            }
-        }
-
-        return entity;
+        return piggeh;
     }
 
     @Override
@@ -186,11 +141,6 @@ public class CPCherryPigFruit extends Item {
     public boolean requiresMultipleRenderPasses()
     {
         return true;
-    }
-
-    public static CPCherryPigFruit create(Class<? extends Entity> entity)
-    {
-        return new CPCherryPigFruit(entity);
     }
 
 }
