@@ -9,6 +9,8 @@ import othlon.cherrypig.blocks.CPCherryLeaf;
 import othlon.cherrypig.blocks.CPCherryLog;
 import othlon.cherrypig.blocks.CPCherrySapling;
 import othlon.cherrypig.helpers.CPCreativeTab;
+import othlon.cherrypig.items.CPItem;
+import othlon.cherrypig.render.CPPiggyRender;
 
 @Mod(modid = "cherrypig")
 public class CherryPig {
@@ -17,10 +19,10 @@ public class CherryPig {
 
     public static CreativeTabs tabCherryPig;
 
-    public CPBlocks blockInit;
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         tabCherryPig = new CPCreativeTab(CreativeTabs.getNextID(), "tabCherryPig");
-        blockInit.init();
+        CPBlocks.init();
+        CPItem.ItemInit();
     }//end pre init
 }
