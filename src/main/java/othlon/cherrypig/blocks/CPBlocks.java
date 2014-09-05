@@ -12,10 +12,8 @@ public class CPBlocks {
     public static CPCherryLog     cherryLog      = new CPCherryLog();
     public static CPCherrySapling cherrySapling  = new CPCherrySapling();
 
-        public static void init(){
-            //cherryLog     = new CPCherryLog();
-            //cherrySapling = new CPCherrySapling();
-            //cherryLeaf    = new CPCherryLeaf();
+        public static void doTheBlockThing(){
+
 
             GameRegistry.registerBlock(cherryLog,         "Cherry Log");
             GameRegistry.registerBlock(cherryLeaf,       "Cherry Leaf");

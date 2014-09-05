@@ -10,7 +10,7 @@ import othlon.cherrypig.entity.CPEntityPiggy;
 public class CPItem {
 
     public static Item cherryFruit;
-    public static void ItemInit(){
+    public static void doTheItemThing(){
         cherryFruit = new CPCherryPigFruit();
         GameRegistry.registerItem(cherryFruit, "cherryfruit");
     }

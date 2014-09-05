@@ -8,23 +8,18 @@ import othlon.cherrypig.entity.CPEntityPiggy;
 
 public class CPPiggyRender extends RenderLiving{
 
-    private static final ResourceLocation piggyTexture = new ResourceLocation("cherrypig", "textures/entity/minipigpig.png");
+    private static final ResourceLocation piggyTexture = new ResourceLocation("cherrypig", "textures/entities/minipigpig.png");
     //initalizer
     public CPPiggyRender()
     {
         super(new CPPiggyModel(), 0.5f);
         this.setRenderPassModel(new CPPiggyModel());
     }
-    protected float handleRotationFloat(CPEntityPiggy p_77044_1_, float p_77044_2_)
+    /*protected float handleRotationFloat(CPEntityPiggy p_77044_1_, float p_77044_2_)
     {
         return p_77044_1_.getRotationYawHead();
     }
 
-
-    protected ResourceLocation getEntityTexture(CPEntityPiggy p_110775_1_)
-    {
-        return CPPiggyRender.piggyTexture;
-    }
 
     @Override
     protected int shouldRenderPass(EntityLivingBase p_77032_1_, int p_77032_2_, float p_77032_3_)
@@ -37,11 +32,12 @@ public class CPPiggyRender extends RenderLiving{
     {
         return this.handleRotationFloat((CPEntityPiggy) p_77044_1_, p_77044_2_);
     }
+    */
 
     @Override
     protected ResourceLocation getEntityTexture(Entity p_110775_1_)
     {
-        return this.getEntityTexture((CPEntityPiggy) p_110775_1_);
+        return CPPiggyRender.piggyTexture;
     }
 
 
