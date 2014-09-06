@@ -2,25 +2,23 @@ package othlon.cherrypig.render;
 
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
-import othlon.cherrypig.entity.CPEntityPiggy;
 
-public class CPPiggyRender extends RenderLiving{
 
+public class CPBabbyRender extends RenderLiving {
     private static final ResourceLocation piggyTexture = new ResourceLocation("cherrypig", "textures/entities/minipigpig.png");
     //initalizer
-    public CPPiggyRender()
+    public CPBabbyRender()
     {
-        super(new CPPiggyModel(), 0.5f);
-        this.setRenderPassModel(new CPPiggyModel());
+        super(new CPBabbyModel(), 0.5f);
+        this.setRenderPassModel(new CPBabbyModel());
     }
 
 
     @Override
     protected ResourceLocation getEntityTexture(Entity p_110775_1_)
     {
-        return CPPiggyRender.piggyTexture;
+        return CPBabbyRender.piggyTexture;
     }
 
 

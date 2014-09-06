@@ -2,7 +2,9 @@ package othlon.cherrypig.proxies;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import othlon.cherrypig.entity.CPEntityBabby;
 import othlon.cherrypig.entity.CPEntityPiggy;
+import othlon.cherrypig.render.CPBabbyRender;
 import othlon.cherrypig.render.CPPiggyRender;
 
 /**
@@ -12,5 +14,7 @@ public class ClientProxy extends CommonProxy{
 
        public void registerRenderers(){
            RenderingRegistry.registerEntityRenderingHandler(CPEntityPiggy.class, new CPPiggyRender());
+           RenderingRegistry.registerEntityRenderingHandler(CPEntityBabby.class, new CPBabbyRender());
+
        }
 }
