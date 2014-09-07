@@ -24,14 +24,14 @@ import othlon.cherrypig.entity.CPEntityPiggy;
 /**
  * Created by Jen on 3/09/2014.
  */
-public class CPCherryPigFruit extends Item {
+public class CPCherryPip extends Item {
 
-    public CPCherryPigFruit()
+    public CPCherryPip()
     {
         this.setHasSubtypes(true);
-        this.setUnlocalizedName("CherryPigFruit");
+        this.setUnlocalizedName("CherryPigPip");
         this.setCreativeTab(CherryPig.tabCherryPig);
-        this.setTextureName("cherrypig:minicherry");
+        this.setTextureName("cherrypig:cherrypip");
     }
 
     @Override
