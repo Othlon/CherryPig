@@ -24,6 +24,7 @@ public class CherryPig {
 
     @SidedProxy(clientSide = "othlon.cherrypig.proxies.ClientProxy", serverSide = "othlon.cherrypig.proxies.CommonProxies")
     public static CommonProxy proxy;
+
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         tabCherryPig = new CPCreativeTab(CreativeTabs.getNextID(), "tabCherryPig");
@@ -31,5 +32,6 @@ public class CherryPig {
         CPItem.doTheItemThing();
         proxy.registerRenderers();
         CPEntities.doTheEnitityThing();
+        CPCookBook.cookfood();
     }//end pre init
 }

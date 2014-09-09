@@ -9,6 +9,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
 import othlon.cherrypig.CherryPig;
 
 import java.util.List;
@@ -55,4 +56,40 @@ public class CPCherryLog extends BlockLog {
         }
     }
 
+    @Override
+        @SideOnly(Side.CLIENT)
+        protected IIcon getSideIcon(int meta)
+    {
+        return this.logIcon;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    protected IIcon getTopIcon(int meta)
+    {
+        return this.logIconTopBtm;
+    }
+
+    @Override
+    public int onBlockPlaced( World world, int x, int y, int z, int side, float hitx, float hity, float hitz, int meta)
+    {
+        byte orientation = 0;
+
+        switch(side)
+        {
+            case 0:
+            case 1:
+                orientation = 0;
+                break;
+
+            case 2:
+            case 3:
+                orientation = 8;
+                break;
+            case 4:
+            case 5:
+                orientation = 4;
+        }
+        return orientation;
+    }
 }
