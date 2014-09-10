@@ -46,16 +46,6 @@ public class CPCherryLog extends BlockLog {
     }
 
 
-    //@SideOnly(Side.CLIENT)
-    @Override
-    public IIcon getIcon(int side, int meta) {
-        if (side == 0 | side == 1) {
-            return logIconTopBtm;
-        } else {
-            return logIcon;
-        }
-    }
-
     @Override
         @SideOnly(Side.CLIENT)
         protected IIcon getSideIcon(int meta)
@@ -70,7 +60,7 @@ public class CPCherryLog extends BlockLog {
         return this.logIconTopBtm;
     }
 
-    @Override
+    /*@Override
     public int onBlockPlaced( World world, int x, int y, int z, int side, float hitx, float hity, float hitz, int meta)
     {
         byte orientation = 0;
@@ -91,5 +81,5 @@ public class CPCherryLog extends BlockLog {
                 orientation = 4;
         }
         return orientation;
-    }
+    }*/
 }
