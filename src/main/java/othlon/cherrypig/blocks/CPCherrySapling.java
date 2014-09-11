@@ -32,8 +32,9 @@ public class CPCherrySapling extends BlockSapling {
 
     @Override
     public boolean onBlockActivated(World p_149727_1_, int p_149727_2_, int p_149727_3_, int p_149727_4_, EntityPlayer p_149727_5_, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
-        return p_149727_1_.isRemote || new CPCherryTreeGen().generate(p_149727_1_, p_149727_1_.rand, p_149727_2_, p_149727_3_, p_149727_4_);
+       return p_149727_1_.isRemote || new CPCherryTreeGen().generate(p_149727_1_, p_149727_1_.rand, p_149727_2_, p_149727_3_, p_149727_4_);
     }
+
 
     @Override
     public void registerBlockIcons(IIconRegister iconRegister){
@@ -63,9 +64,6 @@ public class CPCherrySapling extends BlockSapling {
         return isValidPosition(world, x, y, z, -1);
     }
 
-    @Override
-    public void func_149878_d(World world, int x, int y, int z, Random rand) {
-//        super.func_149878_d(world, x, y, z, rand);
 
-    }
+
 }
