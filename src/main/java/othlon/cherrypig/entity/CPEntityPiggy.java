@@ -27,7 +27,7 @@ public class CPEntityPiggy extends EntityPig{
     public CPEntityPiggy(World world)
     {
         super(world);
-        this.setSize(0.6F, 0.8F);
+        this.setSize(0.6F, 0.6F);
         this.getNavigator().setAvoidsWater(true);
         this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(2, new EntityAILeapAtTarget(this, 0.4F));
@@ -36,5 +36,9 @@ public class CPEntityPiggy extends EntityPig{
         this.tasks.addTask(5, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(5, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
+    }
+
+    public EntityPig createChild(EntityAgeable p_90011_1_){
+        return new CPEntityPiggy(this.worldObj);
     }
 }

@@ -7,8 +7,7 @@ import othlon.cherrypig.entity.CPEntityPiggy;
 
 public class CPPiggyModel extends ModelBase {
 
-    //fields
-//fields
+    //adult
     ModelRenderer body;
     ModelRenderer face;
     ModelRenderer back;
@@ -18,59 +17,77 @@ public class CPPiggyModel extends ModelBase {
     ModelRenderer snout;
     ModelRenderer btm;
 
+    //child
+    ModelRenderer Shape1;
+    ModelRenderer Shape2;
+
     public CPPiggyModel()
     {
-        textureWidth = 64;
+        textureWidth  = 64;
         textureHeight = 32;
 
-        body = new ModelRenderer(this, 28, 16);
-        body.addBox(0F, 0F, 0F, 8, 8, 8);
-        body.setRotationPoint(-3F, 15F, -3F);
-        body.setTextureSize(64, 32);
-        body.mirror = true;
-        setRotation(body, 0F, 0F, 0F);
-        face = new ModelRenderer(this, 0, 0);
-        face.addBox(0F, 0F, 0F, 6, 6, 1);
-        face.setRotationPoint(-2F, 16F, -4F);
-        face.setTextureSize(64, 32);
-        face.mirror = true;
-        setRotation(face, 0F, 0F, 0F);
-        back = new ModelRenderer(this, 14, 0);
-        back.addBox(0F, 0F, 0F, 6, 6, 1);
-        back.setRotationPoint(-2F, 16F, 5F);
-        back.setTextureSize(64, 32);
-        back.mirror = true;
-        setRotation(back, 0F, 0F, 0F);
-        right = new ModelRenderer(this, 14, 7);
-        right.addBox(0F, 0F, 0F, 6, 6, 1);
-        right.setRotationPoint(-4F, 16F, 4F);
-        right.setTextureSize(64, 32);
-        right.mirror = true;
-        setRotation(right, 0F, 1.570796F, 0F);
-        left = new ModelRenderer(this, 0, 7);
-        left.addBox(0F, 0F, 0F, 6, 6, 1);
-        left.setRotationPoint(5F, 16F, 4F);
-        left.setTextureSize(64, 32);
-        left.mirror = true;
-        setRotation(left, 0F, 1.570796F, 0F);
-        top = new ModelRenderer(this, 0, 14);
-        top.addBox(0F, 0F, 0F, 6, 6, 1);
-        top.setRotationPoint(-2F, 15F, -2F);
-        top.setTextureSize(64, 32);
-        top.mirror = true;
-        setRotation(top, 1.570796F, 0F, 0F);
-        snout = new ModelRenderer(this, 28, 0);
-        snout.addBox(0F, 0F, 0F, 4, 3, 1);
-        snout.setRotationPoint(-1F, 19F, -5F);
-        snout.setTextureSize(64, 32);
-        snout.mirror = true;
-        setRotation(snout, 0F, 0F, 0F);
-        btm = new ModelRenderer(this, 14, 14);
-        btm.addBox(0F, 0F, 0F, 6, 6, 1);
-        btm.setRotationPoint(-2F, 24F, -2F);
-        btm.setTextureSize(64, 32);
-        btm.mirror = true;
-        setRotation(btm, 1.570796F, 0F, 0F);
+         Shape1 = new ModelRenderer(this, 44, 0);
+         Shape1.addBox(0F, 0F, 0F, 5, 4, 5);
+         Shape1.setRotationPoint(-3F, 20F, -3F);
+         Shape1.setTextureSize(64, 32);
+         Shape1.mirror = true;
+         setRotation(Shape1, 0F, 0F, 0F);
+         Shape2 = new ModelRenderer(this, 56, 9);
+         Shape2.addBox(0F, 0F, 0F, 2, 2, 1);
+         Shape2.setRotationPoint(-1.5F, 22F, -4F);
+         Shape2.setTextureSize(64, 32);
+         Shape2.mirror = true;
+         setRotation(Shape2, 0F, 0F, 0F);
+
+         body = new ModelRenderer(this, 28, 16);
+         body.addBox(0F, 0F, 0F, 8, 8, 8);
+         body.setRotationPoint(-3F, 15F, -3F);
+         body.setTextureSize(64, 32);
+         body.mirror = true;
+         setRotation(body, 0F, 0F, 0F);
+         face = new ModelRenderer(this, 0, 0);
+         face.addBox(0F, 0F, 0F, 6, 6, 1);
+         face.setRotationPoint(-2F, 16F, -4F);
+         face.setTextureSize(64, 32);
+         face.mirror = true;
+         setRotation(face, 0F, 0F, 0F);
+         back = new ModelRenderer(this, 14, 0);
+         back.addBox(0F, 0F, 0F, 6, 6, 1);
+         back.setRotationPoint(-2F, 16F, 5F);
+         back.setTextureSize(64, 32);
+         back.mirror = true;
+         setRotation(back, 0F, 0F, 0F);
+         right = new ModelRenderer(this, 14, 7);
+         right.addBox(0F, 0F, 0F, 6, 6, 1);
+         right.setRotationPoint(-4F, 16F, 4F);
+         right.setTextureSize(64, 32);
+         right.mirror = true;
+         setRotation(right, 0F, 1.570796F, 0F);
+         left = new ModelRenderer(this, 0, 7);
+         left.addBox(0F, 0F, 0F, 6, 6, 1);
+         left.setRotationPoint(5F, 16F, 4F);
+         left.setTextureSize(64, 32);
+         left.mirror = true;
+         setRotation(left, 0F, 1.570796F, 0F);
+         top = new ModelRenderer(this, 0, 14);
+         top.addBox(0F, 0F, 0F, 6, 6, 1);
+         top.setRotationPoint(-2F, 15F, -2F);
+         top.setTextureSize(64, 32);
+         top.mirror = true;
+         setRotation(top, 1.570796F, 0F, 0F);
+         snout = new ModelRenderer(this, 28, 0);
+         snout.addBox(0F, 0F, 0F, 4, 3, 1);
+         snout.setRotationPoint(-1F, 19F, -5F);
+         snout.setTextureSize(64, 32);
+         snout.mirror = true;
+         setRotation(snout, 0F, 0F, 0F);
+         btm = new ModelRenderer(this, 14, 14);
+         btm.addBox(0F, 0F, 0F, 6, 6, 1);
+         btm.setRotationPoint(-2F, 24F, -2F);
+         btm.setTextureSize(64, 32);
+         btm.mirror = true;
+         setRotation(btm, 1.570796F, 0F, 0F);
+
     }
 
 
@@ -78,14 +95,20 @@ public class CPPiggyModel extends ModelBase {
     {
         super.render(entity, f, f1, f2, f3, f4, f5);
         setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-        body.render(f5);
-        face.render(f5);
-        back.render(f5);
-        right.render(f5);
-        left.render(f5);
-        top.render(f5);
-        snout.render(f5);
-        btm.render(f5);
+       if(this.isChild){
+           Shape1.render(f5);
+           Shape2.render(f5);
+       }
+        else {
+           body.render(f5);
+           face.render(f5);
+           back.render(f5);
+           right.render(f5);
+           left.render(f5);
+           top.render(f5);
+           snout.render(f5);
+           btm.render(f5);
+       }
     }
 
     private void setRotation(ModelRenderer model, float x, float y, float z)

@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import othlon.cherrypig.CherryPig;
-import othlon.cherrypig.entity.CPEntityBabby;
+
 import othlon.cherrypig.entity.CPEntityPiggy;
 
 /**
@@ -130,10 +130,11 @@ public class CPCherryPip extends Item {
 
     private Entity spawnCreature(World world, double x, double y, double z)
     {
-        Entity piggeh = new CPEntityBabby(world);
+        int iAge = -24000;
+        CPEntityPiggy piggeh = new CPEntityPiggy(world);
         piggeh.setPosition(x, y, z);
+        piggeh.setGrowingAge(iAge);
         world.spawnEntityInWorld(piggeh);
-
         return piggeh;
     }
 
