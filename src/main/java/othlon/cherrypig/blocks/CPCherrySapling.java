@@ -10,6 +10,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenTrees;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.util.ForgeDirection;
 import othlon.cherrypig.CherryPig;
 import othlon.cherrypig.worldgen.CPCherryTreeGen;
@@ -30,11 +33,43 @@ public class CPCherrySapling extends BlockSapling {
         this.setBlockName("CherryPigSapling");
     }
 
+   // @Override
+   // public boolean onBlockActivated(World p_149727_1_, int p_149727_2_, int p_149727_3_, int p_149727_4_, EntityPlayer p_149727_5_, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
+   //    return p_149727_1_.isRemote || new CPCherryTreeGen().generate(p_149727_1_, p_149727_1_.rand, p_149727_2_, p_149727_3_, p_149727_4_);
+   // }
+
     @Override
-    public boolean onBlockActivated(World p_149727_1_, int p_149727_2_, int p_149727_3_, int p_149727_4_, EntityPlayer p_149727_5_, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
-       return p_149727_1_.isRemote || new CPCherryTreeGen().generate(p_149727_1_, p_149727_1_.rand, p_149727_2_, p_149727_3_, p_149727_4_);
+    public void updateTick( World world, int x, int y, int z, Random random){
+        if( !world.isRemote){
+            if( world.getBlockLightValue(x, y + 1, z) >= 9 && random.nextInt(7) == 0){
+                this.func_149878_d(world, x, y, z, random);
+            }
+        }
     }
 
+    @Override
+    // growTree
+    public void func_149878_d(World world,int x, int y, int z, Random rand){
+        //int meta = world.getBlockMetadata(x, y, z) ;
+        Object obj = null;
+        int rnd = rand.nextInt(8);
+
+        if(obj == null) {
+            obj = new CPCherryTreeGen(1,false);
+        }
+        if(obj != null) {
+            world.setBlockToAir(x, y, z);
+            if(!((WorldGenerator)obj).generate(world, rand, x, y, z)){
+
+           }
+        }
+
+    }
+
+    //@Override
+    public boolean generate(World p_76484_1_, Random p_76484_2_, int p_76484_3_, int p_76484_4_, int p_76484_5_) {
+        return false;
+    }
 
     @Override
     public void registerBlockIcons(IIconRegister iconRegister){
