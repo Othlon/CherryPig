@@ -34,10 +34,8 @@ public class CPCherryLeaf extends BlockLeavesBase implements IShearable {
 
         super(Material.leaves, false);
         this.setTickRandomly(true);
-        this.setHardness(0.2F);
-
+        this.setHardness(0.13F);
         this.setStepSound(Block.soundTypeGrass);
-
         this.setLightOpacity(1);
         this.setCreativeTab(CherryPig.tabCherryPig);
         this.setBlockName("CherryPig Leaves");
@@ -246,16 +244,17 @@ public class CPCherryLeaf extends BlockLeavesBase implements IShearable {
         if(world.isRemote)return;
 
 
-        if(world.rand.nextInt(17) == 0)
-        {
+        if(world.rand.nextInt(12) == 0)
+       {
             Item item = this.getItemDropped(metadata, world.rand, fortune);
             this.dropBlockAsItem(world, x, y, z, new ItemStack(item, 1, this.damageDropped(metadata)));
-        }
 
-             if((metadata & 3) == 3) this.dropBlockAsItem(world, x,y,z, fruit);
-        else if ((metadata & 3) == 2 && world.rand.nextInt(8)  == 0) this.dropBlockAsItem(world, x, y, z, fruit);
-        else if ((metadata & 3) == 1 && world.rand.nextInt(16) == 0) this.dropBlockAsItem(world, x, y, z, fruit);
-        else if ((metadata & 3) == 0 && world.rand.nextInt(32) == 0) this.dropBlockAsItem(world, x, y, z, fruit);
+
+            //why doesn't this work? i just want to occasionally drop fruit!
+           this.dropBlockAsItem(world, x, y, z, fruit);
+       }
+
+
 
 
    }

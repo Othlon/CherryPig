@@ -33,5 +33,6 @@ public class CherryPig {
         proxy.registerRenderers();
         CPEntities.doTheEnitityThing();
         CPCookBook.cookfood();
+        CPCookBook.cookblocks();
     }//end pre init
 }
