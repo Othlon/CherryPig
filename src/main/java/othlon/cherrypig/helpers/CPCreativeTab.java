@@ -4,6 +4,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import othlon.cherrypig.items.CPItem;
 
 /**
  * Created by Jen on 9/06/14.
@@ -16,7 +17,7 @@ public class CPCreativeTab extends CreativeTabs {
 
     @Override
     public ItemStack getIconItemStack() {
-        return new ItemStack(Items.apple);
+        return new ItemStack(CPItem.cherryFruit);
     }
 
     @Override

@@ -1,15 +1,15 @@
 [
 {
-  "modid": "examplemod",
+  "modid": "cherrypig",
   "name": "CherryPig",
-  "description": "Example placeholder mod.",
-  "version": "${version}",
+  "description": "Dem Piggies",
+  "version": "1.0 alpha",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
-  "logoFile": "",
+  "authorList": ["Othlon"],
+  "credits": "anyone who helped me out <3",
+  "logoFile": "/bigPig.png",
   "screenshots": [],
   "dependencies": []
 }
