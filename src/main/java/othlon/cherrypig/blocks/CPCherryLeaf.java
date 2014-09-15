@@ -244,15 +244,15 @@ public class CPCherryLeaf extends BlockLeavesBase implements IShearable {
         if(world.isRemote)return;
 
 
-        if(world.rand.nextInt(12) == 0)
-       {
+        if(world.rand.nextInt(12) == 0) {
             Item item = this.getItemDropped(metadata, world.rand, fortune);
             this.dropBlockAsItem(world, x, y, z, new ItemStack(item, 1, this.damageDropped(metadata)));
+        }
+        if(world.rand.nextInt(7) == 0)
+        {
 
-
-            //why doesn't this work? i just want to occasionally drop fruit!
-           this.dropBlockAsItem(world, x, y, z, fruit);
-       }
+           this.dropBlockAsItem(world, x, y, z, new ItemStack(CPItem.cherryFruit, 1));
+        }
 
 
 
