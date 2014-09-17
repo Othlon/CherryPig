@@ -2,9 +2,8 @@ package othlon.cherrypig.render;
 
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
-import othlon.cherrypig.entity.CPEntityPiggy;
+import othlon.cherrypig.models.CPPiggyModel;
 
 public class CPPiggyRender extends RenderLiving{
 
