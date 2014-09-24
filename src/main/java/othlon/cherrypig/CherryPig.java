@@ -2,6 +2,7 @@ package othlon.cherrypig;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.creativetab.CreativeTabs;
@@ -14,6 +15,7 @@ import othlon.cherrypig.helpers.CPCreativeTab;
 import othlon.cherrypig.items.CPItem;
 import othlon.cherrypig.proxies.CommonProxy;
 import othlon.cherrypig.render.CPPiggyRender;
+import othlon.cherrypig.worldgen.CPTreeWorldGen;
 
 @Mod(modid = "cherrypig", name = "CherryPig", version = "1.0")
 public class CherryPig {
@@ -35,4 +37,10 @@ public class CherryPig {
         CPCookBook.cookfood();
         CPCookBook.cookblocks();
     }//end pre init
+
+    public static CPTreeWorldGen trees;
+    @Mod.EventHandler
+    public void init(FMLInitializationEvent event){
+        GameRegistry.registerWorldGenerator(trees = new CPTreeWorldGen(), 20);
+    }
 }

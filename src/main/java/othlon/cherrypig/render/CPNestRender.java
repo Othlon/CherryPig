@@ -1,13 +1,13 @@
+/*
 package othlon.cherrypig.render;
+
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import othlon.cherrypig.models.CPNestModel;
 
-/**
- * Created by Jen on 17/09/2014.
- */
+
 public class CPNestRender extends TileEntitySpecialRenderer {
 
     private static final ResourceLocation nestTex = new ResourceLocation("cherrypig", "textures/entities/minipigpig.png");
@@ -25,4 +25,4 @@ public class CPNestRender extends TileEntitySpecialRenderer {
         return CPNestRender.nestTex;
     }
 }
-
+*/
