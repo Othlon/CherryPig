@@ -17,7 +17,7 @@ public class CPItem {
         GameRegistry.registerItem(cherryPip, "cherryPip");
 
         cherryFruit = new CPFood(1,true, 0.2F,  "cherryfruit")
-                         .setUnlocalizedName("CherryFruit");
+                         .setUnlocalizedName("cherryfruit");
 
 
         GameRegistry.registerItem(cherryFruit,"cherryFruit");

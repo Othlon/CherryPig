@@ -28,7 +28,7 @@ public class CPCherryLog extends BlockLog {
         this.setHarvestLevel("axe", 0);
         this.setResistance(5.0F);
         this.setStepSound(soundTypeWood);
-        this.setBlockName("CherryPig Wood");
+        this.setBlockName("cherrylog");
         this.setCreativeTab(CherryPig.tabCherryPig);
 
     }

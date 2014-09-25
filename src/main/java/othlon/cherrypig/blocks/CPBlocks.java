@@ -15,8 +15,8 @@ public class CPBlocks {
         public static void doTheBlockThing(){
 
 
-            GameRegistry.registerBlock(cherryLog,         "Cherry Log");
-            GameRegistry.registerBlock(cherryLeaf,       "Cherry Leaf");
-            GameRegistry.registerBlock(cherrySapling, "Cherry Sapling");
+            GameRegistry.registerBlock(cherryLog,         "cherrylog");
+            GameRegistry.registerBlock(cherryLeaf,       "cherryleaf");
+            GameRegistry.registerBlock(cherrySapling, "cherrysapling");
         }
 }

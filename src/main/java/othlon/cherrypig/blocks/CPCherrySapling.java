@@ -30,7 +30,7 @@ public class CPCherrySapling extends BlockSapling {
         this.setHardness(0.0F);
         this.setStepSound(Block.soundTypeGrass);
         this.setCreativeTab(CherryPig.tabCherryPig);
-        this.setBlockName("CherryPigSapling");
+        this.setBlockName("cherrysapling");
     }
 
     @Override
