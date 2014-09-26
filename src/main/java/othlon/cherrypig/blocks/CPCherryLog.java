@@ -14,9 +14,7 @@ import othlon.cherrypig.CherryPig;
 
 import java.util.List;
 
-/**
- * Created by Jen on 30/05/14.
- */
+
 public class CPCherryLog extends BlockLog {
     @SideOnly(Side.CLIENT)
     IIcon logIcon;
@@ -60,26 +58,4 @@ public class CPCherryLog extends BlockLog {
         return this.logIconTopBtm;
     }
 
-    /*@Override
-    public int onBlockPlaced( World world, int x, int y, int z, int side, float hitx, float hity, float hitz, int meta)
-    {
-        byte orientation = 0;
-
-        switch(side)
-        {
-            case 0:
-            case 1:
-                orientation = 0;
-                break;
-
-            case 2:
-            case 3:
-                orientation = 8;
-                break;
-            case 4:
-            case 5:
-                orientation = 4;
-        }
-        return orientation;
-    }*/
 }

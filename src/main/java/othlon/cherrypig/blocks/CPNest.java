@@ -5,33 +5,28 @@ import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import othlon.cherrypig.CherryPig;
-import othlon.cherrypig.tileentities.CPTileEntityNest;
+import othlon.cherrypig.tileentities.CPNestTileEntity;
 
-/**
- * Created by Jen on 1/09/2014.
- */
+
 public class CPNest extends BlockContainer{
 
     public CPNest(){
-        super(Material.grass);
+        super(Material.leaves);
+        this.setHarvestLevel("hoe", 0);
         this.setBlockName("Nest");
         this.setCreativeTab(CherryPig.tabCherryPig);
+
     }
 
     @Override
-    public TileEntity createNewTileEntity(World world, int i){
-        return new CPTileEntityNest();
-    }
+    public TileEntity createNewTileEntity(World world, int i){return new CPNestTileEntity();}
 
     @Override
     public int getRenderType(){return -1;}
 
     @Override
-    public boolean isOpaqueCube(){return false;}
+    public boolean isOpaqueCube(){ return false;}
 
     @Override
-    public boolean renderAsNormalBlock(){return false;}
-
-
-
+    public boolean renderAsNormalBlock(){ return false;}
 }

@@ -10,6 +10,7 @@ public class CPItem {
 
     public static Item cherryPip;
     public static Item cherryFruit;
+    public static Item cherryPie;
 
 
     public static void doTheItemThing(){
@@ -17,9 +18,11 @@ public class CPItem {
         GameRegistry.registerItem(cherryPip, "cherryPip");
 
         cherryFruit = new CPFood(1,true, 0.2F,  "cherryfruit")
-                         .setUnlocalizedName("cherryfruit");
+                            .setUnlocalizedName("cherryfruit");
+        GameRegistry.registerItem(cherryFruit,  "cherryFruit");
 
-
-        GameRegistry.registerItem(cherryFruit,"cherryFruit");
+        cherryPie = new CPFood(4,true, 2F,  "cherrypie")
+                        .setUnlocalizedName("cherrypie");
+        GameRegistry.registerItem(cherryPie,"cherrypie");
     }
 }

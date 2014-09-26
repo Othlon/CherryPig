@@ -21,9 +21,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 
-/**
- * Created by Jen on 30/05/14.
- */
 public class CPCherryLeaf extends BlockLeavesBase implements IShearable {
 
     int[] adjacentTreeBlocks;

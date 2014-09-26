@@ -18,8 +18,19 @@ public class CPCookBook {
     public static void cookfood(){
         ItemStack stackFruit = new ItemStack(CPItem.cherryFruit, 1, 0);
         ItemStack stackPips  = new ItemStack(CPItem.cherryPip, 1, 0);
+        ItemStack stackPie   = new ItemStack(CPItem.cherryPie, 1, 0);
+        //vanilla
+        ItemStack stackSugar = new ItemStack(Items.sugar, 1, 0);
+        ItemStack stackEgg   = new ItemStack(Items.egg, 1, 0);
+        ItemStack stackWheat = new ItemStack(Items.wheat, 1, 0);
 
+        //nmaking pips
         GameRegistry.addShapelessRecipe(stackPips, stackFruit);
+
+        //making cherry pies
+        GameRegistry.addShapelessRecipe(stackPie, stackEgg, stackFruit, stackSugar, stackWheat);
+
+
     }
 
     public static void cookblocks(){
