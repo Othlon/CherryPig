@@ -17,7 +17,7 @@ import othlon.cherrypig.proxies.CommonProxy;
 import othlon.cherrypig.render.CPPiggyRender;
 import othlon.cherrypig.worldgen.CPTreeWorldGen;
 
-@Mod(modid = "cherrypig", name = "CherryPig", version = "1.0")
+@Mod(modid = "cherrypig", name = "CherryPig", version = "1.1")
 public class CherryPig {
     @Mod.Instance
     public static CherryPig instance;
