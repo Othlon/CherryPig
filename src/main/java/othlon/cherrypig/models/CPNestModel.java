@@ -7,6 +7,7 @@ package othlon.cherrypig.models;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import org.lwjgl.opengl.GL11;
 
 public class CPNestModel extends ModelBase
     {
@@ -80,6 +81,18 @@ public class CPNestModel extends ModelBase
         {
             super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
         }
+//WHY WONT YOU RENDER YOU FUCKING ARSEHOLE!?
+
+        public void renderAll(){
+                base.render(0.625F);
+                Shape1.render(0.625F);
+                Shape2.render(0.625F);
+                Shape3.render(0.625F);
+                Shape4.render(0.625F);
+        }
 
 
-}
+
+
+
+    }

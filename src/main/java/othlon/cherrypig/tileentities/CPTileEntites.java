@@ -6,7 +6,7 @@ import othlon.cherrypig.blocks.CPNest;
 
 public class CPTileEntites {
 
-    public static void doTheEntityThings(){
+    public static void doTheTileEntityThings(){
         GameRegistry.registerTileEntity(CPNestTileEntity.class, "Nest");
     }
 }

@@ -15,16 +15,17 @@ import othlon.cherrypig.helpers.CPCreativeTab;
 import othlon.cherrypig.items.CPItem;
 import othlon.cherrypig.proxies.CommonProxy;
 import othlon.cherrypig.render.CPPiggyRender;
+import othlon.cherrypig.tileentities.CPTileEntites;
 import othlon.cherrypig.worldgen.CPTreeWorldGen;
 
-@Mod(modid = "cherrypig", name = "CherryPig", version = "1.1")
+@Mod(modid = "cherrypig", name = "CherryPig", version = "1.1.1")
 public class CherryPig {
     @Mod.Instance
     public static CherryPig instance;
 
     public static CreativeTabs tabCherryPig;
 
-    @SidedProxy(clientSide = "othlon.cherrypig.proxies.ClientProxy", serverSide = "othlon.cherrypig.proxies.CommonProxies")
+    @SidedProxy(clientSide = "othlon.cherrypig.proxies.ClientProxy", serverSide = "othlon.cherrypig.proxies.CommonProxy")
     public static CommonProxy proxy;
 
     @Mod.EventHandler
@@ -34,6 +35,7 @@ public class CherryPig {
         CPItem.doTheItemThing();
         proxy.registerRenderers();
         CPEntities.doTheEnitityThing();
+        CPTileEntites.doTheTileEntityThings();
         CPCookBook.cookfood();
         CPCookBook.cookblocks();
     }//end pre init
