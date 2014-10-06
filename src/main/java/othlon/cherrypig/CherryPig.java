@@ -6,6 +6,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.client.MinecraftForgeClient;
 import othlon.cherrypig.blocks.CPBlocks;
 import othlon.cherrypig.blocks.CPCherryLeaf;
 import othlon.cherrypig.blocks.CPCherryLog;
