@@ -13,6 +13,7 @@ import othlon.cherrypig.blocks.CPCherrySapling;
 import othlon.cherrypig.entity.CPEntities;
 import othlon.cherrypig.helpers.CPCreativeTab;
 import othlon.cherrypig.items.CPItem;
+import othlon.cherrypig.proxies.ClientProxy;
 import othlon.cherrypig.proxies.CommonProxy;
 import othlon.cherrypig.render.CPPiggyRender;
 import othlon.cherrypig.tileentities.CPTileEntites;

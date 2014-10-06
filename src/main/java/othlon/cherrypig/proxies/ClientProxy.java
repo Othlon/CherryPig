@@ -7,9 +7,7 @@ import othlon.cherrypig.render.CPNestRender;
 import othlon.cherrypig.render.CPPiggyRender;
 import othlon.cherrypig.tileentities.CPNestTileEntity;
 
-/**
- * Created by Jen on 5/09/2014.
- */
+
 public class ClientProxy extends CommonProxy{
 
        public void registerRenderers(){
