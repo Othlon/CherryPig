@@ -48,6 +48,7 @@ public class CPNestModel extends ModelBase
 
         public void render(Entity par1Entity, float par2, float par3, float par4, float par5, float par6, float par7)
         {
+        	super.render( par1Entity, par2, par3, par4, par5, par6, par7 );
             Side1.rotateAngleX = 0F;
             Side1.rotateAngleY = 0F;
             Side1.rotateAngleZ = 0F;
@@ -74,32 +75,37 @@ public class CPNestModel extends ModelBase
             btm.renderWithRotation(par7);
 
         }
+        
         public void renderAll()
         {
-
             Side1.rotateAngleX = 0F;
             Side1.rotateAngleY = 0F;
             Side1.rotateAngleZ = 0F;
-            Side1.renderWithRotation(0F);
+            //Side1.renderWithRotation(0F);
+            Side1.render( 0.0625f );
 
             Side2.rotateAngleX = 0F;
             Side2.rotateAngleY = 0F;
             Side2.rotateAngleZ = 0F;
-            Side2.renderWithRotation(0F);
+            //Side2.renderWithRotation(0F);
+            Side2.render( 0.0625f );
 
             Side3.rotateAngleX = 0F;
             Side3.rotateAngleY = 0F;
             Side3.rotateAngleZ = 0F;
-            Side3.renderWithRotation(0F);
+            //Side3.renderWithRotation(0F);
+            Side3.render( 0.0625f );
 
             Side4.rotateAngleX = 0F;
             Side4.rotateAngleY = 0F;
             Side4.rotateAngleZ = 0F;
-            Side4.renderWithRotation(0F);
+            //Side4.renderWithRotation(0F);
+            Side4.render( 0.0625f );
 
             btm.rotateAngleX = 0F;
             btm.rotateAngleY = 0F;
             btm.rotateAngleZ = 0F;
-            btm.renderWithRotation(0F);
+            //btm.renderWithRotation(0F);
+            btm.render( 0.0625f );
         }
     }

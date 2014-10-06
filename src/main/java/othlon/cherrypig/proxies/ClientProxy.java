@@ -13,6 +13,5 @@ public class ClientProxy extends CommonProxy{
        public void registerRenderers(){
            RenderingRegistry.registerEntityRenderingHandler(CPEntityPiggy.class, new CPPiggyRender());
            ClientRegistry.bindTileEntitySpecialRenderer(CPNestTileEntity.class, new CPNestRender());
-
        }
 }
