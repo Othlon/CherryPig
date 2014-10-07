@@ -24,36 +24,48 @@ public class CPNestModel extends ModelBase
 
         public CPNestModel( float par1 )
         {
-            Side1 = new ModelRenderer( this, 0, 4 );
+            Side1 = new ModelRenderer( this, 0, 0 );
             Side1.setTextureSize( 64, 32 );
-            Side1.addBox( -3.5F, -1F, -1.5F, 7, 2, 3);
-            Side1.setRotationPoint( -1F, -10F, -4F );
+            Side1.addBox( -2F, -1.5F, -6F, 4, 3, 12);
+            Side1.setRotationPoint( 0F, 5F, -6F );
+
+
             Side2 = new ModelRenderer( this, 0, 0 );
             Side2.setTextureSize( 64, 32 );
-            Side2.addBox( -1.5F, -1F, -3.5F, 3, 2, 7);
-            Side2.setRotationPoint( -5F, -10F, 0F );
+            Side2.addBox( -2F, -1.5F, -6F, 4, 3, 12);
+            Side2.setRotationPoint( -6F, 5F, 0F );
+
+
             Side3 = new ModelRenderer( this, 0, 0 );
             Side3.setTextureSize( 64, 32 );
-            Side3.addBox( -1.5F, -1F, -3.5F, 3, 2, 7);
-            Side3.setRotationPoint( 3F, -10F, 0F );
-            Side4 = new ModelRenderer( this, 0, 4 );
+            Side3.addBox( -2F, -1.5F, -6F, 4, 3, 12);
+            Side3.setRotationPoint( 6F, 5F, 0F );
+
+
+            Side4 = new ModelRenderer( this, 0, 0 );
             Side4.setTextureSize( 64, 32 );
-            Side4.addBox( -3.5F, -1F, -1.5F, 7, 2, 3);
-            Side4.setRotationPoint( -1F, -10F, 4F );
+            Side4.addBox( -2F, -1.5F, -6F, 4, 3, 12);
+            Side4.setRotationPoint( 0F, 5F, 6F );
+
+            //Before
+            /*
             btm = new ModelRenderer( this, 0, 9 );
             btm.setTextureSize( 64, 32 );
             btm.addBox( -3.5F, -0.5F, -3.5F, 7, 1, 7);
-            btm.setRotationPoint( -1F, -9F, 0F );
+            btm.setRotationPoint( -1F, -9F, 0F );*/
+            //after
+
+                         // texture offset X, Y
+            btm = new ModelRenderer( this, 0, 15 );
+            btm.setTextureSize( 64, 32 );
+            btm.addBox( -6F, -1F, -6F, 12, 2, 12);
+            btm.setRotationPoint( 0F, 7F, 0F );
         }
+
+
 
         public void render(Entity par1Entity, float par2, float par3, float par4, float par5, float par6, float par7)
         {
-        	super.render( par1Entity, par2, par3, par4, par5, par6, par7 );
-            Side1.rotateAngleX = 0F;
-            Side1.rotateAngleY = 0F;
-            Side1.rotateAngleZ = 0F;
-            Side1.renderWithRotation(par7);
-
             Side2.rotateAngleX = 0F;
             Side2.rotateAngleY = 0F;
             Side2.rotateAngleZ = 0F;
@@ -64,48 +76,48 @@ public class CPNestModel extends ModelBase
             Side3.rotateAngleZ = 0F;
             Side3.renderWithRotation(par7);
 
-            Side4.rotateAngleX = 0F;
-            Side4.rotateAngleY = 0F;
-            Side4.rotateAngleZ = 0F;
-            Side4.renderWithRotation(par7);
-
             btm.rotateAngleX = 0F;
             btm.rotateAngleY = 0F;
             btm.rotateAngleZ = 0F;
             btm.renderWithRotation(par7);
 
-        }
-        
-        public void renderAll()
-        {
             Side1.rotateAngleX = 0F;
-            Side1.rotateAngleY = 0F;
+            Side1.rotateAngleY = -1.570796F;
             Side1.rotateAngleZ = 0F;
-            //Side1.renderWithRotation(0F);
-            Side1.render( 0.0625f );
+            Side1.renderWithRotation(par7);
 
+            Side4.rotateAngleX = 0F;
+            Side4.rotateAngleY = -1.570796F;
+            Side4.rotateAngleZ = 0F;
+            Side4.renderWithRotation(par7);
+
+        }
+
+        public void renderAll(){
             Side2.rotateAngleX = 0F;
             Side2.rotateAngleY = 0F;
             Side2.rotateAngleZ = 0F;
-            //Side2.renderWithRotation(0F);
             Side2.render( 0.0625f );
 
             Side3.rotateAngleX = 0F;
             Side3.rotateAngleY = 0F;
             Side3.rotateAngleZ = 0F;
-            //Side3.renderWithRotation(0F);
             Side3.render( 0.0625f );
-
-            Side4.rotateAngleX = 0F;
-            Side4.rotateAngleY = 0F;
-            Side4.rotateAngleZ = 0F;
-            //Side4.renderWithRotation(0F);
-            Side4.render( 0.0625f );
 
             btm.rotateAngleX = 0F;
             btm.rotateAngleY = 0F;
             btm.rotateAngleZ = 0F;
-            //btm.renderWithRotation(0F);
             btm.render( 0.0625f );
+
+            Side1.rotateAngleX = 0F;
+            Side1.rotateAngleY = -1.570796F;
+            Side1.rotateAngleZ = 0F;
+            Side1.render( 0.0625f );
+
+            Side4.rotateAngleX = 0F;
+            Side4.rotateAngleY = -1.570796F;
+            Side4.rotateAngleZ = 0F;
+            Side4.render( 0.0625f );
         }
+
     }

@@ -18,7 +18,7 @@ import othlon.cherrypig.tileentities.CPNestTileEntity;
  */
 public class CPNestRender extends TileEntitySpecialRenderer {
 
-    CPNestModel model = new CPNestModel();
+    CPNestModel    model =  new CPNestModel();
     ResourceLocation tex =  new ResourceLocation("cherrypig", "textures/blocks/nest.png");
 
     public CPNestRender(){
@@ -31,22 +31,19 @@ public class CPNestRender extends TileEntitySpecialRenderer {
         renderModelAt((CPNestTileEntity)tileentity, d0, d1, d2, f);
     }
 
-    public void renderModelAt(CPNestTileEntity tile, double d, double d1, double d2, float f){
+
+    public void renderModelAt(CPNestTileEntity tile, double dX, double dY, double dZ, float f){
     	//Minecraft.getMinecraft().getTextureManager().bindTexture(tex);
-    	FMLClientHandler.instance().getClient().renderEngine.bindTexture(tex);
-    	
+
     	GL11.glPushMatrix(); // start
-
-       // GL11.glTranslatef((float)d + 0.5F, (float)d1 + 1.5F, (float)d2 + 0.5F); // size
-    	//GL11.glScalef(1.0F, -1F, -1F);
-    	GL11.glScalef( 1.0f, 1.0f, 1.0f );
-        GL11.glTranslatef(0.5F, 0.5F,  0.5F);
-        
-
-       // FMLClientHandler.instance().
-        
-        GL11.glRotatef(0, 0.0F, 1.0F, 0.0F);
-        this.model.renderAll();
+        {
+            FMLClientHandler.instance().getClient().renderEngine.bindTexture(tex);
+            GL11.glTranslatef( (float)dX + 0.5F,(float)dY +0.5F, (float)dZ +0.5F);
+            GL11.glScalef( 1.0f, 1.0f, 1.0f );
+            //GL11.glTranslatef(0.5F, 0.5F, 0.5F);
+            GL11.glRotatef(180F, 90.0F, 0.0F, 90.0F);
+            this.model.renderAll();
+        }
         GL11.glPopMatrix(); // end
     }
 }
