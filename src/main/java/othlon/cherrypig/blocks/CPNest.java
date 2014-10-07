@@ -12,11 +12,22 @@ import othlon.cherrypig.tileentities.CPNestTileEntity;
 
 public class CPNest extends BlockContainer{
 
+    //block bounds
+    float minX = 0.1F;
+    float minY = 0F;
+    float minZ = 0.1F;
+
+    float maxX = 0.90F;
+    float maxY = 0.2F;
+    float maxZ = 0.90F;
+
+
     public CPNest(){
         super(Material.leaves);
         this.setHarvestLevel("hoe", 0);
         this.setBlockName("Nest");
         this.setCreativeTab(CherryPig.tabCherryPig);
+        this.setBlockBounds(minX,minY,minZ,maxX,maxY,maxZ);
 
     }
 
@@ -31,4 +42,6 @@ public class CPNest extends BlockContainer{
 
     @Override
     public boolean renderAsNormalBlock(){ return false;}
+
+
 }
