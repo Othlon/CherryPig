@@ -20,6 +20,8 @@ import othlon.cherrypig.items.CPItem;
  * Created by Jen on 2/09/2014.
  */
 public class CPEntityPiggy extends EntityPig{
+
+
     public float field_70886_e;
     public float destPos;
     public float field_70884_g;
@@ -29,6 +31,8 @@ public class CPEntityPiggy extends EntityPig{
     public int timeUntilNextEgg;
     public boolean field_152118_bv;
     private static final String __OBFID = "CL_00001639";
+
+
     public CPEntityPiggy(World world)
     {
         super(world);

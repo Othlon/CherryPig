@@ -1,5 +1,7 @@
 package othlon.cherrypig.tileentities;
 
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.tileentity.TileEntity;
 
 /**
@@ -7,8 +9,17 @@ import net.minecraft.tileentity.TileEntity;
  */
 public class CPNestTileEntity extends TileEntity{
 
+
     @Override
     public void updateEntity(){
+
+        //attract chickens????
+
+        //search for eggs
+
+        //grab and place in own inventory
+
+        //if the an egg is firtile, spawn egg TE
 
     }
 }

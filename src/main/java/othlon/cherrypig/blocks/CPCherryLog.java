@@ -22,7 +22,7 @@ public class CPCherryLog extends BlockLog {
 
     public CPCherryLog() {
 
-        this.setHardness(2.0F);
+               this.setHardness(2.0F);
         this.setHarvestLevel("axe", 0);
         this.setResistance(5.0F);
         this.setStepSound(soundTypeWood);

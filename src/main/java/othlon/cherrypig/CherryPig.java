@@ -32,7 +32,7 @@ public class CherryPig {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        tabCherryPig = new CPCreativeTab(CreativeTabs.getNextID(), "tabCherryPig");
+        tabCherryPig = new CPCreativeTab(CreativeTabs.getNextID(), "CherryPigTab");
         CPBlocks.doTheBlockThing();
         CPItem.doTheItemThing();
         proxy.registerRenderers();

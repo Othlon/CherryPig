@@ -5,4 +5,5 @@ tile.cherrylog.name=Cherrywood Log
 tile.cherryleaf.name=Cherrywood Leaves
 tile.cherrysapling.name=Cherrywood Sapling
 tile.cherryplank.name=Cherrywood Planks
-entity.CherryPig.name=CherryPig
+entity.CherryPig.CherryPig.name=CherryPig
+itemGroup.CherryPigTab=CherryPig Farm
