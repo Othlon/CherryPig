@@ -19,7 +19,7 @@ import othlon.cherrypig.tileentities.CPNestTileEntity;
 public class CPNestRender extends TileEntitySpecialRenderer {
 
     CPNestModel    model =  new CPNestModel();
-    ResourceLocation tex =  new ResourceLocation("cherrypig", "textures/blocks/nest.png");
+     public static ResourceLocation tex =  new ResourceLocation("cherrypig", "textures/blocks/nest.png");
 
     public CPNestRender(){
         //model = new CPNestModel();
