@@ -3,6 +3,7 @@ package othlon.cherrypig.blocks;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import othlon.cherrypig.CherryPig;
 import othlon.cherrypig.tileentities.CPFirtileEggTileEntity;
@@ -15,10 +16,12 @@ public class CPFirtileEgg extends BlockContainer{
     //block bounds
     float minX = 0.4F;
     float minY = 0.0F;
+    float minY2 = -0.825F;
     float minZ = 0.4F;
 
     float maxX = 0.6F;
     float maxY = 0.25F;
+    float maxY2 = -0.575F;
     float maxZ = 0.6F;
 
     public CPFirtileEgg(){
@@ -26,9 +29,6 @@ public class CPFirtileEgg extends BlockContainer{
         this.setHarvestLevel("hoe", 0);
         this.setBlockName("FirtileEgg");
         this.setCreativeTab(CherryPig.tabCherryPig);
-        this.setBlockBounds(minX,minY,minZ,maxX,maxY,maxZ);
-
-
     }
 
     @Override
@@ -42,4 +42,13 @@ public class CPFirtileEgg extends BlockContainer{
 
     @Override
     public boolean renderAsNormalBlock(){ return false;}
+    
+    @Override
+	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
+    	if(world.getBlock(x, y - 1, z) == CPBlocks.nest){
+    		setBlockBounds(minX, minY2, minZ, maxX, maxY2, maxZ);
+    	}else{
+    		setBlockBounds(minX, minY, minZ, maxX, maxY, maxZ);
+    	}
+    }
 }

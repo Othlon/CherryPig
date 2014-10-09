@@ -27,19 +27,19 @@ public class CPNestModel extends ModelBase
             Side1 = new ModelRenderer( this, 0, 0 );
             Side1.setTextureSize( 64, 32 );
             Side1.addBox( -2F, -1.5F, -6F, 4, 3, 12);
-            Side1.setRotationPoint( 0F, 5F, -6F );
+            Side1.setRotationPoint( 0F, 4.995F, -6F );
 
 
             Side2 = new ModelRenderer( this, 0, 0 );
             Side2.setTextureSize( 64, 32 );
             Side2.addBox( -2F, -1.5F, -6F, 4, 3, 12);
-            Side2.setRotationPoint( -6F, 5F, 0F );
+            Side2.setRotationPoint( -6F, 5.005F, 0F );
 
 
             Side3 = new ModelRenderer( this, 0, 0 );
             Side3.setTextureSize( 64, 32 );
             Side3.addBox( -2F, -1.5F, -6F, 4, 3, 12);
-            Side3.setRotationPoint( 6F, 5F, 0F );
+            Side3.setRotationPoint( 6F, 5.005F, 0F );
 
 
             Side4 = new ModelRenderer( this, 0, 0 );
