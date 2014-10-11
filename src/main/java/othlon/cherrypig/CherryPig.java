@@ -20,7 +20,7 @@ import othlon.cherrypig.render.CPPiggyRender;
 import othlon.cherrypig.tileentities.CPTileEntites;
 import othlon.cherrypig.worldgen.CPTreeWorldGen;
 
-@Mod(modid = "cherrypig", name = "CherryPig", version = "1.1.1")
+@Mod(modid = "cherrypig", name = "CherryPig", version = "1.1.4")
 public class CherryPig {
     @Mod.Instance
     public static CherryPig instance;

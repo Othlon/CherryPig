@@ -7,7 +7,7 @@ import othlon.cherrypig.models.CPPiggyModel;
 
 public class CPPiggyRender extends RenderLiving{
 
-    private static final ResourceLocation piggyTexture = new ResourceLocation("cherrypig", "textures/entities/minipigpig.png");
+    private static final ResourceLocation piggyTexture = new ResourceLocation("cherrypig", "textures/entities/pigskin.png");
     //initalizer
     public CPPiggyRender()
     {

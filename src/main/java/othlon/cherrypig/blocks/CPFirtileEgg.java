@@ -1,12 +1,22 @@
 package othlon.cherrypig.blocks;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
+import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Facing;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import othlon.cherrypig.CherryPig;
 import othlon.cherrypig.tileentities.CPFirtileEggTileEntity;
+
+import java.util.Random;
 
 /**
  * Created by Jen on 9/10/2014.
@@ -33,6 +43,18 @@ public class CPFirtileEgg extends BlockContainer{
 
     @Override
     public TileEntity createNewTileEntity(World world, int i){return new CPFirtileEggTileEntity();}
+
+    @Override
+    public void updateTick( World world, int x, int y, int z, Random random){
+        if( !world.isRemote){
+            if( world.getBlockLightValue(x, y + 1, z) >= 9 && random.nextInt(7) == 0){
+
+
+
+
+            }
+        }
+    }
 
     @Override
     public int getRenderType(){return -1;}
