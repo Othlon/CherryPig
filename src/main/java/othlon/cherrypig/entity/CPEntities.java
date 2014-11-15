@@ -11,6 +11,6 @@ public class CPEntities {
 
     public static void doTheEnitityThing(){
       EntityRegistry.registerModEntity(CPEntityPiggy.class, "CherryPig", 7, CherryPig.instance, 64, 3, true);
-      EntityRegistry.registerModEntity(CPEntityChook.class, "Chook", 14, CherryPig.instance, 64, 3, true);
+      EntityRegistry.registerModEntity(CPEntityChook.class, "Chook", 8, CherryPig.instance, 64, 3, true);
     }
 }

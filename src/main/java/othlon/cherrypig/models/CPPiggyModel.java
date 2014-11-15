@@ -35,26 +35,32 @@ public class CPPiggyModel extends ModelBase {
         babybody.setTextureSize( 64, 32 );
         babybody.addBox( -2F, -2F, -2.5F, 4, 4, 5);
         babybody.setRotationPoint( 0F, 21F, 0F );
+
         babyface = new ModelRenderer( this, 56, 0 );
         babyface.setTextureSize( 64, 32 );
         babyface.addBox( -1.5F, -1F, -0.5F, 3, 2, 1);
         babyface.setRotationPoint( 0F, 22F, -3F );
+
         FRTrotter = new ModelRenderer( this, 52, 0 );
         FRTrotter.setTextureSize( 64, 32 );
         FRTrotter.addBox( -0.5F, -0.5F, -0.5F, 1, 1, 1);
         FRTrotter.setRotationPoint( 1F, 23F, -1F );
+
         FLTrotter = new ModelRenderer( this, 52, 0 );
         FLTrotter.setTextureSize( 64, 32 );
         FLTrotter.addBox( -0.5F, -0.5F, -0.5F, 1, 1, 1);
         FLTrotter.setRotationPoint( -1F, 23F, -1F );
+
         BLTrotter = new ModelRenderer( this, 52, 0 );
         BLTrotter.setTextureSize( 64, 32 );
         BLTrotter.addBox( -0.5F, -0.5F, -0.5F, 1, 1, 1);
         BLTrotter.setRotationPoint( -1F, 23F, 2F );
+
         BRTrotter = new ModelRenderer( this, 52, 0 );
         BRTrotter.setTextureSize( 64, 32 );
         BRTrotter.addBox( -0.5F, -0.5F, -0.5F, 1, 1, 1);
         BRTrotter.setRotationPoint( 1F, 23F, 2F );
+
         Tail = new ModelRenderer( this, 56, 15 );
         Tail.setTextureSize( 64, 32 );
         Tail.addBox( 0.5F, -2.5F, 0F, 3, 3, 0);
@@ -108,7 +114,6 @@ public class CPPiggyModel extends ModelBase {
          btm.setTextureSize(64, 32);
          btm.mirror = true;
          setRotation(btm, 1.570796F, 0F, 0F);
-
     }
 
 
