@@ -17,12 +17,12 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.1.4"
+version = "1.1.5"
 group= "othlon.CherryPig" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "CherryPig"
 
 minecraft {
-    version = "1.7.10-10.13.0.1208"
+    version = "1.7.10-10.13.2.1230"
     assetDir = "eclipse/assets"
 }
 
@@ -56,7 +56,7 @@ processResources
         expand 'version':project.version, 'mcversion':project.minecraft.version
     }
         
-    // copy everything else, thats not the mcmod.info
+    // copy everything else, that's not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }

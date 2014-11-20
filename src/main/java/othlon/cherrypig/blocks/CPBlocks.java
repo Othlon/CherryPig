@@ -14,7 +14,7 @@ public class CPBlocks {
     public static CPCherrySapling cherrySapling  = new CPCherrySapling();
     public static CPCherryPlank   cherryPlanks   = new CPCherryPlank();
     public static CPNest          nest           = new CPNest();
-    public static CPFirtileEgg    egg            = new CPFirtileEgg();
+    public static CPFertileEgg egg            = new CPFertileEgg();
     public static CPBushStem      bushStem       = new CPBushStem();
 
     public static void doTheBlockThing(){

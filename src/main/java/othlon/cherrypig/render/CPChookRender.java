@@ -11,7 +11,7 @@ import othlon.cherrypig.models.CPChookModel;
  */
 public class CPChookRender extends RenderLiving {
 
-    private static final ResourceLocation chooktexture = new ResourceLocation("chook", "textures/entities/chook.png");
+    private static final ResourceLocation chooktexture = new ResourceLocation("cherrypig", "textures/entities/chook.png");
     //initalizer
     public CPChookRender()
     {

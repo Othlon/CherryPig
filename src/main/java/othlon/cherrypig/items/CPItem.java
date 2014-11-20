@@ -12,11 +12,15 @@ public class CPItem {
     public static Item cherryPip;
     public static Item cherryFruit;
     public static Item cherryPie;
+    public static Item fertileegg;
 
 
     public static void doTheItemThing(){
         cherryPip = new CPCherryPip();
         GameRegistry.registerItem(cherryPip, "cherryPip");
+
+        fertileegg = new CPFertileEggItem();
+        GameRegistry.registerItem(fertileegg, "fertileegg");
 
         cherryFruit = new CPFood(1,true, 0.2F,  "cherryfruit")
                             .setUnlocalizedName("cherryfruit");

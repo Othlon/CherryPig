@@ -11,15 +11,15 @@ import othlon.cherrypig.entity.CPEntityChook;
 
 import java.util.List;
 
-public class CPFirtileEggTileEntity extends TileEntity {
+public class CPFertileEggTileEntity extends TileEntity {
 
     @Override
     public void updateEntity() {
 
     }
-   /* public boolean isUseableByPlayer(EntityPlayer p_70300_1_)
+   public boolean isUseableByPlayer(EntityPlayer p_70300_1_)
     {
-        //return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : p_70300_1_.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
+        return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : p_70300_1_.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
     }
 
     public boolean onBlockActivated(World world, double x, double y, double z){
@@ -34,5 +34,5 @@ public class CPFirtileEggTileEntity extends TileEntity {
         chook.setGrowingAge(iAge);
         world.spawnEntityInWorld(chook);
         return chook;
-    }*/
+    }
 }

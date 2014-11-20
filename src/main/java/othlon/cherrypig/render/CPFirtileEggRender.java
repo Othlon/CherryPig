@@ -1,22 +1,19 @@
 package othlon.cherrypig.render;
 
 import cpw.mods.fml.client.FMLClientHandler;
-import javafx.geometry.BoundingBox;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
+
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
 import net.minecraftforge.client.IItemRenderer;
-import net.minecraftforge.common.util.ForgeDirection;
+
 import org.lwjgl.opengl.GL11;
 
 import othlon.cherrypig.blocks.CPBlocks;
 import othlon.cherrypig.models.CPFirtileEggModel;
-import othlon.cherrypig.tileentities.CPFirtileEggTileEntity;
+import othlon.cherrypig.tileentities.CPFertileEggTileEntity;
 
 
 public class CPFirtileEggRender extends TileEntitySpecialRenderer {
@@ -31,10 +28,10 @@ public class CPFirtileEggRender extends TileEntitySpecialRenderer {
 
     @Override
     public void renderTileEntityAt(TileEntity tileentity, double d0, double d1, double d2, float f){
-        renderModelAt((CPFirtileEggTileEntity)tileentity, d0, d1, d2, f);
+        renderModelAt((CPFertileEggTileEntity)tileentity, d0, d1, d2, f);
     }
 
-    public void renderModelAt(CPFirtileEggTileEntity tile, double dX, double dY, double dZ, float f){
+    public void renderModelAt(CPFertileEggTileEntity tile, double dX, double dY, double dZ, float f){
 
         GL11.glPushMatrix(); // start
         {
