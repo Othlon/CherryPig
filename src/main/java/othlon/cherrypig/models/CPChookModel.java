@@ -3,6 +3,8 @@ package othlon.cherrypig.models;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import org.lwjgl.opengl.GL11;
+
 /**
  * Created by Jen on 15/11/2014.
  */
@@ -43,10 +45,14 @@ public class CPChookModel extends ModelBase
         ChickBody.addBox( -2F, -2.5F, -2F, 4, 3, 4);
         ChickBody.setRotationPoint( 0F, 22.5F, 0F );
 
+
+
+
         ChickHead = new ModelRenderer( this, 40, 0 );
         ChickHead.setTextureSize( 64, 32 );
-        ChickHead.addBox( -3F, -3F, -3F, 6, 6, 6);
+        ChickHead.addBox( -3F, -3F, -3F, 6, 6, 6, 0.5F);
         ChickHead.setRotationPoint( 0F, 19.5F, -2F );
+
 
         ChickBeakTop = new ModelRenderer( this, 60, 0 );
         ChickBeakTop.setTextureSize( 64, 32 );

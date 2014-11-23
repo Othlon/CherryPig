@@ -1,6 +1,7 @@
 package othlon.cherrypig.blocks;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.material.Material;
 import net.minecraftforge.oredict.OreDictionary;
 
 /**
@@ -9,12 +10,16 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class CPBlocks {
 
-    public static CPCherryLeaf    cherryLeaf     = new CPCherryLeaf();
-    public static CPCherryLog     cherryLog      = new CPCherryLog();
-    public static CPCherrySapling cherrySapling  = new CPCherrySapling();
-    public static CPCherryPlank   cherryPlanks   = new CPCherryPlank();
+    public static CPCherryLeaf    cherryLeaf       = new CPCherryLeaf();
+    public static CPCherryLog     cherryLog        = new CPCherryLog();
+    public static CPCherrySapling cherrySapling    = new CPCherrySapling();
+    public static CPCherryPlank   cherryPlanks     = new CPCherryPlank();
+
+    public static CPCherrySlab    cherrySingleSlab = new CPCherrySlab(false, Material.wood);
+   // public static CPCherrySlab    cherryDoubleSlab = new CPCherrySlab(true, Material.wood);
+
     public static CPNest          nest           = new CPNest();
-    public static CPFertileEgg egg            = new CPFertileEgg();
+    public static CPFertileEgg    egg            = new CPFertileEgg();
     public static CPBushStem      bushStem       = new CPBushStem();
 
     public static void doTheBlockThing(){
@@ -31,6 +36,12 @@ public class CPBlocks {
 
      GameRegistry.registerBlock(cherryPlanks,    "cherryplank");
      OreDictionary.registerOre("plankWood", cherryPlanks);
+
+    GameRegistry.registerBlock(cherrySingleSlab,    "cherryslab");
+    OreDictionary.registerOre("slabWood", cherrySingleSlab);
+
+       // GameRegistry.registerBlock(cherryDoubleSlab,    "cherryslab");
+       // OreDictionary.registerOre("slabWood", cherryDoubleSlab);
 
      GameRegistry.registerBlock(nest,"nest");
      GameRegistry.registerBlock(egg, "egg");

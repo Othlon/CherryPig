@@ -237,5 +237,9 @@ public class CPEntityChook extends EntityChicken{
     {
         this.field_152118_bv = p_152117_1_;
     }
+
+
+
+
 }
 

@@ -17,12 +17,13 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.1.5"
+version = "1.2"
 group= "othlon.CherryPig" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "CherryPig"
 
 minecraft {
-    version = "1.7.10-10.13.2.1230"
+    version  = "1.7.10-10.13.2.1230"
+    //mappings = "stable_12"
     assetDir = "eclipse/assets"
 }
 
