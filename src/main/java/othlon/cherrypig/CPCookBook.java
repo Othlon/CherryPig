@@ -6,14 +6,13 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 import othlon.cherrypig.blocks.CPBlocks;
+import othlon.cherrypig.blocks.CPCharcoalBlock;
 import othlon.cherrypig.items.CPItem;
 
 
 public class CPCookBook {
-    //item stacks
-
-
 
     public static void cookfood(){
         ItemStack stackFruit = new ItemStack(CPItem.cherryFruit, 1, 0);
@@ -21,10 +20,10 @@ public class CPCookBook {
         ItemStack stackPie   = new ItemStack(CPItem.cherryPie, 1, 0);
         //vanilla
         ItemStack stackSugar = new ItemStack(Items.sugar, 1, 0);
-        ItemStack stackEgg   = new ItemStack(Items.egg, 1, 0);
+        ItemStack stackEgg   = new ItemStack(Items.egg,   1, 0);
         ItemStack stackWheat = new ItemStack(Items.wheat, 1, 0);
 
-        //nmaking pips
+        //making pips
         GameRegistry.addShapelessRecipe(stackPips, stackFruit);
 
         //making cherry pies
@@ -37,6 +36,7 @@ public class CPCookBook {
         /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
         ItemStack stackCPSapling  = new ItemStack(CPBlocks.cherrySapling,1,0);
         ItemStack stackPork       = new ItemStack(Items.porkchop,1,0);
+
 
         GameRegistry.addRecipe(new ShapedOreRecipe(stackCPSapling,
                 "xxx",
@@ -58,5 +58,17 @@ public class CPCookBook {
                 "x x",
                 "xxx",
                 'x', stackHay);
+
+        /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+        ItemStack stackCharcoalBlock = new ItemStack(CPBlocks.charchoalBlack, 1, 0);
+        ItemStack stackCharcoal      = new ItemStack(Items.coal, 1, 1);
+
+        GameRegistry.addShapedRecipe(stackCharcoalBlock,
+                "xxx",
+                "xxx",
+                "xxx",
+                'x', stackCharcoal);
+
+
     }
 }

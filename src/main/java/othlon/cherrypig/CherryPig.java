@@ -20,9 +20,11 @@ import othlon.cherrypig.render.CPPiggyRender;
 import othlon.cherrypig.tileentities.CPTileEntites;
 import othlon.cherrypig.worldgen.CPTreeWorldGen;
 
-@Mod(modid = "cherrypig", name = "CherryPig", version = "1.2")
+@Mod(modid = "cherrypig", name = "CherryPig", version = CherryPig.VERSION)
 public class CherryPig {
 
+
+    public static final String VERSION = "${version}";
 
     @Mod.Instance
     public static CherryPig instance;
@@ -34,7 +36,9 @@ public class CherryPig {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+
         tabCherryPig = new CPCreativeTab(CreativeTabs.getNextID(), "CherryPigTab");
+
         CPBlocks.doTheBlockThing();
         CPItem.doTheItemThing();
         proxy.registerRenderers();

@@ -145,21 +145,7 @@ public class CPFertileEggItem extends Item {
         return true;
     }
 
-    //
-   /* @Override
-    @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean z){
-        if(stack.hasTagCompound()){
-            NBTTagCompound nbttagcompound = stack.getTagCompound();
-            String string = nbttagcompound.getString("bloop");
 
-            if(string != null){
-
-                list.add("Spawns Cherry Pigs");
-            }
-
-        }
-    }*/
 
 
 }
