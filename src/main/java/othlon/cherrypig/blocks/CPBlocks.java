@@ -2,7 +2,9 @@ package othlon.cherrypig.blocks;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.ItemSlab;
 import net.minecraftforge.oredict.OreDictionary;
+import othlon.cherrypig.helpers.CPItemBlockSlab;
 
 /**
  * Created by Jen on 30/05/14.
@@ -37,8 +39,8 @@ public class CPBlocks {
      GameRegistry.registerBlock(cherryPlanks,    "cherryplank");
      OreDictionary.registerOre("plankWood", cherryPlanks);
 
-    GameRegistry.registerBlock(cherrySingleSlab, "cherryslab");
-      //??????????????????
+    GameRegistry.registerBlock(cherrySingleSlab, CPItemBlockSlab.class, "cherryslab");
+      //??????????????????ItemSlab.class
     //GameRegistry.registerBlock(cherrySingleSlab, ItemBlockSlab.class, cherrySingleSlab, doubleSlab);
     OreDictionary.registerOre("slabWood", cherrySingleSlab);
 
