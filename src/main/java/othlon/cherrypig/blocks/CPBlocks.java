@@ -2,7 +2,6 @@ package othlon.cherrypig.blocks;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.ItemSlab;
 import net.minecraftforge.oredict.OreDictionary;
 import othlon.cherrypig.helpers.CPItemBlockSlab;
 
@@ -24,6 +23,8 @@ public class CPBlocks {
     public static CPBushStem      bushStem        = new CPBushStem();
     public static CPCharcoalBlock charchoalBlack  = new CPCharcoalBlock();
     public static CPFlintBlock    flintBlack      = new CPFlintBlock();
+
+
     public static void doTheBlockThing(){
 
 
@@ -41,12 +42,12 @@ public class CPBlocks {
 
     // GameRegistry.registerBlock(cherrySingleSlab, CPItemBlockSlab.class, "cherryslab");
     //??????????????????ItemSlab.class
-    GameRegistry.registerBlock(cherrySingleSlab, CPItemBlockSlab.class, cherrySingleSlab, cherryDoubleSlab);
+    GameRegistry.registerBlock(cherrySingleSlab, CPItemBlockSlab.class, "cherrySingleSlab");
     OreDictionary.registerOre("slabWood", cherrySingleSlab);
 
 
-        GameRegistry.registerBlock(cherryDoubleSlab,    "cherryslab");
-        OreDictionary.registerOre("slabWood", cherryDoubleSlab);
+    GameRegistry.registerBlock(cherryDoubleSlab,    "cherryslab");
+    OreDictionary.registerOre("slabWood", cherryDoubleSlab);
 
      GameRegistry.registerBlock(nest,"nest");
 

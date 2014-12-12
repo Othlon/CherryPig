@@ -24,7 +24,7 @@ import othlon.cherrypig.worldgen.CPTreeWorldGen;
 public class CherryPig {
 
 
-    public static final String VERSION = "${version}";
+    public static final String VERSION = "1.3";
 
     @Mod.Instance
     public static CherryPig instance;
