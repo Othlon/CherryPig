@@ -42,7 +42,7 @@ public class CPBlocks {
 
     // GameRegistry.registerBlock(cherrySingleSlab, CPItemBlockSlab.class, "cherryslab");
     //??????????????????ItemSlab.class
-    GameRegistry.registerBlock(cherrySingleSlab, CPItemBlockSlab.class, "cherrySingleSlab");
+    GameRegistry.registerBlock(cherrySingleSlab, CPItemBlockSlab.class, "cherrySingleSlab", cherryDoubleSlab);
     OreDictionary.registerOre("slabWood", cherrySingleSlab);
 
 
