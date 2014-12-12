@@ -17,13 +17,13 @@ public class CPBlocks {
     public static CPCherrySapling cherrySapling    = new CPCherrySapling();
     public static CPCherryPlank   cherryPlanks     = new CPCherryPlank();
     public static CPCherrySlab    cherrySingleSlab = new CPCherrySlab(false, Material.wood);
-   // public static CPCherrySlab    cherryDoubleSlab = new CPCherrySlab(true, Material.wood);
+    public static CPCherrySlab    cherryDoubleSlab = new CPCherrySlab(true, Material.wood);
 
     public static CPNest          nest            = new CPNest();
     public static CPFertileEgg    egg             = new CPFertileEgg();
     public static CPBushStem      bushStem        = new CPBushStem();
     public static CPCharcoalBlock charchoalBlack  = new CPCharcoalBlock();
-    public static CPFlintBlock flintBlack         = new CPFlintBlock();
+    public static CPFlintBlock    flintBlack      = new CPFlintBlock();
     public static void doTheBlockThing(){
 
 
@@ -41,12 +41,12 @@ public class CPBlocks {
 
     // GameRegistry.registerBlock(cherrySingleSlab, CPItemBlockSlab.class, "cherryslab");
     //??????????????????ItemSlab.class
-    //GameRegistry.registerBlock(cherrySingleSlab, ItemBlockSlab.class, cherrySingleSlab, doubleSlab);
-    //OreDictionary.registerOre("slabWood", cherrySingleSlab);
+    GameRegistry.registerBlock(cherrySingleSlab, CPItemBlockSlab.class, cherrySingleSlab, cherryDoubleSlab);
+    OreDictionary.registerOre("slabWood", cherrySingleSlab);
 
 
-       // GameRegistry.registerBlock(cherryDoubleSlab,    "cherryslab");
-       // OreDictionary.registerOre("slabWood", cherryDoubleSlab);
+        GameRegistry.registerBlock(cherryDoubleSlab,    "cherryslab");
+        OreDictionary.registerOre("slabWood", cherryDoubleSlab);
 
      GameRegistry.registerBlock(nest,"nest");
 
