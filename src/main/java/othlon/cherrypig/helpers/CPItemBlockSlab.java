@@ -11,9 +11,9 @@ import othlon.cherrypig.blocks.CPCherrySlab;
 public class CPItemBlockSlab extends ItemSlab {
 
 
-    public CPItemBlockSlab(Block block, CPCherrySlab singleSlab, CPCherrySlab doubleSlab)
-    {
-        super(block, singleSlab, doubleSlab, block == doubleSlab);
+    public CPItemBlockSlab(Block block, CPCherrySlab singleSlab, CPCherrySlab doubleSlab, Boolean bool) {
+        super(block, singleSlab, doubleSlab, bool);
+        this.setHasSubtypes(true);
     }
 
     @Override

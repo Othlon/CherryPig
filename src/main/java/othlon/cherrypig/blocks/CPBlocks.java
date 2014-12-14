@@ -15,6 +15,7 @@ public class CPBlocks {
     public static CPCherryLog     cherryLog        = new CPCherryLog();
     public static CPCherrySapling cherrySapling    = new CPCherrySapling();
     public static CPCherryPlank   cherryPlanks     = new CPCherryPlank();
+
     public static CPCherrySlab    cherrySingleSlab = new CPCherrySlab(false, Material.wood);
     public static CPCherrySlab    cherryDoubleSlab = new CPCherrySlab(true, Material.wood);
 
@@ -40,13 +41,10 @@ public class CPBlocks {
      GameRegistry.registerBlock(cherryPlanks,    "cherryplank");
      OreDictionary.registerOre("plankWood", cherryPlanks);
 
-    // GameRegistry.registerBlock(cherrySingleSlab, CPItemBlockSlab.class, "cherryslab");
-    //??????????????????ItemSlab.class
-    GameRegistry.registerBlock(cherrySingleSlab, CPItemBlockSlab.class, "cherrySingleSlab", cherryDoubleSlab);
+
+    GameRegistry.registerBlock(cherrySingleSlab, CPItemBlockSlab.class, "cherrySingleSlab", cherrySingleSlab, cherryDoubleSlab, false);
+    GameRegistry.registerBlock(cherryDoubleSlab, CPItemBlockSlab.class, "cherrySingleSlab", cherrySingleSlab, cherryDoubleSlab, true);
     OreDictionary.registerOre("slabWood", cherrySingleSlab);
-
-
-    GameRegistry.registerBlock(cherryDoubleSlab,    "cherryslab");
     OreDictionary.registerOre("slabWood", cherryDoubleSlab);
 
      GameRegistry.registerBlock(nest,"nest");
