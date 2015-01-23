@@ -36,7 +36,7 @@ public class CPFertileEggItem extends Item {
 
     @Override
     public String getItemStackDisplayName(ItemStack stack){
-        return "Cherry Pip";
+        return "Firtile Egg";
     }
 
     public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float p_77648_8_, float p_77648_9_, float p_77648_10_)
@@ -130,7 +130,7 @@ public class CPFertileEggItem extends Item {
 
     private Entity spawnCreature(World world, double x, double y, double z)
     {
-        int iAge = -24000;
+        int iAge = -12000;
         CPEntityChook chook = new CPEntityChook(world);
         chook.setPosition(x, y, z);
         chook.setGrowingAge(iAge);

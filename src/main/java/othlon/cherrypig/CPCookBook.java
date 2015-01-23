@@ -15,19 +15,34 @@ import othlon.cherrypig.items.CPItem;
 public class CPCookBook {
 
     public static void cookfood(){
-        ItemStack stackFruit = new ItemStack(CPItem.cherryFruit, 1, 0);
+
+        //animal food
+        ItemStack stackChickenFeed = new ItemStack(CPItem.chickenfeed, 1, 0);
+        //spawn items
         ItemStack stackPips  = new ItemStack(CPItem.cherryPip, 1, 0);
+        //people foood
+        ItemStack stackFruit = new ItemStack(CPItem.cherryFruit, 1, 0);
         ItemStack stackPie   = new ItemStack(CPItem.cherryPie, 1, 0);
-        //vanilla
+        //vanilla stacks
         ItemStack stackSugar = new ItemStack(Items.sugar, 1, 0);
         ItemStack stackEgg   = new ItemStack(Items.egg,   1, 0);
         ItemStack stackWheat = new ItemStack(Items.wheat, 1, 0);
+        ItemStack stackSeeds      = new ItemStack(Items.wheat_seeds,   1, 0);
+        ItemStack stackSeedsPump  = new ItemStack(Items.pumpkin_seeds, 1, 0);
+        ItemStack stackSeedsMelon = new ItemStack(Items.melon_seeds,   1, 0);
+
+
+        //making chicken feed
+        GameRegistry.addShapelessRecipe(stackChickenFeed,
+                stackSeeds,stackSeedsPump, stackSeedsMelon);
 
         //making pips
-        GameRegistry.addShapelessRecipe(stackPips, stackFruit);
+        GameRegistry.addShapelessRecipe(stackPips,
+                stackFruit);
 
         //making cherry pies
-        GameRegistry.addShapelessRecipe(stackPie, stackEgg, stackFruit, stackSugar, stackWheat);
+        GameRegistry.addShapelessRecipe(stackPie,
+                stackEgg, stackFruit, stackSugar, stackWheat);
 
 
     }

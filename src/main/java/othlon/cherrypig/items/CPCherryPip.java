@@ -134,7 +134,7 @@ public class CPCherryPip extends Item {
 
     private Entity spawnCreature(World world, double x, double y, double z)
     {
-        int iAge = -24000;
+        int iAge = -12000;
         CPEntityPiggy piggeh = new CPEntityPiggy(world);
         piggeh.setPosition(x, y, z);
         piggeh.setGrowingAge(iAge);

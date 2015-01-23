@@ -13,11 +13,15 @@ public class CPItem {
     public static Item cherryFruit;
     public static Item cherryPie;
     public static Item fertileegg;
+    public static Item chickenfeed;
 
 
     public static void doTheItemThing(){
         cherryPip = new CPCherryPip();
         GameRegistry.registerItem(cherryPip, "cherryPip");
+
+        chickenfeed = new CPChickenFeed();
+        GameRegistry.registerItem(chickenfeed, "chickenFeed");
 
         fertileegg = new CPFertileEggItem();
         GameRegistry.registerItem(fertileegg, "fertileegg");

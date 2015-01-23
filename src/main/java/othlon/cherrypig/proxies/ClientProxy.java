@@ -4,11 +4,9 @@ import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import othlon.cherrypig.entity.CPEntityChook;
 import othlon.cherrypig.entity.CPEntityPiggy;
-import othlon.cherrypig.render.CPChookRender;
-import othlon.cherrypig.render.CPFirtileEggRender;
-import othlon.cherrypig.render.CPNestRender;
-import othlon.cherrypig.render.CPPiggyRender;
+import othlon.cherrypig.render.*;
 import othlon.cherrypig.tileentities.CPFertileEggTileEntity;
+import othlon.cherrypig.tileentities.CPIncubatorTileEntity;
 import othlon.cherrypig.tileentities.CPNestTileEntity;
 
 
@@ -25,6 +23,9 @@ public class ClientProxy extends CommonProxy{
 
            ClientRegistry.bindTileEntitySpecialRenderer(CPFertileEggTileEntity.class, new CPFirtileEggRender());
           // MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(CPBlocks.egg),);
+
+
+           ClientRegistry.bindTileEntitySpecialRenderer(CPIncubatorTileEntity.class, new CPIncubatorRender());
 
        }
 }

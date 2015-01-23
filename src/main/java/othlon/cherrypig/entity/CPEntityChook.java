@@ -15,9 +15,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-/**
- * Created by Jen on 19/10/2014.
- */
+
 public class CPEntityChook extends EntityChicken{
 
     public float field_70886_e;
@@ -43,11 +41,9 @@ public class CPEntityChook extends EntityChicken{
         this.tasks.addTask(5, new EntityAIWander(this, 1.0D));
         this.tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
         this.tasks.addTask(7, new EntityAILookIdle(this));
+
     }
 
-    /**
-     * Returns true if the newer Entity AI code should be run
-     */
     public boolean isAIEnabled()
     {
         return true;
@@ -60,7 +56,7 @@ public class CPEntityChook extends EntityChicken{
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.25D);
     }
 
-    /**
+    /*
      * Called frequently so the entity can update its state every tick as required. For example, zombies and skeletons
      * use this to react to sunlight and start to burn.
      */
@@ -103,33 +99,49 @@ public class CPEntityChook extends EntityChicken{
         }
     }
 
-    /**
+    /*
      * Called when the mob is falling. Calculates and applies fall damage.
      */
     protected void fall(float p_70069_1_) {}
 
-    /**
+    /*
      * Returns the sound this mob makes while it's alive.
      */
     protected String getLivingSound()
     {
-        return "mob.chicken.say";
+       if(this.isChild()){
+           return "mob.bat.say";
+       }
+        else
+       {
+           return "mob.chicken.say";
+       }
     }
 
-    /**
+    /*
      * Returns the sound this mob makes when it is hurt.
      */
     protected String getHurtSound()
     {
-        return "mob.chicken.hurt";
+        if(this.isChild()){
+            return "mob.bat.hurt";
+        }
+        else {
+            return "mob.chicken.hurt";
+        }
     }
 
-    /**
+    /*
      * Returns the sound this mob makes on death.
      */
     protected String getDeathSound()
     {
-        return "mob.chicken.hurt";
+        if(this.isChild()){
+            return "mob.bat.hurt";
+        }
+        else {
+            return "mob.chicken.hurt";
+        }
     }
 
     protected void func_145780_a(int p_145780_1_, int p_145780_2_, int p_145780_3_, Block p_145780_4_)
@@ -142,7 +154,7 @@ public class CPEntityChook extends EntityChicken{
         return Items.feather;
     }
 
-    /**
+    /*
      * Drop 0-2 items of this living's type. @param par1 - Whether this entity has recently been hit by a player. @param
      * par2 - Level of Looting used to kill this mob.
      */
@@ -170,7 +182,7 @@ public class CPEntityChook extends EntityChicken{
         return new EntityChicken(this.worldObj);
     }
 
-    /**
+    /*
      * Checks if the parameter is an item which this animal can be fed to breed it (wheat, carrots or seeds depending on
      * the animal type)
      */
@@ -179,7 +191,7 @@ public class CPEntityChook extends EntityChicken{
         return p_70877_1_ != null && p_70877_1_.getItem() instanceof ItemSeeds;
     }
 
-    /**
+    /*
      * (abstract) Protected helper method to read subclass entity data from NBT.
      */
     public void readEntityFromNBT(NBTTagCompound p_70037_1_)
@@ -188,7 +200,7 @@ public class CPEntityChook extends EntityChicken{
         this.field_152118_bv = p_70037_1_.getBoolean("IsChickenJockey");
     }
 
-    /**
+    /*
      * Get the experience points the entity currently has.
      */
     protected int getExperiencePoints(EntityPlayer p_70693_1_)
@@ -196,7 +208,7 @@ public class CPEntityChook extends EntityChicken{
         return this.func_152116_bZ() ? 10 : super.getExperiencePoints(p_70693_1_);
     }
 
-    /**
+    /*
      * (abstract) Protected helper method to write subclass entity data to NBT.
      */
     public void writeEntityToNBT(NBTTagCompound p_70014_1_)
@@ -205,7 +217,7 @@ public class CPEntityChook extends EntityChicken{
         p_70014_1_.setBoolean("IsChickenJockey", this.field_152118_bv);
     }
 
-    /**
+    /*
      * Determines if an entity can be despawned, used on idle far away entities
      */
     protected boolean canDespawn()
@@ -237,9 +249,6 @@ public class CPEntityChook extends EntityChicken{
     {
         this.field_152118_bv = p_152117_1_;
     }
-
-
-
 
 }
 

@@ -40,49 +40,42 @@ public class CPChookModel extends ModelBase
         textureHeight = 32;
 
         //Baby chick
-        ChickBody = new ModelRenderer( this, 48, 12 );
+        ChickBody = new ModelRenderer( this, 48, 6 );
         ChickBody.setTextureSize( 64, 32 );
         ChickBody.addBox( -2F, -2.5F, -2F, 4, 3, 4);
         ChickBody.setRotationPoint( 0F, 22.5F, 0F );
 
-
-
-
-        ChickHead = new ModelRenderer( this, 40, 0 );
+        ChickHead = new ModelRenderer( this, 51, 0 );
         ChickHead.setTextureSize( 64, 32 );
-        ChickHead.addBox( -3F, -3F, -3F, 6, 6, 6, 0.5F);
-        ChickHead.setRotationPoint( 0F, 19.5F, -2F );
+        ChickHead.addBox( -1.5F, -1.5F, -1.5F, 3, 3, 3);
+        ChickHead.setRotationPoint( 0F, 18.5F, -2F );
 
-
-        ChickBeakTop = new ModelRenderer( this, 60, 0 );
-        ChickBeakTop.setTextureSize( 64, 32 );
-        ChickBeakTop.addBox( -0.5F, -0.5F, -0.5F, 1, 1, 1);
-        ChickBeakTop.setRotationPoint( 0F, 20.5F, -3.75F );
-
-        ChickBeakBtm = new ModelRenderer( this, 60, 0 );
-        ChickBeakBtm.setTextureSize( 64, 32 );
-        ChickBeakBtm.addBox( -0.5F, -0.5F, -0.7F, 1, 1, 1);
-        ChickBeakBtm.setRotationPoint( 0F, 20.8F, -3.5F );
-
-        ChickLeftWing = new ModelRenderer( this, 54, 19 );
+        ChickLeftWing = new ModelRenderer( this, 54, 13 );
         ChickLeftWing.setTextureSize( 64, 32 );
         ChickLeftWing.addBox( 0F, -0.5F, -1.5F, 2, 1, 3);
         ChickLeftWing.setRotationPoint( 1.8F, 20.5F, 0F );
-
-        ChickRightWing = new ModelRenderer( this, 54, 19 );
+        ChickRightWing = new ModelRenderer( this, 54, 13 );
         ChickRightWing.setTextureSize( 64, 32 );
         ChickRightWing.addBox( -2F, -0.5F, -1.5F, 2, 1, 3);
         ChickRightWing.setRotationPoint( -1.8F, 20.5F, 0F );
-
         ChickRightFoot = new ModelRenderer( this, 63, 0 );
         ChickRightFoot.setTextureSize( 64, 32 );
         ChickRightFoot.addBox( -0.5F, 0F, 0F, 1, 1, 0);
         ChickRightFoot.setRotationPoint( -1F, 23F, 0F );
-
         ChickLeftFoot = new ModelRenderer( this, 60, 0 );
         ChickLeftFoot.setTextureSize( 64, 32 );
         ChickLeftFoot.addBox( -0.5F, 0F, 0F, 1, 1, 0);
         ChickLeftFoot.setRotationPoint( 1F, 23F, 0F );
+
+        ChickBeakTop = new ModelRenderer( this, 60, 0 );
+        ChickBeakTop.setTextureSize( 64, 32 );
+        ChickBeakTop.addBox( -0.5F, -0.5F, -0.5F, 1, 1, 1);
+        ChickBeakTop.setRotationPoint( 0F, 19.5F, -3.75F );
+        ChickBeakBtm = new ModelRenderer( this, 60, 0 );
+        ChickBeakBtm.setTextureSize( 64, 32 );
+        ChickBeakBtm.addBox( -0.5F, -0.5F, -0.7F, 1, 1, 1);
+        ChickBeakBtm.setRotationPoint( 0F, 19.8F, -3.5F );
+
 
 
         //Adult Chook

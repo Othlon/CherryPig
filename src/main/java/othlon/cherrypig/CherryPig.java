@@ -24,7 +24,7 @@ import othlon.cherrypig.worldgen.CPTreeWorldGen;
 public class CherryPig {
 
 
-    public static final String VERSION = "1.3";
+    public static final String VERSION = "1.3.6";
 
     @Mod.Instance
     public static CherryPig instance;
@@ -33,6 +33,7 @@ public class CherryPig {
 
     @SidedProxy(clientSide = "othlon.cherrypig.proxies.ClientProxy", serverSide = "othlon.cherrypig.proxies.CommonProxy")
     public static CommonProxy proxy;
+
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
