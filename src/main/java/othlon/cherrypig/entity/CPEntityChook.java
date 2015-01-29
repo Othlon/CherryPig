@@ -24,7 +24,7 @@ public class CPEntityChook extends EntityChicken{
     public float field_70888_h;
     public float field_70889_i = 1.0F;
     /** The time until the next egg is spawned. */
-    public int timeUntilNextEgg;
+   // public int timeUntilNextEgg;
     public boolean field_152118_bv;
     private static final String __OBFID = "CL_00001639";
 
@@ -32,7 +32,7 @@ public class CPEntityChook extends EntityChicken{
     {
         super(world);
         this.setSize(0.3F, 0.7F);
-        this.timeUntilNextEgg = this.rand.nextInt(6000) + 6000;
+       // this.timeUntilNextEgg = this.rand.nextInt(6000) + 6000;
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(1, new EntityAIPanic(this, 1.4D));
         this.tasks.addTask(2, new EntityAIMate(this, 1.0D));
@@ -91,12 +91,12 @@ public class CPEntityChook extends EntityChicken{
 
         this.field_70886_e += this.field_70889_i * 2.0F;
 
-        if (!this.worldObj.isRemote && !this.isChild() && !this.func_152116_bZ() && --this.timeUntilNextEgg <= 0)
+       /* if (!this.worldObj.isRemote && !this.isChild() && !this.func_152116_bZ() && --this.timeUntilNextEgg <= 0)
         {
             this.playSound("mob.chicken.plop", 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
             this.dropItem(Items.egg, 1);
             this.timeUntilNextEgg = this.rand.nextInt(6000) + 6000;
-        }
+        }*/
     }
 
     /*
@@ -110,7 +110,7 @@ public class CPEntityChook extends EntityChicken{
     protected String getLivingSound()
     {
        if(this.isChild()){
-           return "mob.bat.say";
+           return "mob.bat.idle";
        }
         else
        {

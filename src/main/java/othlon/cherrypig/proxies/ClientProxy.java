@@ -2,6 +2,8 @@ package othlon.cherrypig.proxies;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.common.MinecraftForge;
+import othlon.cherrypig.CPEvents;
 import othlon.cherrypig.entity.CPEntityChook;
 import othlon.cherrypig.entity.CPEntityPiggy;
 import othlon.cherrypig.render.*;
@@ -26,6 +28,6 @@ public class ClientProxy extends CommonProxy{
 
 
            ClientRegistry.bindTileEntitySpecialRenderer(CPIncubatorTileEntity.class, new CPIncubatorRender());
-
+           MinecraftForge.EVENT_BUS.register(new CPEvents());
        }
 }

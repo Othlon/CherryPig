@@ -26,6 +26,8 @@ public class CPBlocks {
     public static CPCharcoalBlock charchoalBlack  = new CPCharcoalBlock();
     public static CPFlintBlock    flintBlack      = new CPFlintBlock();
 
+    public static CPIncubator     incubator       = new CPIncubator();
+
 
     public static void doTheBlockThing(){
 
@@ -57,9 +59,11 @@ public class CPBlocks {
         GameRegistry.registerBlock(bushStem, "bushStem");
         GameRegistry.registerBlock(charchoalBlack, "Charcoal Block");
         OreDictionary.registerOre ("blockCharcoal", charchoalBlack);
+
         GameRegistry.registerBlock(flintBlack, "Flint Block");
         OreDictionary.registerOre ("blockFlint", flintBlack);
 
+        GameRegistry.registerBlock(incubator,"incubator");
 
     }
 }

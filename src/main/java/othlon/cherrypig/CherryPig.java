@@ -7,6 +7,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.common.MinecraftForge;
 import othlon.cherrypig.blocks.CPBlocks;
 import othlon.cherrypig.blocks.CPCherryLeaf;
 import othlon.cherrypig.blocks.CPCherryLog;
@@ -24,12 +25,14 @@ import othlon.cherrypig.worldgen.CPTreeWorldGen;
 public class CherryPig {
 
 
-    public static final String VERSION = "1.3.6";
+    public static final String VERSION = "1.3.7";
 
     @Mod.Instance
     public static CherryPig instance;
 
     public static CreativeTabs tabCherryPig;
+
+   // public static CommonHandler handler = new CommonHandler();
 
     @SidedProxy(clientSide = "othlon.cherrypig.proxies.ClientProxy", serverSide = "othlon.cherrypig.proxies.CommonProxy")
     public static CommonProxy proxy;
@@ -47,6 +50,9 @@ public class CherryPig {
         CPTileEntites.doTheTileEntityThings();
         CPCookBook.cookfood();
         CPCookBook.cookblocks();
+
+
+
     }//end pre init
 
     public static CPTreeWorldGen trees;
