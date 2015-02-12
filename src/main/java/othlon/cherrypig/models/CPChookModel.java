@@ -3,6 +3,7 @@ package othlon.cherrypig.models;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.MathHelper;
 import org.lwjgl.opengl.GL11;
 
 /**
@@ -31,7 +32,7 @@ public class CPChookModel extends ModelBase
     ModelRenderer ChookHeadComb;
     ModelRenderer ChookLLeg;
     ModelRenderer ChookLFoot;
-    ModelRenderer ChoolRLeg;
+    ModelRenderer ChookRLeg;
     ModelRenderer ChookRFoot;
 
 
@@ -128,16 +129,18 @@ public class CPChookModel extends ModelBase
         ChookLFoot.setTextureSize( 64, 32 );
         ChookLFoot.addBox( -1.5F, 0F, -3F, 3, 0, 3);
         ChookLFoot.setRotationPoint( -1.5F, 24F, 0F );
+        ChookLLeg.addChild(ChookLFoot);
 
-        ChoolRLeg = new ModelRenderer( this, 7, 19 );
-        ChoolRLeg.setTextureSize( 64, 32 );
-        ChoolRLeg.addBox( -0.5F, 0F, 0F, 1, 5, 0);
-        ChoolRLeg.setRotationPoint( 1.5F, 19F, 0F );
+        ChookRLeg = new ModelRenderer( this, 7, 19 );
+        ChookRLeg.setTextureSize( 64, 32 );
+        ChookRLeg.addBox( -0.5F, 0F, 0F, 1, 5, 0);
+        ChookRLeg.setRotationPoint( 1.5F, 19F, 0F );
 
         ChookRFoot = new ModelRenderer( this, -2, 19 );
         ChookRFoot.setTextureSize( 64, 32 );
         ChookRFoot.addBox( -1.5F, 0F, -3F, 3, 0, 3);
         ChookRFoot.setRotationPoint( 1.5F, 24F, 0F );
+        ChookRLeg.addChild(ChookRFoot);
 
     }
 
@@ -147,105 +150,49 @@ public class CPChookModel extends ModelBase
         setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 
         if(this.isChild){
-            ChickBody.rotateAngleX = 0F;
-            ChickBody.rotateAngleY = 0F;
-            ChickBody.rotateAngleZ = 0F;
+
             ChickBody.renderWithRotation(f5);
 
-            ChickHead.rotateAngleX = 0F;
-            ChickHead.rotateAngleY = 0F;
-            ChickHead.rotateAngleZ = 0F;
             ChickHead.renderWithRotation(f5);
 
-            ChickBeakTop.rotateAngleX = 0F;
-            ChickBeakTop.rotateAngleY = 0F;
-            ChickBeakTop.rotateAngleZ = 0F;
             ChickBeakTop.renderWithRotation(f5);
 
-            ChickBeakBtm.rotateAngleX = 0F;
-            ChickBeakBtm.rotateAngleY = 0F;
-            ChickBeakBtm.rotateAngleZ = 0F;
             ChickBeakBtm.renderWithRotation(f5);
 
-            ChickLeftWing.rotateAngleX = 0F;
-            ChickLeftWing.rotateAngleY = 0F;
             ChickLeftWing.rotateAngleZ = 0.5235988F;
             ChickLeftWing.renderWithRotation(f5);
 
-            ChickRightWing.rotateAngleX = 0F;
-            ChickRightWing.rotateAngleY = 0F;
             ChickRightWing.rotateAngleZ = -0.5235988F;
             ChickRightWing.renderWithRotation(f5);
 
-            ChickRightFoot.rotateAngleX = 0F;
-            ChickRightFoot.rotateAngleY = 0F;
-            ChickRightFoot.rotateAngleZ = 0F;
             ChickRightFoot.renderWithRotation(f5);
 
-            ChickLeftFoot.rotateAngleX = 0F;
-            ChickLeftFoot.rotateAngleY = 0F;
-            ChickLeftFoot.rotateAngleZ = 0F;
             ChickLeftFoot.renderWithRotation(f5);
         }
        else {
-            ChookBody.rotateAngleX = 0F;
-            ChookBody.rotateAngleY = 0F;
-            ChookBody.rotateAngleZ = 0F;
+
             ChookBody.renderWithRotation(f5);
 
-            ChookRWing.rotateAngleX = 0F;
-            ChookRWing.rotateAngleY = 0F;
-            ChookRWing.rotateAngleZ = 0F;
             ChookRWing.renderWithRotation(f5);
 
-            ChookLWing.rotateAngleX = 0F;
-            ChookLWing.rotateAngleY = 0F;
-            ChookLWing.rotateAngleZ = 0F;
             ChookLWing.renderWithRotation(f5);
 
-            ChookTail.rotateAngleX = 0F;
-            ChookTail.rotateAngleY = 0F;
-            ChookTail.rotateAngleZ = 0F;
             ChookTail.renderWithRotation(f5);
 
-            ChookHead.rotateAngleX = 0F;
-            ChookHead.rotateAngleY = 0F;
-            ChookHead.rotateAngleZ = 0F;
             ChookHead.renderWithRotation(f5);
 
-            ChookBeak.rotateAngleX = 0F;
-            ChookBeak.rotateAngleY = 0F;
-            ChookBeak.rotateAngleZ = 0F;
             ChookBeak.renderWithRotation(f5);
 
-            ChookComb.rotateAngleX = 0F;
-            ChookComb.rotateAngleY = 0F;
-            ChookComb.rotateAngleZ = 0F;
             ChookComb.renderWithRotation(f5);
 
-            ChookHeadComb.rotateAngleX = 0F;
-            ChookHeadComb.rotateAngleY = 0F;
-            ChookHeadComb.rotateAngleZ = 0F;
             ChookHeadComb.renderWithRotation(f5);
 
-            ChookLLeg.rotateAngleX = 0F;
-            ChookLLeg.rotateAngleY = 0F;
-            ChookLLeg.rotateAngleZ = 0F;
             ChookLLeg.renderWithRotation(f5);
 
-            ChookLFoot.rotateAngleX = 0F;
-            ChookLFoot.rotateAngleY = 0F;
-            ChookLFoot.rotateAngleZ = 0F;
             ChookLFoot.renderWithRotation(f5);
 
-            ChoolRLeg.rotateAngleX = 0F;
-            ChoolRLeg.rotateAngleY = 0F;
-            ChoolRLeg.rotateAngleZ = 0F;
-            ChoolRLeg.renderWithRotation(f5);
+            ChookRLeg.renderWithRotation(f5);
 
-            ChookRFoot.rotateAngleX = 0F;
-            ChookRFoot.rotateAngleY = 0F;
-            ChookRFoot.rotateAngleZ = 0F;
             ChookRFoot.renderWithRotation(f5);
         }
     }
@@ -258,9 +205,32 @@ public class CPChookModel extends ModelBase
       }
 
         @Override
-        public void setRotationAngles(float p_78087_1_, float p_78087_2_, float p_78087_3_, float p_78087_4_, float p_78087_5_, float p_78087_6_, Entity p_78087_7_)
+        public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity f6)
         {
-            super.setRotationAngles(p_78087_1_, p_78087_2_, p_78087_3_, p_78087_4_, p_78087_5_, p_78087_6_, p_78087_7_);
+            super.setRotationAngles(f, f1, f2, f3, f4, f5, f6);
+            if(this.isChild){
+
+            }
+            else {
+
+                ChookHead.rotateAngleX = f4 / (180F / (float)Math.PI);
+                ChookHead.rotateAngleY = f3 / (180F / (float)Math.PI);
+
+                ChookBeak.rotateAngleX =  ChookHead.rotateAngleX;
+                ChookBeak.rotateAngleY =  ChookHead.rotateAngleY;
+                ChookComb.rotateAngleX =  ChookHead.rotateAngleX;
+                ChookComb.rotateAngleY =  ChookHead.rotateAngleY;
+                ChookHeadComb.rotateAngleX =  ChookHead.rotateAngleX;
+                ChookHeadComb.rotateAngleY =  ChookHead.rotateAngleY;
+                ChookBody.rotateAngleX     = ((float)Math.PI / 2F);
+
+                ChookRLeg.rotateAngleX  = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
+                ChookLLeg.rotateAngleX  = MathHelper.cos(f * 0.6662F + (float) Math.PI) * 1.4F * f1;
+
+                ChookRWing.rotateAngleZ = MathHelper.sin(f * 0.7F) * 1.4F * f1;
+                ChookLWing.rotateAngleZ = MathHelper.sin(f * 0.7F + (float) Math.PI) * 1.4F * f1;
+
+            }
         }
 
 }

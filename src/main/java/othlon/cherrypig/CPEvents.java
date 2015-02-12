@@ -4,6 +4,7 @@ package othlon.cherrypig;
  * Created by Jen on 29/01/2015.
  */
 
+import net.minecraft.entity.ai.EntityAIMate;
 import net.minecraft.entity.passive.EntityChicken;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -35,19 +36,20 @@ public class CPEvents {
         //if interacting with a chicken
         if (event.target instanceof EntityChicken) {
 
-            EntityPlayer player = event.entityPlayer;
-            ItemStack held = player.getCurrentEquippedItem();
+            EntityPlayer   player = event.entityPlayer;
+            ItemStack        held = player.getCurrentEquippedItem();
             EntityChicken chicken = (EntityChicken) event.target;
 
             //if player holding an item
             if (held != null) {
+                if (player.worldObj.isRemote) {
+                    Item item = held.getItem();
+                    //and the item is one of the following
+                    if (item == Items.melon_seeds || item == Items.pumpkin_seeds || item == Items.wheat_seeds || item == CPItem.chickenfeed) {
+                        //then do stuff!
 
-                Item item = held.getItem();
-                //and the item is one of the following
-                if (item == Items.melon_seeds || item == Items.pumpkin_seeds || item == Items.wheat_seeds || item == CPItem.chickenfeed) {
-                    //then do stuff!
-
-                    chicken.dropItem(Items.egg, 1);
+                        chicken.dropItem(Items.egg, 1);
+                    }
                 }
             }
              // if (chicken instanceof EntityChicken) {
@@ -59,4 +61,14 @@ public class CPEvents {
         }
 
     }
+
+   /* @SubscribeEvent
+    public void onEntityUpdate( Living mateEvent){
+        EntityChicken chicken = (EntityChicken)mateEvent;
+
+        EntityAIMate theAnimal = (EntityAIMate)mateEvent.theAnimal;
+        if(mateEvent.theAnimal == chicken) {
+            chicken.createChild(null).dropItem(Items.egg, 1);
+        }
+    }*/
 }
