@@ -56,7 +56,6 @@ public class CPCherrySlab extends BlockSlab {
     //TODO:	   getItemDropped()
     public Item getItemDropped(int metadata, Random random, int fortune)
     {
-
             //TODO:		getItemForBlock()
             return Item.getItemFromBlock(this);
     }
