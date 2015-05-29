@@ -216,19 +216,22 @@ public class CPChookModel extends ModelBase
                 ChookHead.rotateAngleX = f4 / (180F / (float)Math.PI);
                 ChookHead.rotateAngleY = f3 / (180F / (float)Math.PI);
 
-                ChookBeak.rotateAngleX =  ChookHead.rotateAngleX;
-                ChookBeak.rotateAngleY =  ChookHead.rotateAngleY;
-                ChookComb.rotateAngleX =  ChookHead.rotateAngleX;
-                ChookComb.rotateAngleY =  ChookHead.rotateAngleY;
+                ChookBeak.rotateAngleX     =  ChookHead.rotateAngleX;
+                ChookBeak.rotateAngleY     =  ChookHead.rotateAngleY;
+
+                ChookComb.rotateAngleX     =  ChookHead.rotateAngleX;
+                ChookComb.rotateAngleY     =  ChookHead.rotateAngleY;
+
                 ChookHeadComb.rotateAngleX =  ChookHead.rotateAngleX;
                 ChookHeadComb.rotateAngleY =  ChookHead.rotateAngleY;
+
                 ChookBody.rotateAngleX     = ((float)Math.PI / 2F);
 
-                ChookRLeg.rotateAngleX  = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
-                ChookLLeg.rotateAngleX  = MathHelper.cos(f * 0.6662F + (float) Math.PI) * 1.4F * f1;
+                ChookRLeg.rotateAngleX  = MathHelper.sin(f * 0.7F) * 1.4F * f1;
+                ChookLLeg.rotateAngleX  = MathHelper.sin(f * 0.7F + (float) Math.PI) * 1.4F * f1;
 
-                ChookRWing.rotateAngleZ = MathHelper.sin(f * 0.7F) * 1.4F * f1;
-                ChookLWing.rotateAngleZ = MathHelper.sin(f * 0.7F + (float) Math.PI) * 1.4F * f1;
+                ChookRWing.rotateAngleZ = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
+                ChookLWing.rotateAngleZ = MathHelper.cos(f * 0.6662F + (float) Math.PI) * 1.4F * f1;
 
             }
         }
