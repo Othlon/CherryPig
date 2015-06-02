@@ -22,7 +22,6 @@ public class CPBlocks {
 
     public static CPNest          nest            = new CPNest();
     public static CPFertileEgg    egg             = new CPFertileEgg();
-    public static CPBushStem      bushStem        = new CPBushStem();
     public static CPCharcoalBlock charchoalBlack  = new CPCharcoalBlock();
     public static CPFlintBlock    flintBlack      = new CPFlintBlock();
 
@@ -56,7 +55,7 @@ public class CPBlocks {
 
         GameRegistry.registerBlock(nest,"nest");
         GameRegistry.registerBlock(egg,  "egg");
-        GameRegistry.registerBlock(bushStem, "bushStem");
+
         GameRegistry.registerBlock(charchoalBlack, "Charcoal Block");
         OreDictionary.registerOre ("blockCharcoal", charchoalBlack);
 

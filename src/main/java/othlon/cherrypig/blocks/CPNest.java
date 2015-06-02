@@ -25,7 +25,7 @@ public class CPNest extends BlockContainer{
     public CPNest(){
         super(Material.leaves);
         this.setHarvestLevel("hoe", 0);
-        this.setBlockName("Nest");
+        this.setBlockName("nest");
         this.setCreativeTab(CherryPig.tabCherryPig);
         this.setBlockBounds(minX,minY,minZ,maxX,maxY,maxZ);
 

@@ -25,7 +25,7 @@ public class CPIncubator extends BlockContainer {
     public CPIncubator(){
         super(Material.rock);
         this.setHarvestLevel("pickaxe", 0);
-        this.setBlockName("Incubator");
+        this.setBlockName("incubator");
         this.setCreativeTab(CherryPig.tabCherryPig);
     }
 

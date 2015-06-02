@@ -19,7 +19,7 @@ public class CPFlintBlock extends Block {
         this.setHardness(5.0F);
         this.setResistance(10.0F);
         this.setStepSound(soundTypeMetal);
-        this.setBlockName("Flint Block");
+        this.setBlockName("flintblock");
         this.setCreativeTab(CherryPig.tabCherryPig);
     }
     @Override

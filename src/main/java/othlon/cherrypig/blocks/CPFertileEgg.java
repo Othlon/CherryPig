@@ -29,7 +29,7 @@ public class CPFertileEgg extends BlockContainer{
     public CPFertileEgg(){
         super(Material.dragonEgg);
         this.setHarvestLevel("hoe", 0);
-        this.setBlockName("FertileEgg");
+        this.setBlockName("fertileegg");
         this.setCreativeTab(CherryPig.tabCherryPig);
     }
 
