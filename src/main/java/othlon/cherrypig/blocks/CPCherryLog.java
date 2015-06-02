@@ -21,21 +21,19 @@ public class CPCherryLog extends BlockLog {
     IIcon logIconTopBtm;
 
     public CPCherryLog() {
-
-               this.setHardness(2.0F);
+        this.setHardness(2.0F);
         this.setHarvestLevel("axe", 0);
         this.setResistance(5.0F);
         this.setStepSound(soundTypeWood);
         this.setBlockName("cherrylog");
         this.setCreativeTab(CherryPig.tabCherryPig);
-
     }
 
-    @Override
-    public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {
+    //@Override
+   // public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {
         //noinspection unchecked
-        p_149666_3_.add(new ItemStack(p_149666_1_, 1, 0));
-    } //nope
+   //     p_149666_3_.add(new ItemStack(p_149666_1_, 1, 0));
+   // } //nope
 
     @Override
     public void registerBlockIcons(IIconRegister thisdude) {
@@ -45,8 +43,8 @@ public class CPCherryLog extends BlockLog {
 
 
     @Override
-        @SideOnly(Side.CLIENT)
-        protected IIcon getSideIcon(int meta)
+    @SideOnly(Side.CLIENT)
+    protected IIcon getSideIcon(int meta)
     {
         return this.logIcon;
     }
