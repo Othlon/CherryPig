@@ -35,6 +35,8 @@ public class CPChookModel extends ModelBase
     ModelRenderer ChookRLeg;
     ModelRenderer ChookRFoot;
 
+//animation jazz
+  float deg2rad = (float)Math.PI/180.0F;
 
     public CPChookModel(){
         textureWidth  = 64;
@@ -100,25 +102,25 @@ public class CPChookModel extends ModelBase
         ChookTail.addBox( -2F, -2F, -1F, 4, 4, 2);
         ChookTail.setRotationPoint( 0F, 14F, 4F );
 
+        ChookBeak = new ModelRenderer( this, 0, 22 );
+        ChookBeak.setTextureSize( 64, 32 );
+        ChookBeak.addBox( -1F, -3F, -4F, 2, 2, 2);
+        ChookBeak.setRotationPoint( 0F, 14F, -3F );
+
+        ChookComb = new ModelRenderer( this, 2, 16 );
+        ChookComb.setTextureSize( 64, 32 );
+        ChookComb.addBox( -0.5F, -1F, -3.5F, 1, 2, 1);
+        ChookComb.setRotationPoint( 0F, 14F, -3F );
+
+        ChookHeadComb = new ModelRenderer( this, 2, 13 );
+        ChookHeadComb.setTextureSize( 64, 32 );
+        ChookHeadComb.addBox( 0F, -6F, -3F, (1/2), 4, 2);
+        ChookHeadComb.setRotationPoint( 0F, 14F, -3F );
+
         ChookHead = new ModelRenderer( this, 7, 9 );
         ChookHead.setTextureSize( 64, 32 );
         ChookHead.addBox( -2F, -5F, -2.5F, 4, 6, 3);
         ChookHead.setRotationPoint( 0F, 14F, -3F );
-
-        ChookBeak = new ModelRenderer( this, 0, 22 );
-        ChookBeak.setTextureSize( 64, 32 );
-        ChookBeak.addBox( -1F, -1F, -1F, 2, 2, 2);
-        ChookBeak.setRotationPoint( 0F, 12F, -6F );
-
-        ChookComb = new ModelRenderer( this, 2, 16 );
-        ChookComb.setTextureSize( 64, 32 );
-        ChookComb.addBox( -0.5F, -1F, -0.5F, 1, 2, 1);
-        ChookComb.setRotationPoint( 0F, 14F, -6F );
-
-        ChookHeadComb = new ModelRenderer( this, 2, 13 );
-        ChookHeadComb.setTextureSize( 64, 32 );
-        ChookHeadComb.addBox( 0F, -2F, -1F, 0, 4, 2);
-        ChookHeadComb.setRotationPoint( 0F, 10F, -5F );
 
         ChookLLeg = new ModelRenderer( this, 7, 19 );
         ChookLLeg.setTextureSize( 64, 32 );
@@ -129,7 +131,7 @@ public class CPChookModel extends ModelBase
         ChookLFoot.setTextureSize( 64, 32 );
         ChookLFoot.addBox( -1.5F, 0F, -3F, 3, 0, 3);
         ChookLFoot.setRotationPoint( -1.5F, 24F, 0F );
-        ChookLLeg.addChild(ChookLFoot);
+
 
         ChookRLeg = new ModelRenderer( this, 7, 19 );
         ChookRLeg.setTextureSize( 64, 32 );
@@ -140,7 +142,7 @@ public class CPChookModel extends ModelBase
         ChookRFoot.setTextureSize( 64, 32 );
         ChookRFoot.addBox( -1.5F, 0F, -3F, 3, 0, 3);
         ChookRFoot.setRotationPoint( 1.5F, 24F, 0F );
-        ChookRLeg.addChild(ChookRFoot);
+
 
     }
 
@@ -205,33 +207,34 @@ public class CPChookModel extends ModelBase
       }
 
         @Override
-        public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity f6)
+        public void setRotationAngles(float dt, float f1, float f2, float f3, float f4, float f5, Entity f6)
         {
-            super.setRotationAngles(f, f1, f2, f3, f4, f5, f6);
+
+            super.setRotationAngles(dt, f1, f2, f3, f4, f5, f6);
             if(this.isChild){
 
             }
             else {
 
-                ChookHead.rotateAngleX = f4 / (180F / (float)Math.PI);
-                ChookHead.rotateAngleY = f3 / (180F / (float)Math.PI);
+                this.ChookHead.rotateAngleX = f4 / 57.295776F;
+                this.ChookHead.rotateAngleY = f3 / 57.295776F;
 
-                ChookBeak.rotateAngleX     =  ChookHead.rotateAngleX;
-                ChookBeak.rotateAngleY     =  ChookHead.rotateAngleY;
+                this.ChookBeak.rotateAngleX  =  f4 / 57.295776F;
+                this.ChookBeak.rotateAngleY  =  f3 / 57.295776F;
 
-                ChookComb.rotateAngleX     =  ChookHead.rotateAngleX;
-                ChookComb.rotateAngleY     =  ChookHead.rotateAngleY;
+                this.ChookComb.rotateAngleX  =  f4 / 57.295776F;
+                this.ChookComb.rotateAngleY  =  f3 / 57.295776F;
 
-                ChookHeadComb.rotateAngleX =  ChookHead.rotateAngleX;
-                ChookHeadComb.rotateAngleY =  ChookHead.rotateAngleY;
+                this.ChookHeadComb.rotateAngleX =  f4 / 57.295776F;
+                this.ChookHeadComb.rotateAngleY =  f3 / 57.295776F;
 
-                ChookBody.rotateAngleX     = ((float)Math.PI / 2F);
+                this.ChookBody.rotateAngleX     = 1.5707F;
 
-                ChookRLeg.rotateAngleX  = MathHelper.sin(f * 0.7F) * 1.4F * f1;
-                ChookLLeg.rotateAngleX  = MathHelper.sin(f * 0.7F + (float) Math.PI) * 1.4F * f1;
+                this.ChookRLeg.rotateAngleX     = MathHelper.sin(dt * 0.7F) * 1.4F * f1;
+                this.ChookLLeg.rotateAngleX     = MathHelper.sin(dt * 0.7F + (float) Math.PI) * 1.4F * f1;
 
-                ChookRWing.rotateAngleZ = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
-                ChookLWing.rotateAngleZ = MathHelper.cos(f * 0.6662F + (float) Math.PI) * 1.4F * f1;
+                this.ChookRWing.rotateAngleZ    =  f2;
+                this.ChookLWing.rotateAngleZ    = -f2;
 
             }
         }

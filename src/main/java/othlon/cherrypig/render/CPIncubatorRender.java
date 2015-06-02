@@ -4,6 +4,7 @@ import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.IBlockAccess;
 import org.lwjgl.opengl.GL11;
 import othlon.cherrypig.models.CPIncubatorModel;
 import othlon.cherrypig.models.CPNestModel;
@@ -43,4 +44,5 @@ public class CPIncubatorRender extends TileEntitySpecialRenderer {
         }
         GL11.glPopMatrix(); // end
     }
+
 }
