@@ -22,9 +22,11 @@ import java.util.Random;
  */
 public class CPIncubator extends BlockContainer {
 
+
     public CPIncubator(){
         super(Material.rock);
         this.setHarvestLevel("pickaxe", 0);
+
         this.setBlockName("incubator");
         this.setCreativeTab(CherryPig.tabCherryPig);
     }
@@ -63,6 +65,7 @@ public class CPIncubator extends BlockContainer {
         world.markBlockForUpdate(x, y, z);
         return true;
     }
+
 
     @Override
     public TileEntity createNewTileEntity(World world, int i){return new CPIncubatorTileEntity();}
