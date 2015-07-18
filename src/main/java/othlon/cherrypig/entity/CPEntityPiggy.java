@@ -38,7 +38,7 @@ public class CPEntityPiggy extends EntityPig{
         super(world);
         this.setSize(0.6F, 0.6F);
         this.getNavigator().setAvoidsWater(true);
-        this.timeUntilNextEgg = this.rand.nextInt(6000) + 6000;
+        this.timeUntilNextEgg = this.rand.nextInt(60000) + 60000;
         this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(2, new EntityAILeapAtTarget(this, 0.4F));
         this.tasks.addTask(3, new EntityAIAttackOnCollide(this, 1.0D, true));
@@ -92,7 +92,7 @@ public class CPEntityPiggy extends EntityPig{
         {
             this.playSound("mob.pig.say", 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
             this.dropItem(CPItem.cherryFruit, 1);
-            this.timeUntilNextEgg = this.rand.nextInt(6000) + 6000;
+            this.timeUntilNextEgg = this.rand.nextInt(60000) + 60000;
         }
     }
 

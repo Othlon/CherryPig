@@ -7,9 +7,9 @@ public class CPTileEntites {
 
 
     public static void doTheTileEntityThings(){
-        GameRegistry.registerTileEntity(CPNestTileEntity.class, "Nest");
-        GameRegistry.registerTileEntity(CPFertileEggTileEntity.class, "FirtileEgg");
-        GameRegistry.registerTileEntity(CPIncubatorTileEntity.class, "Incubator");
+        GameRegistry.registerTileEntity(CPNestTileEntity.class, "cherrypig:Nest");
+        GameRegistry.registerTileEntity(CPFertileEggTileEntity.class, "cherrypig:FirtileEgg");
+        GameRegistry.registerTileEntity(CPIncubatorTileEntity.class, "cherrypig:Incubator");
     }
 
 }

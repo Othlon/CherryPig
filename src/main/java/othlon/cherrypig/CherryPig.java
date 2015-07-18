@@ -50,7 +50,7 @@ public class CherryPig {
         CPTileEntites.doTheTileEntityThings();
         CPCookBook.cookfood();
         CPCookBook.cookblocks();
-
+        GameRegistry.registerFuelHandler( new CPFuelHandler() );
 
 
     }//end pre init
