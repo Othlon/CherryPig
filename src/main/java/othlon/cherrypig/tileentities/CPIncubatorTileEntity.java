@@ -4,6 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.Packet;
 import net.minecraft.tileentity.TileEntity;
 
 /**
@@ -11,16 +12,45 @@ import net.minecraft.tileentity.TileEntity;
  */
 public class CPIncubatorTileEntity extends TileEntity implements IInventory {
 
-    public static final int invSize = 1;
+    public static final int invSize = 3;
     private ItemStack[] inventory;
     private boolean isActive;//start a counter when active?
 
+    //list of egg times
+
+
     public CPIncubatorTileEntity() {
 
-        this.inventory = new ItemStack[1];
-        isActive       = false;
+       // this.inventory = new ItemStack[1];
+        //isActive       = false;
 
     }
+
+    public void readFromNBT(NBTTagCompound nbt)
+    {
+        super.readFromNBT(nbt);
+    }
+
+
+    public void writeToNBT(NBTTagCompound nbt)
+    {
+        super.writeToNBT(nbt);
+    }
+
+@Override
+public Packet getDescriptionPacket(){
+
+    NBTTagCompound tileTag = new NBTTagCompound();
+    this.writeToNBT(tileTag);
+ //   return new Packettile
+
+}
+
+
+
+
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
     //Logic for the actual block is under here
     @Override
