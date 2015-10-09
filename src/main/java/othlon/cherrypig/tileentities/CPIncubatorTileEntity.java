@@ -4,25 +4,27 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
 /**
  * Created by Jen on 23/01/2015.
  */
 public class CPIncubatorTileEntity extends TileEntity implements IInventory {
 
-    public static final int invSize = 3;
-    private ItemStack[] inventory;
-    private boolean isActive;//start a counter when active?
-
+    //max eggs in incubator
+    private int maxEggs;
     //list of egg times
+    private long eggTimers[];
 
-
+    private ItemStack inventory;
     public CPIncubatorTileEntity() {
 
-       // this.inventory = new ItemStack[1];
-        //isActive       = false;
+        this.maxEggs = 3;
+        for(int i = 1; i == maxEggs; i++){  this.eggTimers[i] = 0; }
 
     }
 
@@ -37,23 +39,45 @@ public class CPIncubatorTileEntity extends TileEntity implements IInventory {
         super.writeToNBT(nbt);
     }
 
-@Override
-public Packet getDescriptionPacket(){
+    @Override
+    public Packet getDescriptionPacket()
+    {
 
-    NBTTagCompound tileTag = new NBTTagCompound();
-    this.writeToNBT(tileTag);
- //   return new Packettile
+        NBTTagCompound tileTag = new NBTTagCompound();
+        this.writeToNBT(tileTag);
+        return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 3, tileTag);
 
-}
+    }
+
+    @Override
+    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt)
+    {
+        this.readFromNBT(pkt.func_148857_g());
+    }
+ /*~~~~~~~~~~~~~Max Egg # Setters and Getters~~~~~~~~~~~~~~~*/
+
+    public int  getMaxEggs()           { return maxEggs;   }
+
+    public void setMaxEggs(int newNum) { maxEggs = newNum; }
 
 
+/*~~~~~~~~~~~~~Egg Timer Setters and Getters~~~~~~~~~~~~~~~*/
 
+    public long getEggTimers(int eggNum)
+    {
+        return eggTimers[eggNum];
+    }
+
+    public void setiEggTimers(int eggNumListPos, World world)
+    {
+        eggTimers[eggNumListPos] = world.getWorldTime();
+    }
 
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 
     //Logic for the actual block is under here
-    @Override
+    /*@Override
     public void updateEntity(){
 
         if (!isActive)
@@ -81,16 +105,16 @@ public Packet getDescriptionPacket(){
         }
     }
 
-    public void setActive()
+    //public void setActive()
     {
         isActive = false;
     }
 
-    public boolean isActive()
+    //public boolean isActive()
     {
         return isActive;
     }
-
+*/
     @Override
     public boolean isItemValidForSlot(int slot, ItemStack itemstack)
     {
@@ -108,6 +132,7 @@ public Packet getDescriptionPacket(){
     {
         return inventory[slot];
     }
+
     @Override
     public ItemStack getStackInSlotOnClosing(int slot)
     {
