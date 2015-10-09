@@ -20,7 +20,7 @@ public class CPIncubatorTileEntity extends TileEntity implements IInventory {
     //list of egg times
     private long eggTimers[];
 
-
+    private ItemStack inventory;
     public CPIncubatorTileEntity() {
 
         this.maxEggs = 3;
@@ -77,7 +77,7 @@ public class CPIncubatorTileEntity extends TileEntity implements IInventory {
 
 
     //Logic for the actual block is under here
-    @Override
+    /*@Override
     public void updateEntity(){
 
         if (!isActive)
@@ -105,16 +105,16 @@ public class CPIncubatorTileEntity extends TileEntity implements IInventory {
         }
     }
 
-    public void setActive()
+    //public void setActive()
     {
         isActive = false;
     }
 
-    public boolean isActive()
+    //public boolean isActive()
     {
         return isActive;
     }
-
+*/
     @Override
     public boolean isItemValidForSlot(int slot, ItemStack itemstack)
     {
@@ -132,6 +132,7 @@ public class CPIncubatorTileEntity extends TileEntity implements IInventory {
     {
         return inventory[slot];
     }
+
     @Override
     public ItemStack getStackInSlotOnClosing(int slot)
     {
