@@ -26,10 +26,16 @@ public class CPIncubator extends BlockContainer {
     public CPIncubator(){
         super(Material.rock);
         this.setHarvestLevel("pickaxe", 0);
+        this.setBlockTextureName("cherrypig:iqon_incubator");
 
         this.setBlockName("incubator");
         this.setCreativeTab(CherryPig.tabCherryPig);
     }
+
+
+    @Override
+    public TileEntity createNewTileEntity(World world, int i){return new CPIncubatorTileEntity();}
+
 
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int idk, float what, float these, float are)
@@ -51,6 +57,10 @@ public class CPIncubator extends BlockContainer {
         }
         if (tEntity.getStackInSlot(0) == null && heldItem != null)
         {
+            //store current world time
+            //add x time for each egg incubation time
+            //every tick,check list to see if the world time is greater than any of those times
+            //if WT > any egg timer: spawn chick and remove that egg timer from list
             ItemStack newItem = heldItem.copy();
             newItem.stackSize = 1;
             --heldItem.stackSize;
@@ -60,15 +70,12 @@ public class CPIncubator extends BlockContainer {
         {
             player.inventory.addItemStackToInventory(tEntity.getStackInSlot(0));
             tEntity.setInventorySlotContents(0, null);
-          //  tEntity.setActive();
+           tEntity.setActive();
         }
         world.markBlockForUpdate(x, y, z);
         return true;
     }
 
-
-    @Override
-    public TileEntity createNewTileEntity(World world, int i){return new CPIncubatorTileEntity();}
 
 
     @Override
