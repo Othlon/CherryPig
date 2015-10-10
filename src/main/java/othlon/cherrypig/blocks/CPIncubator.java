@@ -1,5 +1,7 @@
 package othlon.cherrypig.blocks;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -17,9 +19,6 @@ import othlon.cherrypig.tileentities.CPIncubatorTileEntity;
 import java.util.Random;
 
 
-/**
- * Created by Jen on 23/01/2015.
- */
 public class CPIncubator extends BlockContainer {
 
 
@@ -37,11 +36,14 @@ public class CPIncubator extends BlockContainer {
     public TileEntity createNewTileEntity(World world, int i){return new CPIncubatorTileEntity();}
 
 
+
+
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int idk, float what, float these, float are)
     {
 
         CPIncubatorTileEntity tEntity = (CPIncubatorTileEntity) world.getTileEntity(x, y, z);
+        //for shift-clicking
         if (tEntity == null || player.isSneaking())
         {
             return false;
@@ -51,11 +53,14 @@ public class CPIncubator extends BlockContainer {
 
         if(heldItem != null){
             if(heldItem.getItem().equals(Items.egg)){
-
+                tEntity.setMaxEggs(2);
+                tEntity.getFeedBack();
+                tEntity.floop();
+                --heldItem.stackSize;
             }
             return true;
         }
-        if (tEntity.getStackInSlot(0) == null && heldItem != null)
+        /*if (tEntity.getMaxEggs() == 0 && heldItem != null)
         {
             //store current world time
             //add x time for each egg incubation time
@@ -71,11 +76,28 @@ public class CPIncubator extends BlockContainer {
             player.inventory.addItemStackToInventory(tEntity.getStackInSlot(0));
             tEntity.setInventorySlotContents(0, null);
            tEntity.setActive();
-        }
+        }*/
         world.markBlockForUpdate(x, y, z);
         return true;
     }
 
+    @SideOnly(Side.CLIENT)
+    public void randomDisplayTick(World world, int x, int y, int z, Random randy) {
+
+        CPIncubatorTileEntity tEntity = (CPIncubatorTileEntity) world.getTileEntity(x, y, z);
+
+        int l = world.getBlockMetadata(x, y, z);
+        float f = (float)x + 0.5F;
+        float f1 = (float)y + 0.0F + randy.nextFloat() * 6.0F / 16.0F;
+        float f2 = (float)z + 0.5F;
+        float f3 = 0.52F;
+        float f4 = randy.nextFloat() * 0.6F - 0.3F;
+
+        if(tEntity.getGoingStatus() == true)
+        {
+            world.spawnParticle("flame", (double)(f - f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
+        }
+    }
 
 
     @Override
