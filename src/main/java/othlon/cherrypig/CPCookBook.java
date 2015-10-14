@@ -3,12 +3,9 @@ package othlon.cherrypig;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
-import net.minecraftforge.oredict.ShapelessOreRecipe;
 import othlon.cherrypig.blocks.CPBlocks;
-import othlon.cherrypig.blocks.CPCharcoalBlock;
 import othlon.cherrypig.items.CPItem;
 
 
@@ -24,9 +21,9 @@ public class CPCookBook {
         ItemStack stackFruit = new ItemStack(CPItem.cherryFruit, 1, 0);
         ItemStack stackPie   = new ItemStack(CPItem.cherryPie, 1, 0);
         //vanilla stacks
-        ItemStack stackSugar = new ItemStack(Items.sugar, 1, 0);
-        ItemStack stackEgg   = new ItemStack(Items.egg,   1, 0);
-        ItemStack stackWheat = new ItemStack(Items.wheat, 1, 0);
+        ItemStack stackSugar      = new ItemStack(Items.sugar, 1, 0);
+        ItemStack stackEgg        = new ItemStack(Items.egg,   1, 0);
+        ItemStack stackWheat      = new ItemStack(Items.wheat, 1, 0);
         ItemStack stackSeeds      = new ItemStack(Items.wheat_seeds,   1, 0);
         ItemStack stackSeedsPump  = new ItemStack(Items.pumpkin_seeds, 1, 0);
         ItemStack stackSeedsMelon = new ItemStack(Items.melon_seeds,   1, 0);

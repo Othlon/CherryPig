@@ -10,15 +10,11 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.Facing;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import othlon.cherrypig.CherryPig;
 import othlon.cherrypig.entity.CPEntityChook;
-import othlon.cherrypig.entity.CPEntityPiggy;
-
-import java.util.List;
 
 /**
  * Created by Jen on 19/11/2014.
@@ -36,7 +32,7 @@ public class CPFertileEggItem extends Item {
 
     @Override
     public String getItemStackDisplayName(ItemStack stack){
-        return "Firtile Egg";
+        return "Fertile Egg";
     }
 
     public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float p_77648_8_, float p_77648_9_, float p_77648_10_)

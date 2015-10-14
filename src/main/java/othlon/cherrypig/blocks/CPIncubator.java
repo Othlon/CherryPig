@@ -14,6 +14,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import othlon.cherrypig.CherryPig;
+import othlon.cherrypig.items.CPItem;
 import othlon.cherrypig.tileentities.CPIncubatorTileEntity;
 
 import java.util.Random;
@@ -49,34 +50,27 @@ public class CPIncubator extends BlockContainer {
             return false;
         }
 
-        ItemStack heldItem = player.getCurrentEquippedItem();
+        ItemStack heldItem  = player.getCurrentEquippedItem();
 
         if(heldItem != null){
-            if(heldItem.getItem().equals(Items.egg)){
-                tEntity.setMaxEggs(2);
-                tEntity.getFeedBack();
-                tEntity.floop();
-                --heldItem.stackSize;
+
+            //fertile eggs
+            if(heldItem.getItem().equals(CPItem.fertileegg)){
+                if( tEntity.addAnEgg(world) == true ){
+                --heldItem.stackSize;}
             }
+            /*~~~~~~~~~~start up incubator~~~~~~~~~~~*/
+            if(heldItem.getItem().equals(Items.flint_and_steel)){
+
+                tEntity.floopOn();
+                heldItem.damageItem(2, player);
+
+            }
+
+            //furel?
             return true;
         }
-        /*if (tEntity.getMaxEggs() == 0 && heldItem != null)
-        {
-            //store current world time
-            //add x time for each egg incubation time
-            //every tick,check list to see if the world time is greater than any of those times
-            //if WT > any egg timer: spawn chick and remove that egg timer from list
-            ItemStack newItem = heldItem.copy();
-            newItem.stackSize = 1;
-            --heldItem.stackSize;
-            tEntity.setInventorySlotContents(0, newItem);
 
-        } else if (tEntity.getStackInSlot(0) != null && heldItem == null)
-        {
-            player.inventory.addItemStackToInventory(tEntity.getStackInSlot(0));
-            tEntity.setInventorySlotContents(0, null);
-           tEntity.setActive();
-        }*/
         world.markBlockForUpdate(x, y, z);
         return true;
     }
