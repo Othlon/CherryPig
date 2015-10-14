@@ -49,6 +49,7 @@ public class CPEntityChook extends EntityChicken{
         return true;
     }
 
+    @Override
     protected void applyEntityAttributes()
     {
         super.applyEntityAttributes();
@@ -60,6 +61,7 @@ public class CPEntityChook extends EntityChicken{
      * Called frequently so the entity can update its state every tick as required. For example, zombies and skeletons
      * use this to react to sunlight and start to burn.
      */
+    @Override
     public void onLivingUpdate()
     {
         super.onLivingUpdate();
@@ -102,11 +104,13 @@ public class CPEntityChook extends EntityChicken{
     /*
      * Called when the mob is falling. Calculates and applies fall damage.
      */
+    @Override
     protected void fall(float p_70069_1_) {}
 
     /*
      * Returns the sound this mob makes while it's alive.
      */
+    @Override
     protected String getLivingSound()
     {
        if(this.isChild()){
@@ -121,6 +125,7 @@ public class CPEntityChook extends EntityChicken{
     /*
      * Returns the sound this mob makes when it is hurt.
      */
+    @Override
     protected String getHurtSound()
     {
         if(this.isChild()){
@@ -134,6 +139,7 @@ public class CPEntityChook extends EntityChicken{
     /*
      * Returns the sound this mob makes on death.
      */
+    @Override
     protected String getDeathSound()
     {
         if(this.isChild()){
@@ -144,11 +150,13 @@ public class CPEntityChook extends EntityChicken{
         }
     }
 
+    @Override
     protected void func_145780_a(int p_145780_1_, int p_145780_2_, int p_145780_3_, Block p_145780_4_)
     {
         this.playSound("mob.chicken.step", 0.15F, 1.0F);
     }
 
+    @Override
     protected Item getDropItem()
     {
         return Items.feather;
@@ -158,6 +166,7 @@ public class CPEntityChook extends EntityChicken{
      * Drop 0-2 items of this living's type. @param par1 - Whether this entity has recently been hit by a player. @param
      * par2 - Level of Looting used to kill this mob.
      */
+    @Override
     protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
     {
         int j = this.rand.nextInt(3) + this.rand.nextInt(1 + p_70628_2_);
@@ -176,7 +185,7 @@ public class CPEntityChook extends EntityChicken{
             this.dropItem(Items.chicken, 1);
         }
     }
-
+    @Override
     public EntityChicken createChild(EntityAgeable p_90011_1_)
     {
         this.dropItem(CPItem.fertileegg, 1);
@@ -188,6 +197,7 @@ public class CPEntityChook extends EntityChicken{
      * Checks if the parameter is an item which this animal can be fed to breed it (wheat, carrots or seeds depending on
      * the animal type)
      */
+    @Override
     public boolean isBreedingItem(ItemStack p_70877_1_)
     {
         return p_70877_1_ != null && p_70877_1_.getItem() instanceof ItemSeeds;
@@ -196,6 +206,7 @@ public class CPEntityChook extends EntityChicken{
     /*
      * (abstract) Protected helper method to read subclass entity data from NBT.
      */
+    @Override
     public void readEntityFromNBT(NBTTagCompound p_70037_1_)
     {
         super.readEntityFromNBT(p_70037_1_);
@@ -205,6 +216,7 @@ public class CPEntityChook extends EntityChicken{
     /*
      * Get the experience points the entity currently has.
      */
+    @Override
     protected int getExperiencePoints(EntityPlayer p_70693_1_)
     {
         return this.func_152116_bZ() ? 10 : super.getExperiencePoints(p_70693_1_);
@@ -213,6 +225,7 @@ public class CPEntityChook extends EntityChicken{
     /*
      * (abstract) Protected helper method to write subclass entity data to NBT.
      */
+    @Override
     public void writeEntityToNBT(NBTTagCompound p_70014_1_)
     {
         super.writeEntityToNBT(p_70014_1_);
@@ -222,11 +235,13 @@ public class CPEntityChook extends EntityChicken{
     /*
      * Determines if an entity can be despawned, used on idle far away entities
      */
+    @Override
     protected boolean canDespawn()
     {
         return this.func_152116_bZ() && this.riddenByEntity == null;
     }
 
+    @Override
     public void updateRiderPosition()
     {
         super.updateRiderPosition();
@@ -241,12 +256,13 @@ public class CPEntityChook extends EntityChicken{
             ((EntityLivingBase)this.riddenByEntity).renderYawOffset = this.renderYawOffset;
         }
     }
-
+    @Override
     public boolean func_152116_bZ()
     {
         return this.field_152118_bv;
     }
 
+    @Override
     public void func_152117_i(boolean p_152117_1_)
     {
         this.field_152118_bv = p_152117_1_;

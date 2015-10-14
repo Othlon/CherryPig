@@ -85,7 +85,7 @@ public class CPIncubatorTileEntity extends TileEntity {
 
     public boolean addAnEgg(World world)
     {
-        if(eggTimers == 10) {
+        if(eggTimers == 1) {
             eggTimers += world.getWorldTime();
             return true;
         } else {
@@ -111,17 +111,30 @@ public class CPIncubatorTileEntity extends TileEntity {
             going = false;
     }
     //Logic for the actual block is under here
-    public void updateEntity(World world)
+    @Override
+    public void updateEntity()
     {
-        if(going){
-            if(eggTimers == world.getWorldTime()){
-                eggTimers = 1;
-                spawnCreature(world, this.xCoord + 0.5D, this.yCoord + 0.5D, this.zCoord + 0.5D);
-                floopOff();//should turn off flames after spawning a chick
+        if(this.going == true){
 
+            //when egg timer (time it was added + 10) is the same as world time...
+            if(eggTimers == worldObj.getWorldTime()){
+                //set the timer back to one
+                eggTimers = 1;
+                //pop out a chick
+                if (!worldObj.isRemote) {
+                    spawnCreature(worldObj, this.xCoord, this.yCoord + 1D, this.zCoord);
+                }
+                 // if(worldObj.isRemote){
+                 //   this.playSound("mob.chicken.step", 0.15F, 1.0F);
+                 //}
+
+                //turn incubator off
+                floopOff();//should turn off flames after spawning a chick
             }
-        }
+
+        }//if going
     }
+
 
 
     private Entity spawnCreature(World world, double x, double y, double z)
@@ -133,5 +146,6 @@ public class CPIncubatorTileEntity extends TileEntity {
         world.spawnEntityInWorld(chook);
         return chook;
     }
+
 
 }

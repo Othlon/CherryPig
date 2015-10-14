@@ -64,10 +64,9 @@ public class CPIncubator extends BlockContainer {
 
                 tEntity.floopOn();
                 heldItem.damageItem(2, player);
-
             }
 
-            //furel?
+            //fuel?
             return true;
         }
 
