@@ -19,6 +19,7 @@ public class CPIncubatorTileEntity extends TileEntity {
     private int maxEggs;
     //list of egg times
     private long eggTimers;
+    private int hatchTime = 2;
 
     private boolean going= false;
 
@@ -27,7 +28,7 @@ public class CPIncubatorTileEntity extends TileEntity {
     public CPIncubatorTileEntity() {
 
         this.maxEggs   = 3;
-        this.eggTimers = 1;
+        this.eggTimers = hatchTime;
 
     }
 
@@ -85,7 +86,7 @@ public class CPIncubatorTileEntity extends TileEntity {
 
     public boolean addAnEgg(World world)
     {
-        if(eggTimers == 1) {
+        if(eggTimers == hatchTime) {
             eggTimers += world.getWorldTime();
             return true;
         } else {
@@ -114,19 +115,26 @@ public class CPIncubatorTileEntity extends TileEntity {
     @Override
     public void updateEntity()
     {
+
+        double d1 = (double)this.xCoord + 0.5D;
+        double d2 = (double)this.zCoord + 0.5D;
+
         if(this.going == true){
 
             //when egg timer (time it was added + 10) is the same as world time...
             if(eggTimers == worldObj.getWorldTime()){
                 //set the timer back to one
-                eggTimers = 1;
+                eggTimers = hatchTime;
+
                 //pop out a chick
                 if (!worldObj.isRemote) {
-                    spawnCreature(worldObj, this.xCoord, this.yCoord + 1D, this.zCoord);
-                }
-                 // if(worldObj.isRemote){
-                 //   this.playSound("mob.chicken.step", 0.15F, 1.0F);
-                 //}
+                    spawnCreature(this.xCoord, this.yCoord + 1D, this.zCoord);
+
+                    //play a pop!
+                    this.worldObj.playSoundEffect(this.xCoord, this.yCoord + 1D, this.zCoord , "random.pop", 0.2F, (0.5F * 0.7F + 1.0F) * 2.0F);
+
+                    // this.worldObj.playSound(0.5D , "random.pop", 0.2F, ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
+                     }
 
                 //turn incubator off
                 floopOff();//should turn off flames after spawning a chick
@@ -136,14 +144,18 @@ public class CPIncubatorTileEntity extends TileEntity {
     }
 
 
+    private void placeEgg(){
 
-    private Entity spawnCreature(World world, double x, double y, double z)
+    }
+
+
+    private Entity spawnCreature(double x, double y, double z)
     {
         int iAge = -12000;
-        CPEntityChook chook = new CPEntityChook(world);
+        CPEntityChook chook = new CPEntityChook(worldObj);
         chook.setPosition(x, y, z);
         chook.setGrowingAge(iAge);
-        world.spawnEntityInWorld(chook);
+        worldObj.spawnEntityInWorld(chook);
         return chook;
     }
 

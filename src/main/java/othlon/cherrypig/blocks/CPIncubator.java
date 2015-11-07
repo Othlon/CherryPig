@@ -27,7 +27,6 @@ public class CPIncubator extends BlockContainer {
         super(Material.rock);
         this.setHarvestLevel("pickaxe", 0);
         this.setBlockTextureName("cherrypig:iqon_incubator");
-
         this.setBlockName("incubator");
         this.setCreativeTab(CherryPig.tabCherryPig);
     }
@@ -35,8 +34,6 @@ public class CPIncubator extends BlockContainer {
 
     @Override
     public TileEntity createNewTileEntity(World world, int i){return new CPIncubatorTileEntity();}
-
-
 
 
     @Override
@@ -139,6 +136,7 @@ public class CPIncubator extends BlockContainer {
             }
         }
     }
+
 
     @Override
     public int getRenderType(){return -1;}
