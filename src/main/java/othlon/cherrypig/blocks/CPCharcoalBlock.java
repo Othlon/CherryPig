@@ -19,7 +19,7 @@ public class CPCharcoalBlock extends Block {
         this.setHardness(5.0F);
         this.setResistance(10.0F);
         this.setStepSound(soundTypePiston);
-        this.burn
+
         this.setBlockName("charcoalblock");
         this.setCreativeTab(CherryPig.tabCherryPig);
     }
