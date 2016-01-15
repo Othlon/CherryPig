@@ -3,7 +3,6 @@ package othlon.cherrypig.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 import othlon.cherrypig.CherryPig;
 
@@ -20,7 +19,7 @@ public class CPCharcoalBlock extends Block {
         this.setHardness(5.0F);
         this.setResistance(10.0F);
         this.setStepSound(soundTypePiston);
-
+        this.burn
         this.setBlockName("charcoalblock");
         this.setCreativeTab(CherryPig.tabCherryPig);
     }
