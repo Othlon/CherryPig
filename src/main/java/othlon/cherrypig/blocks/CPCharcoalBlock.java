@@ -14,12 +14,11 @@ public class CPCharcoalBlock extends Block {
     IIcon face;
 
     public CPCharcoalBlock(){
-        super(Material.rock);
 
+        super(Material.rock);
         this.setHardness(5.0F);
         this.setResistance(10.0F);
         this.setStepSound(soundTypePiston);
-
         this.setBlockName("charcoalblock");
         this.setCreativeTab(CherryPig.tabCherryPig);
     }
