@@ -17,7 +17,7 @@ public class ClientTools {
 
     /**
      * A big "Thank you!" to AtomicBlom and Rorax for helping me figure this one out =P
-     */
+
     public static void renderStaticWavefrontModel(TileEntity tile, WavefrontObject model, Tessellator tes, Matrix4 translationMatrix, Matrix4 rotationMatrix, int offsetLighting, boolean invertFaces, String... renderedParts)
     {
         if(tile.getWorldObj()!=null)
@@ -107,14 +107,14 @@ public class ClientTools {
                     }
                 }
         }
-    }
+    } */
 
-
+/*
     public static WavefrontObject getModel(String path)
     {
         ResourceLocation rl = resourceMap.containsKey(path) ? resourceMap.get(path) : new ResourceLocation(path);
         if(!resourceMap.containsKey(path))
             resourceMap.put(path, rl);
         return (WavefrontObject) AdvancedModelLoader.loadModel(rl);
-    }
+    }*/
 }

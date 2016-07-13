@@ -20,12 +20,9 @@ public class CPBlocks {
     public static CPCherrySlab    cherryDoubleSlab = new CPCherrySlab(true , Material.wood);
     public static CPCherryStairs  cherryStairs;//declaired below just before registration
 
-    public static CPNest          nest            = new CPNest();
-    public static CPFertileEgg    egg             = new CPFertileEgg();
     public static CPCharcoalBlock charchoalBlack  = new CPCharcoalBlock();
     public static CPFlintBlock    flintBlack      = new CPFlintBlock();
 
-    public static CPIncubator     incubator       = new CPIncubator();
 
 
     public static void doTheBlockThing(){
@@ -53,16 +50,12 @@ public class CPBlocks {
         GameRegistry.registerBlock(cherryStairs,"cherryStairs");
         OreDictionary.registerOre ("stairWood",   cherryStairs);
 
-        GameRegistry.registerBlock(nest,"nest");
-        GameRegistry.registerBlock(egg,  "egg");
-
         GameRegistry.registerBlock(charchoalBlack, "Charcoal Block");
         OreDictionary.registerOre ("blockCharcoal", charchoalBlack);
 
         GameRegistry.registerBlock(flintBlack, "Flint Block");
         OreDictionary.registerOre ("blockFlint", flintBlack);
 
-        GameRegistry.registerBlock(incubator,"incubator");
 
     }
 }

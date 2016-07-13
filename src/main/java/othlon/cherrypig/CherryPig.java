@@ -21,11 +21,17 @@ import othlon.cherrypig.render.CPPiggyRender;
 import othlon.cherrypig.tileentities.CPTileEntites;
 import othlon.cherrypig.worldgen.CPTreeWorldGen;
 
-@Mod(modid = "cherrypig", name = "CherryPig", version = CherryPig.VERSION)
+@Mod(modid = CherryPig.MODID, name = CherryPig.NAME, version = CherryPig.VERSION)
 public class CherryPig {
 
 
     public static final String VERSION = "1.4.2";
+    public static final String MODID   = "cherrypig";
+    public static final String NAME    = "CherryPig";
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 
     @Mod.Instance
     public static CherryPig instance;

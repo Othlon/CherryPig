@@ -14,24 +14,17 @@ public class CPCookBook {
     public static void cookfood(){
 
         //animal food
-        ItemStack stackChickenFeed = new ItemStack(CPItem.chickenfeed, 1, 0);
+
         //spawn items
-        ItemStack stackPips  = new ItemStack(CPItem.cherryPip, 1, 0);
+        ItemStack stackPips  = new ItemStack(CPItem.cherryPip,   1, 0);
         //people foood
         ItemStack stackFruit = new ItemStack(CPItem.cherryFruit, 1, 0);
-        ItemStack stackPie   = new ItemStack(CPItem.cherryPie, 1, 0);
+        ItemStack stackPie   = new ItemStack(CPItem.cherryPie,   1, 0);
         //vanilla stacks
         ItemStack stackSugar      = new ItemStack(Items.sugar, 1, 0);
         ItemStack stackEgg        = new ItemStack(Items.egg,   1, 0);
         ItemStack stackWheat      = new ItemStack(Items.wheat, 1, 0);
-        ItemStack stackSeeds      = new ItemStack(Items.wheat_seeds,   1, 0);
-        ItemStack stackSeedsPump  = new ItemStack(Items.pumpkin_seeds, 1, 0);
-        ItemStack stackSeedsMelon = new ItemStack(Items.melon_seeds,   1, 0);
 
-
-        //making chicken feed
-        GameRegistry.addShapelessRecipe(stackChickenFeed,
-                stackSeeds,stackSeedsPump, stackSeedsMelon);
 
         //making pips
         GameRegistry.addShapelessRecipe(stackPips,
@@ -59,17 +52,10 @@ public class CPCookBook {
         ));
         /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
         ItemStack stackLog       = new ItemStack(CPBlocks.cherryLog,1,0);
-        ItemStack stackSpruce    = new ItemStack(Blocks.planks, 1, 4);
+        ItemStack stackPlanks    = new ItemStack(CPBlocks.cherryPlanks, 4,0);
 
-        GameRegistry.addShapelessRecipe(stackSpruce, stackLog);
-        /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-        ItemStack stackHay      = new ItemStack(Blocks.hay_block, 1, 0);
-        ItemStack stackNest     = new ItemStack(CPBlocks.nest, 1, 0);
+        GameRegistry.addShapelessRecipe(stackPlanks, stackLog);
 
-        GameRegistry.addShapedRecipe(stackNest,
-                "x x",
-                "xxx",
-                'x', stackHay);
 
         /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
         ItemStack stackCharcoalBlock = new ItemStack(CPBlocks.charchoalBlack, 1, 0);

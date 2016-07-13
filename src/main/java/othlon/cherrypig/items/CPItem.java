@@ -12,19 +12,18 @@ public class CPItem {
     public static Item cherryPip;
     public static Item cherryFruit;
     public static Item cherryPie;
-    public static Item fertileegg;
-    public static Item chickenfeed;
+    public static Item spawnEgg;
 
 
     public static void doTheItemThing(){
         cherryPip = new CPCherryPip();
         GameRegistry.registerItem(cherryPip, "cherryPip");
 
-        chickenfeed = new CPChickenFeed();
-        GameRegistry.registerItem(chickenfeed, "chickenFeed");
+        spawnEgg = new CPSpawnEgg("CherryPig", 0x990000, 0x669900)
+        .setUnlocalizedName("spawn egg"+"CherryPig".toLowerCase())
+        .setTextureName("cherrypig:spawn egg");
+        GameRegistry.registerItem(spawnEgg, "spawnEgg"+"CherryPig");
 
-        fertileegg = new CPFertileEggItem();
-        GameRegistry.registerItem(fertileegg, "fertileegg");
 
         cherryFruit = new CPFood(1,true, 0.2F,  "cherryfruit")
                             .setUnlocalizedName("cherryfruit");
