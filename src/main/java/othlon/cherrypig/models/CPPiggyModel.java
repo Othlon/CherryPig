@@ -74,38 +74,47 @@ public class CPPiggyModel extends ModelBase {
         Body.setTextureSize( 64, 32 );
         Body.addBox( -6F, -4F, -4F, 8, 8, 8);
         Body.setRotationPoint( 0F, 19F, -3.992621E-06F );
+
         BackRightTrotter = new ModelRenderer( this, 4, 14 );
         BackRightTrotter.setTextureSize( 64, 32 );
         BackRightTrotter.addBox( -0.5F, -2F, -0.5F, 1, 4, 1);
         BackRightTrotter.setRotationPoint( -5F, 22F, 3F );
+
         FrontRightTrotter = new ModelRenderer( this, 0, 14 );
         FrontRightTrotter.setTextureSize( 64, 32 );
         FrontRightTrotter.addBox( -0.5F, -2F, -0.5F, 1, 4, 1);
         FrontRightTrotter.setRotationPoint( -5F, 22F, -3F );
+
         BackLeftTrotter = new ModelRenderer( this, 0, 19 );
         BackLeftTrotter.setTextureSize( 64, 32 );
         BackLeftTrotter.addBox( -0.5F, -2F, -0.5F, 1, 4, 1);
         BackLeftTrotter.setRotationPoint( 1F, 22F, 3F );
+
         FrontLeftTrotter = new ModelRenderer( this, 4, 19 );
         FrontLeftTrotter.setTextureSize( 64, 32 );
         FrontLeftTrotter.addBox( -0.5F, -2F, -0.5F, 1, 4, 1);
         FrontLeftTrotter.setRotationPoint( 1F, 22F, -3.000004F );
+
         Tail = new ModelRenderer( this, 24, 16 );
         Tail.setTextureSize( 64, 32 );
         Tail.addBox( 0F, -4F, 0F, 0, 4, 4);
         Tail.setRotationPoint( -2F, 21F, 3.999996F );
+
         SubFaceFront = new ModelRenderer( this, 0, 0 );
         SubFaceFront.setTextureSize( 64, 32 );
         SubFaceFront.addBox( -3.5F, -6F, -4.5F, 7, 6, 7);
         SubFaceFront.setRotationPoint( -2F, 22F, -2.000004F );
+
         Snout = new ModelRenderer( this, 24, 14 );
         Snout.setTextureSize( 64, 32 );
         Snout.addBox( -2F, -1.5F, -1.5F, 4, 3, 3);
         Snout.setRotationPoint( -2F, 21.04509F, -6.000004F );
+
         LeftEar = new ModelRenderer( this, 32, 24 );
         LeftEar.setTextureSize( 64, 32 );
         LeftEar.addBox( -0.5F, -0.5F, -1.5F, 1, 5, 3);
         LeftEar.setRotationPoint( 1.522447F, 16.49154F, -4.93504F );
+
         RightEar = new ModelRenderer( this, 32, 24 );
         RightEar.setTextureSize( 64, 32 );
         RightEar.addBox( -0.5F, -0.5F, -1.5F, 1, 5, 3);

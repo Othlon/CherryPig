@@ -61,8 +61,9 @@ public class CPEntityPiggy extends EntityPig{
     {
         super.onLivingUpdate();
         this.field_70888_h = this.field_70886_e;
-        this.field_70884_g = this.destPos;
+        this.field_70884_g = this.destPos;                                  //what are these int exactly?
         this.destPos = (float)((double)this.destPos + (double)(this.onGround ? -1 : 4) * 0.3D);
+
 
         if (this.destPos < 0.0F)
         {
