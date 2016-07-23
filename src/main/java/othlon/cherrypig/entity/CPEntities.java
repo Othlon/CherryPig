@@ -1,9 +1,6 @@
 package othlon.cherrypig.entity;
 
 import cpw.mods.fml.common.registry.EntityRegistry;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityList;
-import net.minecraft.entity.IEntityLivingData;
 import othlon.cherrypig.CherryPig;
 
 /**
@@ -23,8 +20,8 @@ public class CPEntities {
 
         //registrer spawn egg
        // EntityList.IDtoClassMapping.put(entityID, CherryPig.instance);
-        EntityList.classToStringMapping.put(entityID, "CherryPig");
-        EntityList.entityEggs.put(entityID, new EntityList.EntityEggInfo(entityID, mainColour, subColour));
+       // EntityList.classToStringMapping.put(entityID, "CherryPig");
+        //EntityList.entityEggs.put(entityID, new EntityList.EntityEggInfo(entityID, mainColour, subColour));
 
 
 

@@ -21,7 +21,7 @@ public class CPItem {
 
         spawnEgg = new CPSpawnEgg("CherryPig", 0x990000, 0x669900)
         .setUnlocalizedName("spawn egg"+"CherryPig".toLowerCase())
-        .setTextureName("cherrypig:spawn egg");
+        .setTextureName("cherrypig:spawn_egg");
         GameRegistry.registerItem(spawnEgg, "spawnEgg"+"CherryPig");
 
 

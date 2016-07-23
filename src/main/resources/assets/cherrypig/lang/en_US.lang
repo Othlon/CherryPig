@@ -1,8 +1,6 @@
 item.cherrypip.name=Cherry Pip
 item.cherryfruit.name=Cherry Fruit
 item.cherrypie.name=Cherry Pie
-item.chickenfeed.name=Chicken Feed
-item.fertileegg.name=Fertile Egg
 
 tile.cherrylog.name=Cherrywood Log
 tile.cherryleaf.name=Cherrywood Leaves
@@ -10,15 +8,8 @@ tile.cherrysapling.name=Cherrywood Sapling
 tile.cherrywoodplank.name=Cherrywood Plank
 tile.cherrywoodplankslab.name=Cherrywood Slab
 tile.cherrywoodstairs.name=Cherrywood Stairs
-tile.fertileegg.name=Fertile Egg Block
-tile.nest.name=Nest
-tile.incubator.name=Incubator
-tile.charcoalblock.name=Charcoal Storage Block
-tile.flintblock.name=Flint Storage Block
-
 
 
 entity.CherryPig.CherryPig.name=CherryPig
-entity.CherryPig.Chook.name=Chook
 
-itemGroup.CherryPigTab=CherryPig Farm
+itemGroup.CherryPigTab=CherryPig

@@ -11,15 +11,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.Facing;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import othlon.cherrypig.CherryPig;
-import othlon.cherrypig.entity.CPEntities;
-import othlon.cherrypig.entity.CPEntityPiggy;
 
 import java.util.List;
 
@@ -47,7 +44,7 @@ public class CPSpawnEgg extends ItemMonsterPlacer {
     {
         setHasSubtypes(false);
         maxStackSize = 64;
-        setCreativeTab(CreativeTabs.tabMisc);
+        this.setCreativeTab(CreativeTabs.tabMisc);
         setEntityToSpawnName(parEntityToSpawnName);
         colorBase = parPrimaryColor;
         colorSpots = parSecondaryColor;
