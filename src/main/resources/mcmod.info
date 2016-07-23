@@ -2,13 +2,13 @@
 {
   "modid": "cherrypig",
   "name": "CherryPig",
-  "description": "Dem Piggies",
-  "version": " alpha",
+  "description": "Dem Piggies of teh cherry variety! Now coming to a world near you.",
+  "version": "1.5",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
   "authorList": ["Othlon"],
-  "credits": "anyone who helped me out <3",
+  "credits": "everyone who helped me out <3",
   "logoFile": "/bigPig.png",
   "screenshots": [],
   "dependencies": []
