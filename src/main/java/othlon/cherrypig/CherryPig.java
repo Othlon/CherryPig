@@ -11,8 +11,9 @@ import othlon.cherrypig.entity.CPEntities;
 import othlon.cherrypig.helpers.CPCreativeTab;
 import othlon.cherrypig.items.CPItem;
 import othlon.cherrypig.proxies.CommonProxy;
-import othlon.cherrypig.tileentities.CPTileEntites;
 import othlon.cherrypig.worldgen.CPTreeWorldGen;
+//import othlon.cherrypig.tileentities.CPTileEntites;
+//import othlon.cherrypig.worldgen.CPTreeWorldGen;
 
 @Mod(modid = CherryPig.MODID, name = CherryPig.NAME, version = CherryPig.VERSION)
 public class CherryPig {
@@ -46,17 +47,18 @@ public class CherryPig {
         CPItem.doTheItemThing();
         proxy.registerRenderers();
         CPEntities.doTheEnitityThing();
-        CPTileEntites.doTheTileEntityThings();
+        //CPTileEntites.doTheTileEntityThings();
         CPCookBook.cookfood();
         CPCookBook.cookblocks();
         GameRegistry.registerFuelHandler( new CPFuelHandler() );
 
+        Sounds.registerSounds();
 
     }//end pre init
 
-    public static CPTreeWorldGen trees;
+    //public static CPTreeWorldGen trees;
     @Mod.EventHandler
     public void init(FMLInitializationEvent event){
-        GameRegistry.registerWorldGenerator(trees = new CPTreeWorldGen(), 20);
+        GameRegistry.registerWorldGenerator(new CPTreeWorldGen(), 20);
     }
 }

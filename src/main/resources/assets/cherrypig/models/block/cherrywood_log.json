@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "cherrypig:blocks/cherrypig_treelog",
+        "side": "cherrypig:blocks/cherrypig_treebark"
+    }
+}

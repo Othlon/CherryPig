@@ -16,25 +16,20 @@ public class CPItem {
 
 
     public static void doTheItemThing(){
-        cherryPip = new CPCherryPip();
-        GameRegistry.registerItem(cherryPip, "cherryPip");
+        cherryPip = new CPCherryPip()
+                .setRegistryName("cherrypip");
+        GameRegistry.register(cherryPip);
 
-        spawnEgg = new CPSpawnEgg("CherryPig", 0x990000, 0x669900)
-        .setUnlocalizedName("spawn egg"+"CherryPig".toLowerCase())
-        .setTextureName("cherrypig:spawn_egg");
-        GameRegistry.registerItem(spawnEgg, "spawnEgg"+"CherryPig");
-
-
-        cherryFruit = new CPFood(1,true, 0.2F,  "cherryfruit")
-                            .setUnlocalizedName("cherryfruit");
-        GameRegistry.registerItem(cherryFruit,  "cherryFruit");
+        cherryFruit = new CPFood(1,true, 0.2F)
+                .setRegistryName("cherryfruit");
+        GameRegistry.register(cherryFruit);
         OreDictionary.registerOre("cropCherry", cherryFruit);
         OreDictionary.registerOre("listAllfruit", cherryFruit);
         OreDictionary.registerOre("foodCherry", cherryFruit);
 
 
-        cherryPie = new CPFood(4,true, 2F,  "cherrypie")
-                        .setUnlocalizedName("cherrypie");
-        GameRegistry.registerItem(cherryPie,"cherrypie");
+        cherryPie = new CPFood(4,true, 2F)
+                .setRegistryName("cherrypie");
+        GameRegistry.register(cherryPie);
     }
 }

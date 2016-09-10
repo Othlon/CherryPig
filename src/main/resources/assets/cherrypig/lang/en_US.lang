@@ -1,15 +1,17 @@
-item.cherrypip.name=Cherry Pip
-item.cherryfruit.name=Cherry Fruit
-item.cherrypie.name=Cherry Pie
+item.cherrypig:cherrypip.name=Cherry Pip
+item.cherrypig:cherryfruit.name=Cherry Fruit
+item.cherrypig:cherrypie.name=Cherry Pie
 
-tile.cherrylog.name=Cherrywood Log
-tile.cherryleaf.name=Cherrywood Leaves
-tile.cherrysapling.name=Cherrywood Sapling
-tile.cherrywoodplank.name=Cherrywood Plank
-tile.cherrywoodplankslab.name=Cherrywood Slab
-tile.cherrywoodstairs.name=Cherrywood Stairs
+tile.cherrypig:cherrylog.name=Cherrywood Log
+tile.cherrypig:cherryleaf.name=Cherrywood Leaves
+tile.cherrypig:cherrysapling.name=Cherrywood Sapling
+tile.cherrypig:cherrywoodplank.name=Cherrywood Plank
+tile.cherrypig:cherrywoodplankslab.name=Cherrywood Slab
+tile.cherrypig:cherrywoodstairs.name=Cherrywood Stairs
+tile.cherrypig:flintblock.name=Flint Block
+tile.cherrypig:charcoalblock.name=Charcoal Block
 
 
-entity.CherryPig.CherryPig.name=CherryPig
+entity.cherrypig.CherryPig.name=CherryPig
 
 itemGroup.CherryPigTab=CherryPig

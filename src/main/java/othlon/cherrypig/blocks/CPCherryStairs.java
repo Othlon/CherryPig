@@ -2,6 +2,7 @@ package othlon.cherrypig.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
+import net.minecraft.block.state.IBlockState;
 import othlon.cherrypig.CherryPig;
 
 /**
@@ -9,12 +10,17 @@ import othlon.cherrypig.CherryPig;
  */
 public class CPCherryStairs extends BlockStairs {
 
-    public CPCherryStairs(Block block, int num){
-        super(block, num);
+    public CPCherryStairs(IBlockState block){
+        super(block);
         this.setHardness(1.5F);
-        this.setBlockName("cherrywoodstairs");
         this.setCreativeTab(CherryPig.tabCherryPig);
         this.useNeighborBrightness = true;
 
+    }
+
+    @Override
+    public String getUnlocalizedName()
+    {
+        return "tile." + getRegistryName();
     }
 }

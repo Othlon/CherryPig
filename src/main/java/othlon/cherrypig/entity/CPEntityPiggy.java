@@ -6,6 +6,7 @@ import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import othlon.cherrypig.Sounds;
 import othlon.cherrypig.items.CPItem;
 
 /**
@@ -29,11 +30,11 @@ public class CPEntityPiggy extends EntityPig{
     {
         super(world);
         this.setSize(0.6F, 0.6F);
-        this.getNavigator().setAvoidsWater(true);
+        //this.getNavigator().setAvoidsWater(true);
         this.timeUntilNextEgg = this.rand.nextInt(6000) + 6000;
         this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(2, new EntityAILeapAtTarget(this, 0.4F));
-        this.tasks.addTask(3, new EntityAIAttackOnCollide(this, 1.0D, true));
+        //this.tasks.addTask(3, new EntityAIAttackOnCollide(this, 1.0D, true));
         this.tasks.addTask(4, new EntityAIWander(this, 1.0D));
         this.tasks.addTask(4, new EntityAITempt(this, 1.2D, CPItem.cherryFruit, false));
         this.tasks.addTask(5, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
@@ -83,7 +84,7 @@ public class CPEntityPiggy extends EntityPig{
 
         if (!this.worldObj.isRemote && !this.isChild() && !this.func_152116_bZ() && --this.timeUntilNextEgg <= 0)
         {
-            this.playSound("mob.pig.say", 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
+            this.playSound(Sounds.pigTalk, 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
             this.dropItem(CPItem.cherryFruit, 1);
             this.timeUntilNextEgg = this.rand.nextInt(6000) + 6000;
         }

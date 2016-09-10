@@ -1,7 +1,9 @@
 package othlon.cherrypig.worldgen;
 
 import java.util.Random;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.IChunkGenerator;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
@@ -19,11 +21,12 @@ public class CPTreeWorldGen implements IWorldGenerator
     public static boolean retrogen;
 
     @Override
-    public void generate (Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider)
+    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
     {
         int xSpawn, ySpawn, zSpawn;
         int xPos = chunkX * 16 + 8, zPos = chunkZ * 16 + 8;
-        String biomeName = world.getWorldChunkManager().getBiomeGenAt(xPos, zPos).biomeName;
+
+        String biomeName = world.getBiomeForCoordsBody(new BlockPos(xPos, 64, zPos)).getBiomeName();;
 
         if (biomeName == null) {
             return;
@@ -37,7 +40,7 @@ public class CPTreeWorldGen implements IWorldGenerator
                     xSpawn = xPos + random.nextInt(16);
                     ySpawn = random.nextInt(300) + 64;
                     zSpawn = zPos + random.nextInt(16);
-                    genCherryTree.generate(world, random, xSpawn, ySpawn, zSpawn);
+                    genCherryTree.generate(world, random, new BlockPos(xSpawn, ySpawn, zSpawn));
                 }
 
 

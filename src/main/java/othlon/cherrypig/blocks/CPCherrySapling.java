@@ -1,101 +1,89 @@
 package othlon.cherrypig.blocks;
 
-import net.minecraft.block.Block;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockSapling;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.event.terraingen.TerrainGen;
 import othlon.cherrypig.CherryPig;
 import othlon.cherrypig.worldgen.CPCherryTreeGen;
-
 import java.util.List;
 import java.util.Random;
 
 public class CPCherrySapling extends BlockSapling {
 
-    private IIcon texture;
-
     public CPCherrySapling() {
-        float f = 0.4F;
-        setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
+        //float f = 0.4F;
+        //setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
         this.setHardness(0.0F);
-        this.setStepSound(Block.soundTypeGrass);
+        this.setSoundType(SoundType.PLANT);
         this.setCreativeTab(CherryPig.tabCherryPig);
-        this.setBlockName("cherrysapling");
 
+        this.setDefaultState(this.blockState.getBaseState().withProperty(STAGE, Integer.valueOf(0)));
     }
 
     @Override
-    public boolean canBlockStay(World world, int x, int y, int z)
+    public String getUnlocalizedName()
     {
-        return isValidPosition(world, x, y, z, -1);
+        return "tile." + getRegistryName();
     }
 
     @Override
-    public void updateTick( World world, int x, int y, int z, Random random){
-        if( !world.isRemote){
-            if( world.getBlockLightValue(x, y + 1, z) >= 9 && random.nextInt(7) == 0){
-                this.func_149878_d(world, x, y, z, random);
-            }
+    public void generateTree(World worldIn, BlockPos pos, IBlockState state, Random rand)
+    {
+        if (!TerrainGen.saplingGrowTree(worldIn, rand, pos)) return;
+        WorldGenerator worldgenerator;// = (WorldGenerator)(rand.nextInt(10) == 0 ? new WorldGenBigTree(true) : new WorldGenTrees(true));
+        int i = 0;
+        int j = 0;
+        boolean flag = false;
+
+        worldgenerator = new CPCherryTreeGen(4, false);
+
+        IBlockState iblockstate2 = Blocks.AIR.getDefaultState();
+
+        worldIn.setBlockState(pos, iblockstate2, 4);
+
+        if (!worldgenerator.generate(worldIn, rand, pos.add(i, 0, j)))
+        {
+            worldIn.setBlockState(pos, state, 4);
         }
     }
 
     @Override
-    // growTree
-    public void func_149878_d(World world,int x, int y, int z, Random rand){
-        //int meta = world.getBlockMetadata(x, y, z) ;
-        Object obj = null;
-        int rnd = rand.nextInt(8);
-
-        if(obj == null) {
-            obj = new CPCherryTreeGen(4,false);
-        }
-        if(obj != null) {
-            world.setBlockToAir(x, y, z);
-            if(!((WorldGenerator)obj).generate(world, rand, x, y, z)){
-
-           }
-        }
-
+    public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list)
+    {
+        list.add(new ItemStack(itemIn, 1, 0));
     }
 
-    //@Override
-    public boolean generate(World p_76484_1_, Random p_76484_2_, int p_76484_3_, int p_76484_4_, int p_76484_5_) {
-        return false;
+    /**
+     * Convert the given metadata into a BlockState for this Block
+     */
+    public IBlockState getStateFromMeta(int meta)
+    {
+        return this.getDefaultState().withProperty(STAGE, Integer.valueOf((meta & 8) >> 3));
     }
 
-    @Override
-    public void registerBlockIcons(IIconRegister iconRegister){
-
-        texture = iconRegister.registerIcon("cherrypig:cherrypig_sapling");
+    /**
+     * Convert the BlockState into the correct metadata value
+     */
+    public int getMetaFromState(IBlockState state)
+    {
+        int i = 0;
+        i = i | ((Integer)state.getValue(STAGE)).intValue() << 3;
+        return i;
     }
 
-    public IIcon getIcon(int side, int metadata){
-        return texture;
+    protected BlockStateContainer createBlockState()
+    {
+        return new BlockStateContainer(this, new IProperty[] {TYPE, STAGE});
     }
-    public boolean isValidPosition(World world, int x, int y, int z, int metadata) {
-
-        Block block = world.getBlock(x, y - 1, z);
-
-        return block == Blocks.GRASS || block == Blocks.DIRT || block == Blocks.FARMLAND || block.canSustainPlant(world, x, y - 1, z, EnumFacing.UP, this);
-
-    }
-
-    @Override
-    public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {
-        //noinspection unchecked
-        p_149666_3_.add(new ItemStack(p_149666_1_, 1, 0));
-    }
-
-    @Override
-    public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side) {
-        return isValidPosition(world, x, y, z, -1);
-    }
-
-
-
 }
