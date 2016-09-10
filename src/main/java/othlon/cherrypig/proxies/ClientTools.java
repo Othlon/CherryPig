@@ -1,12 +1,5 @@
 package othlon.cherrypig.proxies;
 
-import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.AdvancedModelLoader;
-import net.minecraftforge.client.model.obj.*;
-
 /**
  * Created by jen on 30/10/2015.
  */

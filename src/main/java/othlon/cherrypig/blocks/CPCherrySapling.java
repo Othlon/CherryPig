@@ -2,18 +2,13 @@ package othlon.cherrypig.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraftforge.common.util.ForgeDirection;
 import othlon.cherrypig.CherryPig;
 import othlon.cherrypig.worldgen.CPCherryTreeGen;
 
@@ -86,7 +81,7 @@ public class CPCherrySapling extends BlockSapling {
 
         Block block = world.getBlock(x, y - 1, z);
 
-        return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
+        return block == Blocks.GRASS || block == Blocks.DIRT || block == Blocks.FARMLAND || block.canSustainPlant(world, x, y - 1, z, EnumFacing.UP, this);
 
     }
 

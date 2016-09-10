@@ -1,21 +1,15 @@
 package othlon.cherrypig.worldgen;
 
-import cpw.mods.fml.common.IWorldGenerator;
 import java.util.Random;
-
-
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import othlon.cherrypig.CherryPig;
-
+import net.minecraftforge.fml.common.IWorldGenerator;
 
 /**
  * Created by Jen on 24/09/2014.
  */
-public class CPTreeWorldGen implements IWorldGenerator {
+public class CPTreeWorldGen implements IWorldGenerator
+{
 
     public CPTreeWorldGen(){
         genCherryTree = new CPCherryTreeGen(3, false);

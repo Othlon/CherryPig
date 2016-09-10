@@ -1,6 +1,5 @@
 package othlon.cherrypig.entity;
 
-import cpw.mods.fml.common.registry.EntityRegistry;
 import othlon.cherrypig.CherryPig;
 
 /**

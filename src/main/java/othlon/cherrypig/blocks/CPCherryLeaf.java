@@ -1,15 +1,13 @@
 package othlon.cherrypig.blocks;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockLeavesBase;
+import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
@@ -21,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 
-public class CPCherryLeaf extends BlockLeavesBase implements IShearable {
+public class CPCherryLeaf extends BlockLeaves implements IShearable {
 
     int[] adjacentTreeBlocks;
     private IIcon[] textures;
@@ -29,7 +27,7 @@ public class CPCherryLeaf extends BlockLeavesBase implements IShearable {
 
     public CPCherryLeaf() {
 
-        super(Material.leaves, false);
+        super(Material.LEAVES, false);
         this.setTickRandomly(true);
         this.setHardness(0.13F);
         this.setStepSound(Block.soundTypeGrass);
@@ -53,7 +51,7 @@ public class CPCherryLeaf extends BlockLeavesBase implements IShearable {
 
     @Override
     public boolean isOpaqueCube() {
-        return Blocks.leaves.isOpaqueCube();
+        return Blocks.LEAVES.isOpaqueCube();
     }
 
 

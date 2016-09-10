@@ -1,7 +1,7 @@
 package othlon.cherrypig.proxies;
 
-import cpw.mods.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import othlon.cherrypig.CPEvents;
 import othlon.cherrypig.entity.CPEntityPiggy;
 import othlon.cherrypig.render.*;

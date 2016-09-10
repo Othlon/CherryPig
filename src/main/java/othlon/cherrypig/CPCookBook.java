@@ -1,9 +1,8 @@
 package othlon.cherrypig;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import othlon.cherrypig.blocks.CPBlocks;
 import othlon.cherrypig.items.CPItem;
@@ -21,9 +20,9 @@ public class CPCookBook {
         ItemStack stackFruit = new ItemStack(CPItem.cherryFruit, 1, 0);
         ItemStack stackPie   = new ItemStack(CPItem.cherryPie,   1, 0);
         //vanilla stacks
-        ItemStack stackSugar      = new ItemStack(Items.sugar, 1, 0);
-        ItemStack stackEgg        = new ItemStack(Items.egg,   1, 0);
-        ItemStack stackWheat      = new ItemStack(Items.wheat, 1, 0);
+        ItemStack stackSugar      = new ItemStack(Items.SUGAR, 1, 0);
+        ItemStack stackEgg        = new ItemStack(Items.EGG,   1, 0);
+        ItemStack stackWheat      = new ItemStack(Items.WHEAT, 1, 0);
 
 
         //making pips
@@ -40,7 +39,7 @@ public class CPCookBook {
     public static void cookblocks(){
         /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
         ItemStack stackCPSapling  = new ItemStack(CPBlocks.cherrySapling,1,0);
-        ItemStack stackPork       = new ItemStack(Items.porkchop,1,0);
+        ItemStack stackPork       = new ItemStack(Items.PORKCHOP,1,0);
 
 
         GameRegistry.addRecipe(new ShapedOreRecipe(stackCPSapling,
@@ -59,7 +58,7 @@ public class CPCookBook {
 
         /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
         ItemStack stackCharcoalBlock = new ItemStack(CPBlocks.charchoalBlack, 1, 0);
-        ItemStack stackCharcoal      = new ItemStack(Items.coal, 1, 1);
+        ItemStack stackCharcoal      = new ItemStack(Items.COAL, 1, 1);
 
         GameRegistry.addShapedRecipe(stackCharcoalBlock,
                 "xxx",

@@ -1,18 +1,14 @@
 package othlon.cherrypig.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockWood;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 import othlon.cherrypig.CherryPig;
 
 import java.util.List;
 
-public class CPCherryPlank extends BlockWood {
+public class CPCherryPlank extends BlockPlanks {
 
     IIcon face;
 

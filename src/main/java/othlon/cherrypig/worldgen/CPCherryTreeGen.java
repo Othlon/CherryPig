@@ -3,10 +3,9 @@ package othlon.cherrypig.worldgen;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenTrees;
-import net.minecraftforge.common.util.ForgeDirection;
-import othlon.cherrypig.CherryPig;
 import othlon.cherrypig.blocks.CPBlocks;
 
 import java.util.Random;
@@ -68,7 +67,7 @@ public class CPCherryTreeGen extends WorldGenTrees {
             } else {
                 Block block2 = par1World.getBlock(par3, par4 - 1, par5);
 
-                boolean isSoil = block2.canSustainPlant(par1World, par3, par4 - 1, par5, ForgeDirection.UP, (BlockSapling) Blocks.sapling);
+                boolean isSoil = block2.canSustainPlant(par1World, par3, par4 - 1, par5, EnumFacing.UP, (BlockSapling) Blocks.SAPLING);
                 if (isSoil && par4 < 256 - l - 1) {
                     block2.onPlantGrow(par1World, par3, par4 - 1, par5, par3, par4, par5);
                     b0 = 3;
