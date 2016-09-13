@@ -1,25 +1,22 @@
 package othlon.cherrypig.items;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
-import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.Facing;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.*;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import othlon.cherrypig.CherryPig;
 
 import othlon.cherrypig.entity.CPEntityPiggy;
@@ -32,37 +29,43 @@ public class CPCherryPip extends Item {
     public CPCherryPip()
     {
         this.setHasSubtypes(true);
-        this.setUnlocalizedName("cherrypip");
         this.setCreativeTab(CherryPig.tabCherryPig);
-        this.setTextureName("cherrypig:cherrypip");
-
     }
 
     @Override
-    public String getItemStackDisplayName(ItemStack stack){
-        return "Cherry Pip";
+    public String getUnlocalizedName()
+    {
+        return "item." + getRegistryName();
     }
 
-    public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float p_77648_8_, float p_77648_9_, float p_77648_10_)
+    @Override
+    public String getUnlocalizedName(ItemStack itemStack)
+    {
+        return getUnlocalizedName();
+    }
+
+    @Override
+    public EnumActionResult onItemUse(ItemStack item, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ)
     {
         if(world.isRemote)
         {
-            return true;
+            //FIXME: Verify this is the correct behaviour
+            return EnumActionResult.PASS;
         }
         else
         {
-            Block block = world.getBlock(x, y, z);
-            x += Facing.offsetsXForSide[side];
-            y += Facing.offsetsYForSide[side];
-            z += Facing.offsetsZForSide[side];
+            final IBlockState blockState = world.getBlockState(pos);
+
+            pos = pos.offset(side);
             double d0 = 0.0D;
 
-            if(side == 1 && block.getRenderType() == 11)
+            //FIXME: Verify Othlon didn't want pigs spawning on liquids.
+            if(side == EnumFacing.UP && blockState.getRenderType() == EnumBlockRenderType.LIQUID)
             {
                 d0 = 0.5D;
             }
 
-            Entity entity = spawnCreature(world, x + 0.5D, y + d0, z + 0.5D);
+            Entity entity = spawnCreature(world, pos.getX() + 0.5D, pos.getY() + d0, pos.getZ() + 0.5D);
 
             if(entity != null)
             {
@@ -77,40 +80,38 @@ public class CPCherryPip extends Item {
                 }
             }
 
-            return true;
+            return EnumActionResult.PASS;
         }
     }
 
     @Override
-    public ItemStack onItemRightClick(ItemStack item, World world, EntityPlayer player)
+    public ActionResult<ItemStack> onItemRightClick(ItemStack item, World world, EntityPlayer player, EnumHand hand)
     {
         if(world.isRemote)
         {
-            return item;
+            return ActionResult.newResult(EnumActionResult.PASS, item);
         }
         else
         {
-            MovingObjectPosition movingobjectposition = this.getMovingObjectPositionFromPlayer(world, player, true);
+            RayTraceResult movingobjectposition = this.rayTrace(world, player, true);
 
             if(movingobjectposition == null)
             {
-                return item;
+                return ActionResult.newResult(EnumActionResult.FAIL, item);
             }
             else
             {
-                if(movingobjectposition.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK)
+                if(movingobjectposition.typeOfHit == RayTraceResult.Type.BLOCK)
                 {
-                    int i = movingobjectposition.blockX;
-                    int j = movingobjectposition.blockY;
-                    int k = movingobjectposition.blockZ;
+                    BlockPos pos = movingobjectposition.getBlockPos();
 
-                    if(!world.canMineBlock(player, i, j, k)) { return item; }
+                    if(!world.canMineBlockBody(player, pos)) { return ActionResult.newResult(EnumActionResult.FAIL, item); }
 
-                    if(!player.canPlayerEdit(i, j, k, movingobjectposition.sideHit, item)) { return item; }
+                    if(!player.canPlayerEdit(pos, movingobjectposition.sideHit, item)) { return ActionResult.newResult(EnumActionResult.FAIL, item); }
 
-                    if(world.getBlock(i, j, k) instanceof BlockLiquid)
+                    if(world.getBlockState(pos).getBlock() instanceof BlockLiquid)
                     {
-                        Entity entity = spawnCreature(world, i, j, k);
+                        Entity entity = spawnCreature(world, pos.getX(), pos.getY(), pos.getZ());
 
                         if(entity != null)
                         {
@@ -127,7 +128,7 @@ public class CPCherryPip extends Item {
                     }
                 }
 
-                return item;
+                return ActionResult.newResult(EnumActionResult.PASS, item);
             }
         }
     }
@@ -142,12 +143,13 @@ public class CPCherryPip extends Item {
         return piggeh;
     }
 
-    @Override
+    //FIXME: Remove if no longer needed
+    /*@Override
     @SideOnly(Side.CLIENT)
     public boolean requiresMultipleRenderPasses()
     {
         return true;
-    }
+    }*/
 
     @Override
     @SideOnly(Side.CLIENT)

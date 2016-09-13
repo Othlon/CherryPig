@@ -1,130 +1,157 @@
 package othlon.cherrypig.blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockPurpurSlab;
 import net.minecraft.block.BlockSlab;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.IIcon;
+import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import othlon.cherrypig.CherryPig;
 
+import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
 
 /**
  * Created by Jen on 23/11/2014.
  */
-public class CPCherrySlab extends BlockSlab {
+public abstract class CPCherrySlab extends BlockSlab {
 
-    private IIcon face;
-
-    public CPCherrySlab(boolean isDoubleSlab, Material material){
-        super(isDoubleSlab, material);
+    /*public CPCherrySlab(boolean isDoubleSlab, Material material){
+        super(material);
 
         this.setHardness(2.0F);
         this.setResistance(5.0F);
         this.useNeighborBrightness = true;
-        this.setStepSound(Block.soundTypeWood);
-        this.setBlockName("cherrywoodplankslab");
+        this.setSoundType(SoundType.WOOD);
+        //this.setBlockName("cherrywoodplankslab");
         this.setCreativeTab(CherryPig.tabCherryPig);
 
-    }
+    }*/
+    public static final PropertyEnum<BlockPurpurSlab.Variant> VARIANT = PropertyEnum.<BlockPurpurSlab.Variant>create("variant", BlockPurpurSlab.Variant.class);
 
-    @Override
-    public void registerBlockIcons(IIconRegister thisdude){
-        face = thisdude.registerIcon("cherrypig:cherrypig_planks");
-    }
-
-    @Override
-    public IIcon getIcon(int side, int meta){ return face;}
-
-    @Override
-    public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {
-        //noinspection unchecked
-        p_149666_3_.add(new ItemStack(p_149666_1_, 1, 0));
-    } //nope
-
-    @Override
-    //TODO:	   getItemDropped()
-    public Item getItemDropped(int metadata, Random random, int fortune)
+    public CPCherrySlab()
     {
-            //TODO:		getItemForBlock()
-            return Item.getItemFromBlock(this);
-    }
+        super(Material.WOOD);
+        IBlockState iblockstate = this.blockState.getBaseState();
 
-    @Override
-    //TODO:		  getFullSlabName()
-    public String func_150002_b(int meta)
-    {
-            return ("Cherrywood Slab");
-    }
-    @Override
-    //TODO:				createStackedBlock()
-    protected ItemStack createStackedBlock(int meta)
-    {
-        return new ItemStack(this, 2, meta);
+        if (!this.isDouble())
+        {
+            iblockstate = iblockstate.withProperty(HALF, BlockSlab.EnumBlockHalf.BOTTOM);
+        }
+
+        this.setDefaultState(iblockstate.withProperty(VARIANT, BlockPurpurSlab.Variant.DEFAULT));
+        this.setHardness(2.0F);
+        this.setResistance(5.0F);
+        this.setSoundType(SoundType.WOOD);
+        this.setCreativeTab(CherryPig.tabCherryPig);
     }
 
     /**
-     * Updates the blocks bounds based on its current state. Args: world, x, y, z
+     * Get the Item that this Block should drop when harvested.
      */
-    public void setBlockBoundsBasedOnState(IBlockAccess p_149719_1_, int p_149719_2_, int p_149719_3_, int p_149719_4_)
+    @Nullable
+    public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        if (this.field_150004_a)
-        {
-            this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-        }
-        else
-        {
-            boolean flag = (p_149719_1_.getBlockMetadata(p_149719_2_, p_149719_3_, p_149719_4_) & 8) != 0;
+        return Item.getItemFromBlock(Blocks.PURPUR_SLAB);
+    }
 
-            if (flag)
-            {
-                this.setBlockBounds(0.0F, 0.5F, 0.0F, 1.0F, 1.0F, 1.0F);
-            }
-            else
-            {
-                this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
-            }
-        }
+    @Deprecated
+    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state)
+    {
+        return new ItemStack(Blocks.PURPUR_SLAB);
     }
 
     /**
-     * Sets the block's bounds for rendering it as an item
+     * Convert the given metadata into a BlockState for this Block
      */
-    public void setBlockBoundsForItemRender()
+    @Deprecated
+    public IBlockState getStateFromMeta(int meta)
     {
-        if (this.field_150004_a)
+        IBlockState iblockstate = this.getDefaultState().withProperty(VARIANT, BlockPurpurSlab.Variant.DEFAULT);
+
+        if (!this.isDouble())
         {
-            this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+            iblockstate = iblockstate.withProperty(HALF, (meta & 8) == 0 ? BlockSlab.EnumBlockHalf.BOTTOM : BlockSlab.EnumBlockHalf.TOP);
         }
-        else
-        {
-            this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
-        }
+
+        return iblockstate;
     }
 
     /**
-     * Adds all intersecting collision boxes to a list. (Be sure to only add boxes to the list if they intersect the
-     * mask.) Parameters: World, X, Y, Z, mask, list, colliding entity
+     * Convert the BlockState into the correct metadata value
      */
-    public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_, int p_149743_3_, int p_149743_4_, AxisAlignedBB p_149743_5_, List p_149743_6_, Entity p_149743_7_)
+    public int getMetaFromState(IBlockState state)
     {
-        this.setBlockBoundsBasedOnState(p_149743_1_, p_149743_2_, p_149743_3_, p_149743_4_);
-        super.addCollisionBoxesToList(p_149743_1_, p_149743_2_, p_149743_3_, p_149743_4_, p_149743_5_, p_149743_6_, p_149743_7_);
+        int i = 0;
+
+        if (!this.isDouble() && state.getValue(HALF) == BlockSlab.EnumBlockHalf.TOP)
+        {
+            i |= 8;
+        }
+
+        return i;
     }
 
-    public int onBlockPlaced(World p_149660_1_, int p_149660_2_, int p_149660_3_, int p_149660_4_, int p_149660_5_, float p_149660_6_, float p_149660_7_, float p_149660_8_, int p_149660_9_)
+    protected BlockStateContainer createBlockState()
     {
-        return this.field_150004_a ? p_149660_9_ : (p_149660_5_ != 0 && (p_149660_5_ == 1 || (double)p_149660_7_ <= 0.5D) ? p_149660_9_ : p_149660_9_ | 8);
+        return this.isDouble() ? new BlockStateContainer(this, new IProperty[] {VARIANT}): new BlockStateContainer(this, new IProperty[] {HALF, VARIANT});
+    }
+
+    /**
+     * Returns the slab block name with the type associated with it
+     */
+    public String getUnlocalizedName(int meta)
+    {
+        return super.getUnlocalizedName();
+    }
+
+    public IProperty<?> getVariantProperty()
+    {
+        return VARIANT;
+    }
+
+    public Comparable<?> getTypeForItem(ItemStack stack)
+    {
+        return BlockPurpurSlab.Variant.DEFAULT;
+    }
+
+    public static class Double extends CPCherrySlab
+    {
+        public boolean isDouble()
+        {
+            return true;
+        }
+    }
+
+    public static class Half extends CPCherrySlab
+    {
+        public boolean isDouble()
+        {
+            return false;
+        }
+    }
+
+    public static enum Variant implements IStringSerializable
+    {
+        DEFAULT;
+
+        public String getName()
+        {
+            return "default";
+        }
     }
 
 }

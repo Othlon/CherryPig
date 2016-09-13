@@ -2,11 +2,12 @@ package othlon.cherrypig.worldgen;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenTrees;
-import net.minecraftforge.common.util.ForgeDirection;
-import othlon.cherrypig.CherryPig;
 import othlon.cherrypig.blocks.CPBlocks;
 
 import java.util.Random;
@@ -19,7 +20,7 @@ public class CPCherryTreeGen extends WorldGenTrees {
     public int minTreeHeight;
 
     public CPCherryTreeGen(int minTreeHeight, boolean vines) {
-        super(true, minTreeHeight, 0, 0, vines);
+        super(true, minTreeHeight, CPBlocks.cherryLog.getDefaultState(), CPBlocks.cherryLeaf.getDefaultState(), vines);
         this.minTreeHeight = minTreeHeight;
     }
 
@@ -27,8 +28,18 @@ public class CPCherryTreeGen extends WorldGenTrees {
         this(4, false);
     }
 
+
     @Override
-    public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5) {
+    public boolean generate(World par1World, Random par2Random, BlockPos position)
+    {
+        int par4 = position.getY();
+        int par3 = position.getX();
+        int par5 = position.getZ();
+
+//        return super.generate(worldIn, rand, position);
+//    }
+
+    //public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5) {
         int l = par2Random.nextInt(3) + this.minTreeHeight;
         boolean flag = true;
 
@@ -51,9 +62,9 @@ public class CPCherryTreeGen extends WorldGenTrees {
                 for (int j1 = par3 - b0; j1 <= par3 + b0 && flag; ++j1) {
                     for (k1 = par5 - b0; k1 <= par5 + b0 && flag; ++k1) {
                         if (i1 >= 0 && i1 < 256) {
-                            block = par1World.getBlock(j1, i1, k1);
+                            //block = par1World.getBlock(j1, i1, k1);
 
-                            if (!this.isReplaceable(par1World, j1, i1, k1)) {
+                            if (!this.isReplaceable(par1World, new BlockPos(j1, i1, k1))) {
                                 flag = false;
                             }
                         } else {
@@ -66,11 +77,13 @@ public class CPCherryTreeGen extends WorldGenTrees {
             if (!flag) {
                 return false;
             } else {
-                Block block2 = par1World.getBlock(par3, par4 - 1, par5);
+                BlockPos blockBeneath = position.down();
+                final IBlockState blockState1 = par1World.getBlockState(blockBeneath);
+                Block block2 = blockState1.getBlock();
 
-                boolean isSoil = block2.canSustainPlant(par1World, par3, par4 - 1, par5, ForgeDirection.UP, (BlockSapling) Blocks.sapling);
+                boolean isSoil = block2.canSustainPlant(blockState1, par1World, blockBeneath, EnumFacing.UP, (BlockSapling) Blocks.SAPLING);
                 if (isSoil && par4 < 256 - l - 1) {
-                    block2.onPlantGrow(par1World, par3, par4 - 1, par5, par3, par4, par5);
+                    block2.onPlantGrow(blockState1, par1World, blockBeneath, position);
                     b0 = 3;
                     byte b1 = 0;
                     int l1;
@@ -89,10 +102,13 @@ public class CPCherryTreeGen extends WorldGenTrees {
                                 int l2 = k2 - par5;
 
                                 if (Math.abs(j2) != l1 || Math.abs(l2) != l1 || par2Random.nextInt(2) != 0 && i3 != 0) {
-                                    Block block1 = par1World.getBlock(i2, k1, k2);
 
-                                    if (block1.isAir(par1World, i2, k1, k2) || block1.isLeaves(par1World, i2, k1, k2)) {
-                                        this.setBlockAndNotifyAdequately(par1World, i2, k1, k2, CPBlocks.cherryLeaf, 0);
+                                    final BlockPos pos = new BlockPos(i2, k1, k2);
+                                    IBlockState blockState = par1World.getBlockState(pos);
+                                    Block block1 = blockState.getBlock();
+
+                                    if (block1.isAir(blockState, par1World, pos) || block1.isLeaves(blockState, par1World, pos)) {
+                                        this.setBlockAndNotifyAdequately(par1World, pos, CPBlocks.cherryLeaf.getDefaultState());
                                     }
                                 }
                             }
@@ -100,10 +116,12 @@ public class CPCherryTreeGen extends WorldGenTrees {
                     }
 
                     for (k1 = 0; k1 < l; ++k1) {
-                        block = par1World.getBlock(par3, par4 + k1, par5);
+                        BlockPos pos = new BlockPos(par3, par4 + k1, par5);
+                        final IBlockState blockState = par1World.getBlockState(pos);
+                        block = blockState.getBlock();
 
-                        if (block.isAir(par1World, par3, par4 + k1, par5) || block.isLeaves(par1World, par3, par4 + k1, par5) || block == CPBlocks.cherrySapling) {
-                            this.setBlockAndNotifyAdequately(par1World, par3, par4 + k1, par5, CPBlocks.cherryLog, 0);
+                        if (block.isAir(blockState, par1World, pos) || block.isLeaves(blockState, par1World, pos) || block == CPBlocks.cherrySapling) {
+                            this.setBlockAndNotifyAdequately(par1World, pos, CPBlocks.cherryLog.getDefaultState());
                         }
                     }
 
@@ -118,12 +136,14 @@ public class CPCherryTreeGen extends WorldGenTrees {
     }
 
     @Override
-    protected boolean isReplaceable(World world, int x, int y, int z) {
-        Block block = world.getBlock(x, y, z);
-        return isCherryTreeBlock(block) || super.isReplaceable(world, x, y, z);
+    public boolean isReplaceable(World world, BlockPos pos)
+    {
+        IBlockState block = world.getBlockState(pos);
+        return isCherryTreeBlock(block) || super.isReplaceable(world, pos);
     }
 
-    private boolean isCherryTreeBlock(Block block) {
+    private boolean isCherryTreeBlock(IBlockState blockState) {
+        Block block = blockState.getBlock();
         return block == CPBlocks.cherryLeaf || block == CPBlocks.cherryLog || block == CPBlocks.cherrySapling;
     }
 }

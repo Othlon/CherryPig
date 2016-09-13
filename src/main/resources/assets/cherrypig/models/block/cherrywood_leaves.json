@@ -1,0 +1,6 @@
+{
+    "parent": "block/leaves",
+    "textures": {
+        "all": "cherrypig:blocks/leaves_cherrypig_fancy"
+    }
+}

@@ -1,82 +1,119 @@
 package othlon.cherrypig.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockLeavesBase;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.player.EntityPlayer;
+import com.google.common.collect.Lists;
+import net.minecraft.block.BlockLeaves;
+import net.minecraft.block.BlockPlanks;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
-import net.minecraftforge.common.util.FakePlayer;
 import othlon.cherrypig.CherryPig;
-import othlon.cherrypig.items.CPItem;
-
-import java.util.ArrayList;
+import javax.annotation.Nullable;
+import java.util.List;
 import java.util.Random;
 
 
-public class CPCherryLeaf extends BlockLeavesBase implements IShearable {
+public class CPCherryLeaf extends BlockLeaves implements IShearable {
 
-    int[] adjacentTreeBlocks;
-    private IIcon[] textures;
-    ItemStack fruit = new ItemStack(CPItem.cherryFruit,1 , 0);
+    //int[] adjacentTreeBlocks;
+    //ItemStack fruit = new ItemStack(CPItem.cherryFruit,1 , 0);
 
     public CPCherryLeaf() {
-
-        super(Material.leaves, false);
         this.setTickRandomly(true);
         this.setHardness(0.13F);
-        this.setStepSound(Block.soundTypeGrass);
+        setSoundType(SoundType.PLANT);
         this.setLightOpacity(1);
         this.setCreativeTab(CherryPig.tabCherryPig);
-        this.setBlockName("cherryleaf");
-    }
 
-    //textures
-    @Override
-    public void registerBlockIcons(IIconRegister iconRegister) {
-        textures = new IIcon[2];
-        textures[0] = iconRegister.registerIcon("cherrypig:leaves_cherrypig_fancy");
-        textures[1] = iconRegister.registerIcon("cherrypig:leaves_cherrypig_fast");
+        this.setDefaultState(this.blockState.getBaseState().withProperty(CHECK_DECAY, Boolean.valueOf(true)).withProperty(DECAYABLE, Boolean.valueOf(true)));
     }
 
     @Override
-    public IIcon getIcon(int side, int meta) {
-        return textures[(!isOpaqueCube() ? 0 : 1)];
+    public String getUnlocalizedName()
+    {
+        return "tile." + getRegistryName();
+    }
+
+    protected BlockStateContainer createBlockState()
+    {
+        return new BlockStateContainer(this, new IProperty[] {CHECK_DECAY, DECAYABLE});
     }
 
     @Override
-    public boolean isOpaqueCube() {
-        return Blocks.leaves.isOpaqueCube();
+    public boolean isOpaqueCube(IBlockState state)
+    {
+        return Blocks.LEAVES.isOpaqueCube(state);
+    }
+
+    /**
+     * Convert the given metadata into a BlockState for this Block
+     */
+    @Deprecated
+    public IBlockState getStateFromMeta(int meta)
+    {
+        return this.getDefaultState().withProperty(DECAYABLE, Boolean.valueOf((meta & 4) == 0)).withProperty(CHECK_DECAY, Boolean.valueOf((meta & 8) > 0));
+    }
+
+    /**
+     * Convert the BlockState into the correct metadata value
+     */
+    public int getMetaFromState(IBlockState state)
+    {
+        int i = 0;
+
+        if (!state.getValue(DECAYABLE).booleanValue())
+        {
+            i |= 4;
+        }
+
+        if (state.getValue(CHECK_DECAY).booleanValue())
+        {
+            i |= 8;
+        }
+
+        return i;
+    }
+
+    @Override
+    @Nullable
+    public BlockPlanks.EnumType getWoodType(int meta)
+    {
+        //Required, but the list is too restrictive, need to override getMetaFromState to work around.
+        return null;
+    }
+
+    @Override
+    public List<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune)
+    {
+        return Lists.newArrayList(new ItemStack(this, 1, 0));
     }
 
 
+    /*
     @Override
-    public boolean isShearable(ItemStack itemStack, IBlockAccess iBlockAccess, int i, int i2, int i3) {
+    public boolean isShearable(ItemStack item, IBlockAccess world, BlockPos pos)
+    {
         return false;
     }
+    */
 
+    /*
     @Override
-    public ArrayList<ItemStack> onSheared(ItemStack itemStack, IBlockAccess iBlockAccess, int i, int i2, int i3, int i4) {
-        ArrayList<ItemStack> output = new ArrayList<ItemStack>();
-        output.add(new ItemStack(this, 1, 0));
-        return output;
-    }
-
-    @Override
-    public boolean shouldSideBeRendered( IBlockAccess world, int x, int y, int z, int fortune)
+    public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side)
     {
         return true;
     }
+    */
 
+    /*
     @Override
-    public void breakBlock(World world, int x, int y, int z, Block par5, int par6)
+    public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
     {
         byte radius = 1;
         int bounds = radius + 1;
@@ -101,7 +138,9 @@ public class CPCherryLeaf extends BlockLeavesBase implements IShearable {
             }
         }
     }
+    */
 
+    /*
     @Override
     //TODO:		updateTick()
     public void updateTick(World world, int x, int y, int z, Random random)
@@ -118,8 +157,7 @@ public class CPCherryLeaf extends BlockLeavesBase implements IShearable {
                     world.setBlock(x, y, z, this, ++meta, 3);
                 }
 
-        if ((meta & 8) != 0/* && (meta & 4) == 0*/)
-        {
+        if ((meta & 8) != 0) { // && (meta & 4) == 0
             byte b0 = 4;
             int i1 = b0 + 1;
             byte b1 = 32;
@@ -222,7 +260,9 @@ public class CPCherryLeaf extends BlockLeavesBase implements IShearable {
             }
         }
     }
+    */
 
+    /*
     private void removeLeaves(World world, int x, int y, int z)
     {
         //TODO: dropBlockAsItem
@@ -230,16 +270,20 @@ public class CPCherryLeaf extends BlockLeavesBase implements IShearable {
         //TODO: setBlockToAir
         world.setBlockToAir(x, y, z);
     }
+    */
+
+    @Nullable
     @Override
-    public Item getItemDropped(int metadata, Random rand, int fortune)
+    public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
         return Item.getItemFromBlock(CPBlocks.cherrySapling);
     }
 
-   @Override
-    public void dropBlockAsItemWithChance(World world, int x, int y, int z, int metadata, float chance, int fortune){
+    /*
+    @Override
+    public void dropBlockAsItemWithChance(World world, BlockPos pos, IBlockState state, float chance, int fortune)
+    {
         if(world.isRemote)return;
-
 
         if(world.rand.nextInt(12) == 0) {
             Item item = this.getItemDropped(metadata, world.rand, fortune);
@@ -250,14 +294,12 @@ public class CPCherryLeaf extends BlockLeavesBase implements IShearable {
 
            this.dropBlockAsItem(world, x, y, z, new ItemStack(CPItem.cherryFruit, 1));
         }
+    }
+    */
 
-
-
-
-   }
-
+    /*
     @Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitVecX, float hitVecY, float hitVecZ)
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ)
     {
         int meta = world.getBlockMetadata(x, y, z);
         if ((meta & 3) == 3)
@@ -277,21 +319,18 @@ public class CPCherryLeaf extends BlockLeavesBase implements IShearable {
         else
             return false;
     }
+    */
 
+    /*
     @Override
-    public void beginLeavesDecay(World world, int x, int y, int z)
+    public void beginLeavesDecay(IBlockState state, World world, BlockPos pos)
     {
         world.setBlockMetadataWithNotify(x, y, z, world.getBlockMetadata(x, y, z) | 8, 4);
     }
+    */
 
     @Override
-    public boolean isLeaves(IBlockAccess world, int x, int y, int z)
-    {
-        return true;
-    }
-
-    @Override
-    public int damageDropped(int meta)
+    public int damageDropped(IBlockState state)
     {
         return 15;
     }

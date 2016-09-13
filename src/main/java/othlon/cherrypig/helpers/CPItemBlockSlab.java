@@ -11,8 +11,8 @@ import othlon.cherrypig.blocks.CPCherrySlab;
 public class CPItemBlockSlab extends ItemSlab {
 
 
-    public CPItemBlockSlab(Block block, CPCherrySlab singleSlab, CPCherrySlab doubleSlab, Boolean bool) {
-        super(block, singleSlab, doubleSlab, bool);
+    public CPItemBlockSlab(Block block, CPCherrySlab singleSlab, CPCherrySlab doubleSlab) {
+        super(block, singleSlab, doubleSlab);
         this.setHasSubtypes(true);
     }
 
@@ -22,7 +22,7 @@ public class CPItemBlockSlab extends ItemSlab {
         return meta & 7;
     }
 
-    @Override
+    /*@Override
     public String getUnlocalizedName(ItemStack itemStack)
     {
         //TODO:									getBlockFromItem
@@ -30,5 +30,5 @@ public class CPItemBlockSlab extends ItemSlab {
 
         //TODO:																		getFullSlabName()
         return super.getUnlocalizedName() + "." + (new StringBuilder()).append(slab.func_150002_b(itemStack.getItemDamage())).toString();
-    }
+    }*/
 }

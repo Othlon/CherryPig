@@ -3,8 +3,7 @@ package othlon.cherrypig.models;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.MathHelper;
-import othlon.cherrypig.entity.CPEntityPiggy;
+import net.minecraft.util.math.MathHelper;
 
 public class CPPiggyModel extends ModelBase {
 

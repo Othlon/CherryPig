@@ -1,0 +1,11 @@
+{
+    "sheepchiseled": {
+        "category": "neutral",
+            "sounds": [
+            {
+                "name": "cherrypig:pigTalk"
+            }
+        ],
+        "subtitle": "subtitle.cherrypig:pigTalk"
+    }
+}
