@@ -12,18 +12,18 @@ import othlon.cherrypig.helpers.CPItemBlockSlab;
 
 public class CPBlocks {
 
-    public static Block    cherryLeaf       = new CPCherryLeaf().setRegistryName("cherryleaf");
-    public static Block     cherryLog        = new CPCherryLog().setRegistryName("cherrylog");
+    public static Block    cherryLeaf    = new CPCherryLeaf().setRegistryName("cherryleaf");
+    public static Block     cherryLog    = new CPCherryLog().setRegistryName("cherrylog");
     public static Block cherrySapling    = new CPCherrySapling().setRegistryName("cherrysapling");
     public static Block cherryPlanks     = new CPCherryPlank().setRegistryName("cherrywoodplank");
 
-    public static Block cherrySingleSlab = new CPCherrySlab.Half().setRegistryName("cherrywoodslab");
+    public static Block cherrySingleSlab    = new CPCherrySlab.Half().setRegistryName("cherrywoodslab");
     public static Block    cherryDoubleSlab = new CPCherrySlab.Double().setRegistryName("cherryDoubleSlab");
 
     public static Block cherryStairs;//declaired below just before registration
 
     public static Block charchoalBlack  = new CPCharcoalBlock().setRegistryName("charcoalblock");
-    public static Block flintBlock = new CPFlintBlock().setRegistryName("flintblock");
+    public static Block flintBlock      = new CPFlintBlock().setRegistryName("flintblock");
 
 
 
