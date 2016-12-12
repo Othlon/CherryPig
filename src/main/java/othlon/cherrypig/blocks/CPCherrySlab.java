@@ -1,6 +1,5 @@
 package othlon.cherrypig.blocks;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockPurpurSlab;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.SoundType;
@@ -9,24 +8,17 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import othlon.cherrypig.CherryPig;
 
 import javax.annotation.Nullable;
-import java.util.List;
 import java.util.Random;
 
-/**
- * Created by Jen on 23/11/2014.
- */
 public abstract class CPCherrySlab extends BlockSlab {
 
     /*public CPCherrySlab(boolean isDoubleSlab, Material material){
@@ -40,6 +32,7 @@ public abstract class CPCherrySlab extends BlockSlab {
         this.setCreativeTab(CherryPig.tabCherryPig);
 
     }*/
+
     public static final PropertyEnum<BlockPurpurSlab.Variant> VARIANT = PropertyEnum.<BlockPurpurSlab.Variant>create("variant", BlockPurpurSlab.Variant.class);
 
     public CPCherrySlab()
@@ -59,7 +52,7 @@ public abstract class CPCherrySlab extends BlockSlab {
         this.setCreativeTab(CherryPig.tabCherryPig);
     }
 
-    /**
+    /*
      * Get the Item that this Block should drop when harvested.
      */
     @Nullable
@@ -74,7 +67,7 @@ public abstract class CPCherrySlab extends BlockSlab {
         return new ItemStack(Blocks.PURPUR_SLAB);
     }
 
-    /**
+    /*
      * Convert the given metadata into a BlockState for this Block
      */
     @Deprecated
@@ -90,7 +83,7 @@ public abstract class CPCherrySlab extends BlockSlab {
         return iblockstate;
     }
 
-    /**
+    /*
      * Convert the BlockState into the correct metadata value
      */
     public int getMetaFromState(IBlockState state)

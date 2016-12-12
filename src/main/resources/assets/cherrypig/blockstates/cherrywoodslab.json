@@ -2,9 +2,9 @@
   "forge_marker": 1,
    "defaults": {
        "textures" : {
-           "bottom": "cherrypig:blocks/cherry_planks",
-           "top":    "cherrypig:blocks/cherry_planks",
-           "side":   "cherrypig:blocks/cherry_planks"
+           "bottom": "cherrypig:blocks/cherrypig_planks",
+           "top":    "cherrypig:blocks/cherrypig_planks",
+           "side":   "cherrypig:blocks/cherrypig_planks"
        }
    },
 

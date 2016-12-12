@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "half=bottom": { "model": "cherrypig:half_slab_cherrywood"},
+    "half=top":    { "model": "cherrypig:upper_slab_cherrywood"}
+  }
+}
