@@ -2,7 +2,7 @@
   "type": "crafting_shapeless",
   "ingredients": [
     {
-      "tag": "cherrypig:cherry_fruit"
+      "item": "cherrypig:cherry_fruit"
     }
   ],
   "result": {
