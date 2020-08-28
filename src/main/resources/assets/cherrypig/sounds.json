@@ -3,7 +3,7 @@
         "category": "neutral",
             "sounds": [
             {
-                "name": "cherrypig:pig.talk"
+                "name": "cherrypig:pigtalk"
             }
         ],
         "subtitle": "subtitle.cherrypig:pig.talk"
