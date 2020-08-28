@@ -6,6 +6,7 @@ import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import othlon.cherrypig.client.ClientHandler;
+import othlon.cherrypig.init.CPRegistry;
 
 @Mod(CherryPig.MODID)
 public class CherryPig {

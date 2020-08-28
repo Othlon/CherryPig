@@ -1,4 +1,4 @@
-package othlon.cherrypig;
+package othlon.cherrypig.init;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.LogBlock;
@@ -17,15 +17,14 @@ import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import othlon.cherrypig.CherryPig;
 import othlon.cherrypig.blocks.CherryLeavesBlock;
 import othlon.cherrypig.blocks.CherrySaplingBlock;
 import othlon.cherrypig.entity.PiggyEntity;
-import othlon.cherrypig.helpers.CPFoods;
-import othlon.cherrypig.helpers.CherryGroups;
 import othlon.cherrypig.items.CherryPipItem;
 import othlon.cherrypig.items.CharcoalBlockItem;
 import othlon.cherrypig.items.CustomSpawnEggItem;
-import othlon.cherrypig.worldgen.CherryTree;
+import othlon.cherrypig.blocks.tree.CherryTree;
 
 import java.util.function.Supplier;
 

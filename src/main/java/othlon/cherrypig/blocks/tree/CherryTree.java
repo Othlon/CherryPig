@@ -1,4 +1,4 @@
-package othlon.cherrypig.worldgen;
+package othlon.cherrypig.blocks.tree;
 
 import net.minecraft.block.trees.Tree;
 import net.minecraft.world.gen.feature.ConfiguredFeature;

@@ -1,11 +1,9 @@
-package othlon.cherrypig.helpers;
+package othlon.cherrypig.init;
 
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import othlon.cherrypig.CPRegistry;
 import othlon.cherrypig.CherryPig;
 
 public class CherryGroups {

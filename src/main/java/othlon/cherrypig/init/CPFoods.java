@@ -1,4 +1,4 @@
-package othlon.cherrypig.helpers;
+package othlon.cherrypig.init;
 
 import net.minecraft.item.Food;
 

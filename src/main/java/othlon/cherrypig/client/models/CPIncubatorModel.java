@@ -1,4 +1,4 @@
-package othlon.cherrypig.models;
+package othlon.cherrypig.client.models;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;

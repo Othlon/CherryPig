@@ -21,7 +21,7 @@ import net.minecraft.util.math.RayTraceResult.Type;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
-import othlon.cherrypig.CPRegistry;
+import othlon.cherrypig.init.CPRegistry;
 import othlon.cherrypig.entity.PiggyEntity;
 
 import javax.annotation.Nullable;

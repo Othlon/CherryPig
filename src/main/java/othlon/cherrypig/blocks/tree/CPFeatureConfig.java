@@ -1,4 +1,4 @@
-package othlon.cherrypig.worldgen;
+package othlon.cherrypig.blocks.tree;
 
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.BlockState;
@@ -7,7 +7,7 @@ import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.foliageplacer.BlobFoliagePlacer;
 import net.minecraft.world.gen.treedecorator.BeehiveTreeDecorator;
 import net.minecraftforge.common.IPlantable;
-import othlon.cherrypig.CPRegistry;
+import othlon.cherrypig.init.CPRegistry;
 
 public class CPFeatureConfig {
     private static final BlockState CHERRY_LOG = CPRegistry.CHERRY_LOG.get().getDefaultState();
