@@ -19,7 +19,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import othlon.cherrypig.blocks.CherryLeavesBlock;
 import othlon.cherrypig.blocks.CherrySaplingBlock;
-import othlon.cherrypig.entity.CPEntityPiggy;
+import othlon.cherrypig.entity.PiggyEntity;
 import othlon.cherrypig.helpers.CPFoods;
 import othlon.cherrypig.helpers.CherryGroups;
 import othlon.cherrypig.items.CherryPipItem;
@@ -35,7 +35,7 @@ public class CPRegistry {
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES, CherryPig.MODID);
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, CherryPig.MODID);
 
-    public static final RegistryObject<EntityType<CPEntityPiggy>> CHERRY_PIG = ENTITIES.register("cherry_pig", () -> register("cherry_pig", EntityType.Builder.<CPEntityPiggy>create(CPEntityPiggy::new, EntityClassification.CREATURE).size(0.6F, 0.6F)));
+    public static final RegistryObject<EntityType<PiggyEntity>> CHERRY_PIG = ENTITIES.register("cherry_pig", () -> register("cherry_pig", EntityType.Builder.<PiggyEntity>create(PiggyEntity::new, EntityClassification.CREATURE).size(0.6F, 0.6F)));
 
     public static final RegistryObject<Block> CHERRY_LEAVES = registerBlock("cherry_leaves", () -> new CherryLeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid()), itemBuilder());
     public static final RegistryObject<Block> CHERRY_LOG = registerBlock("cherry_log", () -> new LogBlock(MaterialColor.RED, Block.Properties.create(Material.WOOD, MaterialColor.RED).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), itemBuilder());

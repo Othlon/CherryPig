@@ -1,0 +1,16 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:flint"
+    }
+  },
+  "result": {
+    "item": "cherrypig:flint_block"
+  }
+}

@@ -11,7 +11,7 @@ import othlon.cherrypig.CPRegistry;
 /**
  * Created by Jen on 2/09/2014.
  */
-public class CPEntityPiggy extends PigEntity {
+public class PiggyEntity extends PigEntity {
 
     public float field_70886_e;
     public float destPos;
@@ -23,7 +23,7 @@ public class CPEntityPiggy extends PigEntity {
     public boolean field_152118_bv;
 
 
-    public CPEntityPiggy(EntityType<? extends PigEntity> entityType, World world)
+    public PiggyEntity(EntityType<? extends PigEntity> entityType, World world)
     {
         super(entityType, world);
 
@@ -40,7 +40,7 @@ public class CPEntityPiggy extends PigEntity {
     }
 
     public PigEntity createChild(AgeableEntity p_90011_1_){
-        return new CPEntityPiggy(CPRegistry.CHERRY_PIG.get(), this.world);
+        return new PiggyEntity(CPRegistry.CHERRY_PIG.get(), this.world);
     }
 
     /**

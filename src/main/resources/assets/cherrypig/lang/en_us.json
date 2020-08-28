@@ -1,19 +1,20 @@
 {
-    "item.cherrypig:cherrypip": "Cherry Pip",
-    "item.cherrypig:cherryfruit": "Cherry Fruit",
-    "item.cherrypig:cherrypie": "Cherry Pie",
+    "item.cherrypig.cherry_pip": "Cherry Pip",
+    "item.cherrypig.cherry_fruit": "Cherry Fruit",
+    "item.cherrypig.cherry_pie": "Cherry Pie",
+    "item.cherrypig.cherry_piggy_spawn_egg": "Cherry Pig Spawn Egg",
 
-    "block.cherrypig:cherrylog": "Cherrywood Log",
-    "block.cherrypig:cherryleaf": "Cherrywood Leaves",
-    "block.cherrypig:cherrysapling": "Cherrywood Sapling",
-    "block.cherrypig:cherrywoodplank": "Cherrywood Plank",
-    "block.cherrypig:cherrywoodplankslab": "Cherrywood Slab",
-    "block.cherrypig:cherrywoodstairs": "Cherrywood Stairs",
-    "block.cherrypig:flintblock": "Flint Block",
-    "block.cherrypig:charcoalblock": "Charcoal Block",
+    "block.cherrypig.cherry_log": "Cherrywood Log",
+    "block.cherrypig.cherry_leaves": "Cherrywood Leaves",
+    "block.cherrypig.cherry_sapling": "Cherrywood Sapling",
+    "block.cherrypig.cherry_wood_plank": "Cherrywood Plank",
+    "block.cherrypig.cherry_wood_slab": "Cherrywood Slab",
+    "block.cherrypig.cherry_wood_stairs": "Cherrywood Stairs",
+    "block.cherrypig.flint_block": "Flint Block",
+    "block.cherrypig.charcoal_block": "Charcoal Block",
 
 
-    "entity.cherrypig.CherryPig": "CherryPig",
+    "entity.cherrypig.cherry_pig": "CherryPig",
 
-    "itemGroup.CherryPigTab": "CherryPig"
+    "itemGroup.cherrypig:tab": "CherryPig"
 }

@@ -6,9 +6,9 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
-import othlon.cherrypig.entity.CPEntityPiggy;
+import othlon.cherrypig.entity.PiggyEntity;
 
-public class CPPiggyModel<E extends CPEntityPiggy> extends EntityModel<E> {
+public class CPPiggyModel<E extends PiggyEntity> extends EntityModel<E> {
     //adult
     ModelRenderer Body;
     ModelRenderer BackRightTrotter;

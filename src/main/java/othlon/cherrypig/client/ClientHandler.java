@@ -1,16 +1,20 @@
 package othlon.cherrypig.client;
 
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import othlon.cherrypig.CPRegistry;
-import othlon.cherrypig.client.render.CPPiggyRender;
+import othlon.cherrypig.client.render.PiggyRenderer;
 import othlon.cherrypig.items.CustomSpawnEggItem;
 
 public class ClientHandler {
     public static void registerRenders(FMLClientSetupEvent event) {
-        RenderingRegistry.registerEntityRenderingHandler(CPRegistry.CHERRY_PIG.get(), CPPiggyRender::new);
+        RenderingRegistry.registerEntityRenderingHandler(CPRegistry.CHERRY_PIG.get(), PiggyRenderer::new);
+
+        RenderTypeLookup.setRenderLayer(CPRegistry.CHERRY_SAPLING.get(), RenderType.getCutout());;
 
         //Don't use the CHECK_DECAY or DECAYABLE properties for rendering
 //           ModelLoader.setCustomStateMapper(CPBlocks.cherryLeaf, new StateMap.Builder().ignore(SaplingBlock.STAGE, CHECK_DECAY, DECAYABLE).build());

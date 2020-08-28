@@ -22,7 +22,7 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 import othlon.cherrypig.CPRegistry;
-import othlon.cherrypig.entity.CPEntityPiggy;
+import othlon.cherrypig.entity.PiggyEntity;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -107,7 +107,7 @@ public class CherryPipItem extends Item {
 
     private Entity spawnCreature(World world, double x, double y, double z) {
         int iAge = -12000;
-        CPEntityPiggy piggeh = CPRegistry.CHERRY_PIG.get().create(world);
+        PiggyEntity piggeh = CPRegistry.CHERRY_PIG.get().create(world);
         if(piggeh != null) {
             piggeh.setPosition(x, y, z);
             piggeh.setGrowingAge(iAge);

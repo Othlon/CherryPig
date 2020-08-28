@@ -6,12 +6,10 @@ import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import othlon.cherrypig.client.ClientHandler;
-//import othlon.cherrypig.tileentities.CPTileEntites;
-//import othlon.cherrypig.worldgen.CPTreeWorldGen;
 
 @Mod(CherryPig.MODID)
 public class CherryPig {
-    public static final String MODID   = "cherrypig";
+    public static final String MODID = "cherrypig";
 
     public CherryPig() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -20,8 +18,6 @@ public class CherryPig {
         CPRegistry.ENTITIES.register(eventBus);
         CPRegistry.SOUND_EVENTS.register(eventBus);
 
-//        CPCookBook.cookfood(); TODO: Implement the recipes
-//        CPCookBook.cookblocks();
 //        CPTileEntites.doTheTileEntityThings(); There ain't any
 
         DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
