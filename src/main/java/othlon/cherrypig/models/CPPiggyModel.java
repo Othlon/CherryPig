@@ -1,12 +1,14 @@
 package othlon.cherrypig.models;
 
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.entity.Entity;
+import com.mojang.blaze3d.matrix.MatrixStack;
+import com.mojang.blaze3d.vertex.IVertexBuilder;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.model.EntityModel;
+import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
+import othlon.cherrypig.entity.CPEntityPiggy;
 
-public class CPPiggyModel extends ModelBase {
-
+public class CPPiggyModel<E extends CPEntityPiggy> extends EntityModel<E> {
     //adult
     ModelRenderer Body;
     ModelRenderer BackRightTrotter;
@@ -19,7 +21,6 @@ public class CPPiggyModel extends ModelBase {
     ModelRenderer LeftEar;
     ModelRenderer RightEar;
 
-
     //child
     ModelRenderer babybody;
     ModelRenderer babyface;
@@ -29,8 +30,12 @@ public class CPPiggyModel extends ModelBase {
     ModelRenderer BRTrotter;
     ModelRenderer babyTail;
 
-    public CPPiggyModel()
-    {
+    public CPPiggyModel() {
+        this(0.0F);
+    }
+
+    public CPPiggyModel(float scale) {
+        super(RenderType::getEntityCutoutNoCull);
         textureWidth  = 64;
         textureHeight = 32;
 /*~~~~~~~~~~~~~~~~~~~~~~~~Baby Model~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -120,44 +125,33 @@ public class CPPiggyModel extends ModelBase {
         RightEar.setRotationPoint( -5.553936F, 16.49154F, -4.93504F );
     }
 
-
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-    {
-        super.render(entity, f, f1, f2, f3, f4, f5);
-        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-       if(this.isChild){
-
-           babybody.renderWithRotation(f5);
-
-           babyface.renderWithRotation(f5);
-
-           FRTrotter.renderWithRotation(f5);
-
-           FLTrotter.renderWithRotation(f5);
-
-           BLTrotter.renderWithRotation(f5);
-
-           BRTrotter.renderWithRotation(f5);
-
-           babyTail.rotateAngleY = -1.570796F;
-           babyTail.renderWithRotation(f5);
-       }
+    @Override
+    public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+        if(this.isChild){
+            babybody.render(matrixStack, buffer, packedLight, packedOverlay);
+            babyface.render(matrixStack, buffer, packedLight, packedOverlay);
+            FRTrotter.render(matrixStack, buffer, packedLight, packedOverlay);
+            FLTrotter.render(matrixStack, buffer, packedLight, packedOverlay);
+            BLTrotter.render(matrixStack, buffer, packedLight, packedOverlay);
+            BRTrotter.render(matrixStack, buffer, packedLight, packedOverlay);
+            babyTail.rotateAngleY = -1.570796F;
+            babyTail.render(matrixStack, buffer, packedLight, packedOverlay);
+        }
         else {
+            SubFaceFront.render(matrixStack, buffer, packedLight, packedOverlay);
+            Body.render(matrixStack, buffer, packedLight, packedOverlay);
+            Snout.render(matrixStack, buffer, packedLight, packedOverlay);
+            LeftEar.render(matrixStack, buffer, packedLight, packedOverlay);
+            RightEar.render(matrixStack, buffer, packedLight, packedOverlay);
+            Tail.render(matrixStack, buffer, packedLight, packedOverlay);
 
-           SubFaceFront.render(f5);
-           Body.render(f5);
-           Snout.render(f5);
-           LeftEar.render(f5);
-           RightEar.render(f5);
-           Tail.render(f5);
+            //trotters
+            FrontLeftTrotter.render(matrixStack, buffer, packedLight, packedOverlay);
+            FrontRightTrotter.render(matrixStack, buffer, packedLight, packedOverlay);
+            BackLeftTrotter.render(matrixStack, buffer, packedLight, packedOverlay);
+            BackRightTrotter.render(matrixStack, buffer, packedLight, packedOverlay);
 
-           //trotters
-           FrontLeftTrotter.render(f5);
-           FrontRightTrotter.render(f5);
-           BackLeftTrotter.render(f5);
-           BackRightTrotter.render(f5);
-
-       }
+        }
     }
 
     private void setRotation(ModelRenderer model, float x, float y, float z)
@@ -168,23 +162,20 @@ public class CPPiggyModel extends ModelBase {
     }
 
     @Override
-    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity)
-    {
-        super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+    public void setRotationAngles(E entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         /******* BABY ANIMATION ******/
-            FRTrotter.rotateAngleX  = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
-            FLTrotter.rotateAngleX  = MathHelper.cos(f * 0.6662F + 3.14159F) * 1.4F * f1;
-            BRTrotter.rotateAngleX  = MathHelper.cos(f * 0.6662F + 3.14159F) * 1.4F * f1;
-            BLTrotter.rotateAngleX  = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
-            babyTail.rotationPointX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
+        FRTrotter.rotateAngleX  = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+        FLTrotter.rotateAngleX  = MathHelper.cos(limbSwing * 0.6662F + 3.14159F) * 1.4F * limbSwingAmount;
+        BRTrotter.rotateAngleX  = MathHelper.cos(limbSwing * 0.6662F + 3.14159F) * 1.4F * limbSwingAmount;
+        BLTrotter.rotateAngleX  = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+        babyTail.rotationPointX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 
 
         /****** ADULT ANIMATION ******/
-            FrontRightTrotter.rotateAngleX  = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
-            FrontLeftTrotter.rotateAngleX   = MathHelper.cos(f * 0.6662F + 3.14159F) * 1.4F * f1;
-            BackRightTrotter.rotateAngleX   = MathHelper.cos(f * 0.6662F + 3.14159F) * 1.4F * f1;
-            BackLeftTrotter.rotateAngleX    = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
-            Tail.rotationPointX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
+        FrontRightTrotter.rotateAngleX  = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+        FrontLeftTrotter.rotateAngleX   = MathHelper.cos(limbSwing * 0.6662F + 3.14159F) * 1.4F * limbSwingAmount;
+        BackRightTrotter.rotateAngleX   = MathHelper.cos(limbSwing * 0.6662F + 3.14159F) * 1.4F * limbSwingAmount;
+        BackLeftTrotter.rotateAngleX    = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+        Tail.rotationPointX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
     }
-
 }

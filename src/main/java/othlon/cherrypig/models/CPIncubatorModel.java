@@ -1,13 +1,15 @@
 package othlon.cherrypig.models;
 
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelRenderer;
+import com.mojang.blaze3d.matrix.MatrixStack;
+import com.mojang.blaze3d.vertex.IVertexBuilder;
+import net.minecraft.client.renderer.entity.model.EntityModel;
+import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 /**
  * Created by Jen on 23/01/2015.
  */
-public class CPIncubatorModel extends ModelBase {
+public class CPIncubatorModel<E extends Entity> extends EntityModel<E> {
 
     ModelRenderer Base;
     ModelRenderer nestBase;
@@ -16,14 +18,13 @@ public class CPIncubatorModel extends ModelBase {
     ModelRenderer nestWallC;
     ModelRenderer nestWallD;
 
-
     float nestWallsPointY = -6F;
     public CPIncubatorModel()
     {
         this( 0.0f );
     }
 
-    public CPIncubatorModel( float par1 )
+    public CPIncubatorModel(float scale )
     {
         Base = new ModelRenderer( this, 0, 0 );
         Base.setTextureSize( 64, 64 );
@@ -54,68 +55,73 @@ public class CPIncubatorModel extends ModelBase {
         nestWallD.setRotationPoint( 6.5F, nestWallsPointY, 0F );
     }
 
-    public void render(Entity par1Entity, float par2, float par3, float par4, float par5, float par6, float par7)
-    {
+    @Override
+    public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
         Base.rotateAngleX = 0F;
         Base.rotateAngleY = 0F;
         Base.rotateAngleZ = 0F;
-        Base.renderWithRotation(par7);
+        Base.render(matrixStack, buffer, packedLight, packedOverlay);
 
         nestBase.rotateAngleX = 0F;
         nestBase.rotateAngleY = 0F;
         nestBase.rotateAngleZ = 0F;
-        nestBase.renderWithRotation(par7);
+        nestBase.render(matrixStack, buffer, packedLight, packedOverlay);
 
         nestWallA.rotateAngleX = 0F;
         nestWallA.rotateAngleY = 0F;
         nestWallA.rotateAngleZ = 0F;
-        nestWallA.renderWithRotation(par7);
+        nestWallA.render(matrixStack, buffer, packedLight, packedOverlay);
 
         nestWallB.rotateAngleX = 0F;
         nestWallB.rotateAngleY = 0F;
         nestWallB.rotateAngleZ = 0F;
-        nestWallB.renderWithRotation(par7);
+        nestWallB.render(matrixStack, buffer, packedLight, packedOverlay);
 
         nestWallC.rotateAngleX = 0F;
         nestWallC.rotateAngleY = -1.570796F;
         nestWallC.rotateAngleZ = 0F;
-        nestWallC.renderWithRotation(par7);
+        nestWallC.render(matrixStack, buffer, packedLight, packedOverlay);
 
         nestWallD.rotateAngleX = 0F;
         nestWallD.rotateAngleY = -1.570796F;
         nestWallD.rotateAngleZ = 0F;
-        nestWallD.renderWithRotation(par7);
+        nestWallD.render(matrixStack, buffer, packedLight, packedOverlay);
     }
 
-    public void renderAll() {
-        Base.rotateAngleX = 0F;
-        Base.rotateAngleY = 0F;
-        Base.rotateAngleZ = 0F;
-        Base.render(0.0625f);
+    @Override
+    public void setRotationAngles(E entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 
-        nestBase.rotateAngleX = 0F;
-        nestBase.rotateAngleY = 0F;
-        nestBase.rotateAngleZ = 0F;
-        nestBase.render(0.0625f);
-
-        nestWallA.rotateAngleX = 0F;
-        nestWallA.rotateAngleY = 0F;
-        nestWallA.rotateAngleZ = 0F;
-        nestWallA.render(0.0625f);
-
-        nestWallB.rotateAngleX = 0F;
-        nestWallB.rotateAngleY = 0F;
-        nestWallB.rotateAngleZ = 0F;
-        nestWallB.render(0.0625f);
-
-        nestWallC.rotateAngleX = 0F;
-        nestWallC.rotateAngleY = -1.570796F;
-        nestWallC.rotateAngleZ = 0F;
-        nestWallC.render(0.0625f);
-
-        nestWallD.rotateAngleX = 0F;
-        nestWallD.rotateAngleY = -1.570796F;
-        nestWallD.rotateAngleZ = 0F;
-        nestWallD.render(0.0625f);
     }
+
+//    public void renderAll() {
+//        Base.rotateAngleX = 0F;
+//        Base.rotateAngleY = 0F;
+//        Base.rotateAngleZ = 0F;
+//        Base.render(0.0625f);
+//
+//        nestBase.rotateAngleX = 0F;
+//        nestBase.rotateAngleY = 0F;
+//        nestBase.rotateAngleZ = 0F;
+//        nestBase.render(0.0625f);
+//
+//        nestWallA.rotateAngleX = 0F;
+//        nestWallA.rotateAngleY = 0F;
+//        nestWallA.rotateAngleZ = 0F;
+//        nestWallA.render(0.0625f);
+//
+//        nestWallB.rotateAngleX = 0F;
+//        nestWallB.rotateAngleY = 0F;
+//        nestWallB.rotateAngleZ = 0F;
+//        nestWallB.render(0.0625f);
+//
+//        nestWallC.rotateAngleX = 0F;
+//        nestWallC.rotateAngleY = -1.570796F;
+//        nestWallC.rotateAngleZ = 0F;
+//        nestWallC.render(0.0625f);
+//
+//        nestWallD.rotateAngleX = 0F;
+//        nestWallD.rotateAngleY = -1.570796F;
+//        nestWallD.rotateAngleZ = 0F;
+//        nestWallD.render(0.0625f);
+//    }
 }

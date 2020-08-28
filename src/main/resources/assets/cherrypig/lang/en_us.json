@@ -1,0 +1,19 @@
+{
+    "item.cherrypig:cherrypip": "Cherry Pip",
+    "item.cherrypig:cherryfruit": "Cherry Fruit",
+    "item.cherrypig:cherrypie": "Cherry Pie",
+
+    "block.cherrypig:cherrylog": "Cherrywood Log",
+    "block.cherrypig:cherryleaf": "Cherrywood Leaves",
+    "block.cherrypig:cherrysapling": "Cherrywood Sapling",
+    "block.cherrypig:cherrywoodplank": "Cherrywood Plank",
+    "block.cherrypig:cherrywoodplankslab": "Cherrywood Slab",
+    "block.cherrypig:cherrywoodstairs": "Cherrywood Stairs",
+    "block.cherrypig:flintblock": "Flint Block",
+    "block.cherrypig:charcoalblock": "Charcoal Block",
+
+
+    "entity.cherrypig.CherryPig": "CherryPig",
+
+    "itemGroup.CherryPigTab": "CherryPig"
+}
