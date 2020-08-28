@@ -1,5 +1,5 @@
 {
     "variants": {
-        "normal": { "model": "cherrypig:cherrywood_leaves" }
+        "": { "model": "cherrypig:block/cherrywood_leaves" }
     }
 }

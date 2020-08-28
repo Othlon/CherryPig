@@ -1,8 +1,7 @@
 {
   "variants": {
-    "axis=y":  { "model": "cherrypig:cherrywood_log" },
-    "axis=z":   { "model": "cherrypig:cherrywood_log", "x": 90 },
-    "axis=x":   { "model": "cherrypig:cherrywood_log", "x": 90, "y": 90 },
-    "axis=none": { "model": "cherrypig:cherrywood_bark" }
+    "axis=y":  { "model": "cherrypig:block/cherrywood_log" },
+    "axis=z":   { "model": "cherrypig:block/cherrywood_log", "x": 90 },
+    "axis=x":   { "model": "cherrypig:block/cherrywood_log", "x": 90, "y": 90 }
   }
 }

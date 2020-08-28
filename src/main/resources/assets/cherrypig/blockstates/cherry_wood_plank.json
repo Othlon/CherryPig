@@ -1,6 +1,5 @@
 {
   "variants": {
-    "half=bottom": { "model": "cherrypig:blockCaminiteBrickSlabDouble" },
-    "half=top": { "model": "cherrypig:blockCaminiteBrickSlabDouble" }
+    "": { "model": "cherrypig:block/cherrywood_planks" }
   }
 }

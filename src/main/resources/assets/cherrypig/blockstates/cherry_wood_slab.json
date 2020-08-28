@@ -1,15 +1,7 @@
 {
-  "forge_marker": 1,
-   "defaults": {
-       "textures" : {
-           "bottom": "cherrypig:blocks/cherrypig_planks",
-           "top":    "cherrypig:blocks/cherrypig_planks",
-           "side":   "cherrypig:blocks/cherrypig_planks"
-       }
-   },
-
-    "variants": {
-        "half=bottom,variant=default": { "model": "cherrypig:half_slab_cherrywood" },
-        "half=top,variant=default":    { "model": "cherrypig:upper_slab_cherrywood" }
-    }
+  "variants": {
+    "type=bottom": { "model": "cherrypig:block/half_slab_cherrywood" },
+    "type=top": { "model": "cherrypig:block/upper_slab_cherrywood" },
+    "type=double": { "model": "cherrypig:block/cherrywood_planks" }
+  }
 }
