@@ -14,17 +14,29 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.GenerationStage.Decoration;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.TreeFeatureConfig;
+import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
+import net.minecraft.world.gen.placement.Placement;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import othlon.cherrypig.CherryPig;
 import othlon.cherrypig.blocks.CherryLeavesBlock;
 import othlon.cherrypig.blocks.CherrySaplingBlock;
+import othlon.cherrypig.blocks.tree.CPFeatureConfig;
 import othlon.cherrypig.entity.PiggyEntity;
 import othlon.cherrypig.items.CherryPipItem;
 import othlon.cherrypig.items.CharcoalBlockItem;
 import othlon.cherrypig.items.CustomSpawnEggItem;
 import othlon.cherrypig.blocks.tree.CherryTree;
+import othlon.cherrypig.worldgen.CherryTreeFeature;
 
 import java.util.function.Supplier;
 
@@ -33,6 +45,9 @@ public class CPRegistry {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, CherryPig.MODID);
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES, CherryPig.MODID);
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, CherryPig.MODID);
+    public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, CherryPig.MODID);
+
+    public static final RegistryObject<Feature<TreeFeatureConfig>> CHERRY_TREE = FEATURES.register("cherry_tree", () -> new CherryTreeFeature(TreeFeatureConfig::deserializeFoliage));
 
     public static final RegistryObject<EntityType<PiggyEntity>> CHERRY_PIG = ENTITIES.register("cherry_pig", () -> register("cherry_pig", EntityType.Builder.<PiggyEntity>create(PiggyEntity::new, EntityClassification.CREATURE).size(0.6F, 0.6F)));
 
@@ -75,6 +90,21 @@ public class CPRegistry {
 
     public static <T extends Entity> EntityType<T> register(String id, EntityType.Builder<T> builder) {
         return register(id, builder, true);
+    }
+
+    public static void setupBiomeFeatures(Biome biome)
+    {
+        if (BiomeDictionary.hasType(biome, Type.FOREST)) {
+            addBiomeFeature(biome, GenerationStage.Decoration.VEGETAL_DECORATION, CHERRY_TREE.get().withConfiguration(CPFeatureConfig.CHERRY_TREE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.05F, 1))));
+        }
+    }
+
+    private static void addBiomeFeature(Biome biome, Decoration decorationStage, ConfiguredFeature<?, ?> featureIn)
+    {
+        if(!biome.getFeatures(decorationStage).contains(featureIn))
+        {
+            biome.addFeature(decorationStage, featureIn);
+        }
     }
 
     private static Item.Properties itemBuilder() {
