@@ -21,8 +21,8 @@ import net.minecraft.util.math.RayTraceResult.Type;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
-import othlon.cherrypig.init.CPRegistry;
 import othlon.cherrypig.entity.PiggyEntity;
+import othlon.cherrypig.init.CPRegistry;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -81,7 +81,7 @@ public class CherryPipItem extends Item {
                     BlockRayTraceResult blockTrace = (BlockRayTraceResult) rayTraceResult;
                     BlockPos pos = blockTrace.getPos();
 
-                    if(!worldIn.canMineBlockBody(playerIn, pos)) { return ActionResult.resultFail(stack); }
+//                    if(!worldIn.canMineBlockBody(playerIn, pos)) { return ActionResult.resultFail(stack); }
 
                     if(!playerIn.canPlayerEdit(pos, blockTrace.getFace(), stack)) { return ActionResult.resultFail(stack); }
 

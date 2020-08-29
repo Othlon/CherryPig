@@ -48,10 +48,10 @@ public class CherrySaplingBlock extends SaplingBlock implements IGrowable {
     @Override
     public void placeTree(ServerWorld worldIn, BlockPos pos, BlockState state, Random rand) {
         if (state.get(STAGE) == 0) {
-            worldIn.setBlockState(pos, state.cycle(STAGE), 4);
+            worldIn.setBlockState(pos, state.func_235896_a_(STAGE), 4);
         } else {
             if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(worldIn, rand, pos)) return;
-            this.tree.place(worldIn, worldIn.getChunkProvider().getChunkGenerator(), pos, state, rand);
+            this.tree.attemptGrowTree(worldIn, worldIn.getChunkProvider().getChunkGenerator(), pos, state, rand);
         }
     }
 
