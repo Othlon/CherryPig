@@ -26,6 +26,7 @@ import net.minecraft.util.math.RayTraceContext.FluidMode;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.RayTraceResult.Type;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.spawner.AbstractSpawner;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -51,9 +52,7 @@ public class CustomSpawnEggItem extends Item {
 
     public ActionResultType onItemUse(ItemUseContext context) {
         World worldIn = context.getWorld();
-        if (worldIn.isRemote) {
-            return ActionResultType.SUCCESS;
-        } else {
+        if (!worldIn.isRemote) {
             ItemStack stack = context.getItem();
             BlockPos pos = context.getPos();
             Direction dir = context.getFace();
@@ -62,7 +61,7 @@ public class CustomSpawnEggItem extends Item {
             if (block == Blocks.SPAWNER) {
                 TileEntity tile = worldIn.getTileEntity(pos);
                 if (tile instanceof MobSpawnerTileEntity) {
-                    AbstractSpawner spawner = ((MobSpawnerTileEntity)tile).getSpawnerBaseLogic();
+                    AbstractSpawner spawner = ((MobSpawnerTileEntity) tile).getSpawnerBaseLogic();
                     EntityType<?> type = this.getType(stack.getTag());
                     spawner.setEntityType(type);
                     tile.markDirty();
@@ -80,12 +79,12 @@ public class CustomSpawnEggItem extends Item {
             }
 
             EntityType<?> type = this.getType(stack.getTag());
-            if (type.spawn(worldIn, stack, context.getPlayer(), pos2, SpawnReason.SPAWN_EGG, true, !Objects.equals(pos, pos2) && dir == Direction.UP) != null) {
+            if (type.spawn((ServerWorld)worldIn, stack, context.getPlayer(), pos2, SpawnReason.SPAWN_EGG, true, !Objects.equals(pos, pos2) && dir == Direction.UP) != null) {
                 stack.shrink(1);
             }
 
-            return ActionResultType.SUCCESS;
         }
+        return ActionResultType.SUCCESS;
     }
 
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity player, Hand handIn) {
@@ -102,7 +101,7 @@ public class CustomSpawnEggItem extends Item {
                 return ActionResult.resultPass(stack);
             } else if (worldIn.isBlockModifiable(player, pos) && player.canPlayerEdit(pos, blockRayTraceResult.getFace(), stack)) {
                 EntityType<?> type = this.getType(stack.getTag());
-                if (type.spawn(worldIn, stack, player, pos, SpawnReason.SPAWN_EGG, false, false) == null) {
+                if (type.spawn((ServerWorld)worldIn, stack, player, pos, SpawnReason.SPAWN_EGG, false, false) == null) {
                     return ActionResult.resultPass(stack);
                 } else {
                     if (!player.abilities.isCreativeMode) {

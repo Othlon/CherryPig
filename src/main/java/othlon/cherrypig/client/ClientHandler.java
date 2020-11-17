@@ -6,8 +6,8 @@ import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import othlon.cherrypig.init.CPRegistry;
 import othlon.cherrypig.client.render.PiggyRenderer;
+import othlon.cherrypig.init.CPRegistry;
 import othlon.cherrypig.items.CustomSpawnEggItem;
 
 public class ClientHandler {

@@ -3,8 +3,8 @@ package othlon.cherrypig.client.render;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;
-import othlon.cherrypig.entity.PiggyEntity;
 import othlon.cherrypig.client.models.CPPiggyModel;
+import othlon.cherrypig.entity.PiggyEntity;
 
 public class PiggyRenderer extends MobRenderer<PiggyEntity, CPPiggyModel<PiggyEntity>> {
 

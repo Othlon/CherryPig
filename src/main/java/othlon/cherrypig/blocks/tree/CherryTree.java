@@ -12,6 +12,6 @@ public class CherryTree extends Tree {
     @Nullable
     @Override
     protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getTreeFeature(Random randomIn, boolean hasBeehives) {
-        return CPRegistry.CHERRY_TREE.get().withConfiguration(hasBeehives ? CPFeatureConfig.CHERRY_TREE_WITH_MORE_BEEHIVES_CONFIG : CPFeatureConfig.CHERRY_TREE_CONFIG);
+        return CPRegistry.CHERRY_TREE.get().withConfiguration(hasBeehives ? CPFeatureConfig.CHERRY_TREE_WITH_MORE_BEEHIVES_CONFIG.getConfig() : CPFeatureConfig.CHERRY_TREE_CONFIG.getConfig());
     }
 }
