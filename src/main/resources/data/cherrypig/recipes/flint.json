@@ -1,0 +1,12 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cherrypig:flint_block"
+    }
+  ],
+  "result": {
+    "item": "minecraft:flint",
+    "count": 9
+  }
+}

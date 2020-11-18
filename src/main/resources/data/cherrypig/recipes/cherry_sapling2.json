@@ -1,0 +1,15 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "x ",
+    "x "
+  ],
+  "key": {
+    "x": {
+      "item": "cherrypig:cherry_wood_slab"
+    }
+  },
+  "result": {
+    "item": "cherrypig:cherry_wood_plank"
+  }
+}

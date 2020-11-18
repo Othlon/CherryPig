@@ -1,0 +1,16 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:charcoal"
+    }
+  },
+  "result": {
+    "item": "cherrypig:charcoal_block"
+  }
+}
