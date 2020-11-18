@@ -2,6 +2,9 @@ package othlon.cherrypig.entity;
 
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.ai.attributes.AttributeModifierMap;
+import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.ai.goal.LeapAtTargetGoal;
 import net.minecraft.entity.ai.goal.LookAtGoal;
@@ -15,7 +18,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import othlon.cherrypig.init.CPRegistry;
 
@@ -34,6 +37,10 @@ public class PiggyEntity extends PigEntity {
         this.setPathPriority(PathNodeType.WATER, -1.0F);
 
         this.timeUntilNextEgg = this.rand.nextInt(6000) + 6000;
+    }
+
+    public static AttributeModifierMap.MutableAttribute registerAttributes() {
+        return PiggyEntity.func_233666_p_().createMutableAttribute(Attributes.MAX_HEALTH, 10.0D).createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.25D).createMutableAttribute(Attributes.ATTACK_DAMAGE, 1.0D);
     }
 
     @Override
@@ -68,7 +75,7 @@ public class PiggyEntity extends PigEntity {
             this.destPos = 1.0F;
         }
 
-        Vec3d motion = getMotion();
+        Vector3d motion = getMotion();
         if (!this.onGround && motion.getY() < 0.0D) {
             Double motionY = motion.getY();
             motionY *= 0.6D;

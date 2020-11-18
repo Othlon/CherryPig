@@ -2,10 +2,9 @@ package othlon.cherrypig.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.LeavesBlock;
-import net.minecraftforge.common.IShearable;
 
 
-public class CherryLeavesBlock extends LeavesBlock implements IShearable {
+public class CherryLeavesBlock extends LeavesBlock {
 
     //int[] adjacentTreeBlocks;
     //ItemStack fruit = new ItemStack(CPItem.cherryFruit,1 , 0);

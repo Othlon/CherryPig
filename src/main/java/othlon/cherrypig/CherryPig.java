@@ -38,6 +38,7 @@ public class CherryPig {
         {
             CPRegistry.setupBiomeFeatures(biome);
         }
+        CPRegistry.entityAttributes();
     }
 
     //public static CPTreeWorldGen trees;
