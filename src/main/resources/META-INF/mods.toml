@@ -1,0 +1,13 @@
+modLoader="javafml"
+loaderVersion="[31,)"
+issueTrackerURL="https://github.com/Othlon/CherryPig/issues"
+
+[[mods]]
+modId="cherrypig"
+version="${file.jarVersion}"
+displayName="CherryPig"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/cherrypig"
+logoFile="bigpig.png"
+authors="Othlon"
+credits="everyone who helped me out <3"
+description='''Dem Piggies of teh cherry variety! Now coming to a world near you.'''

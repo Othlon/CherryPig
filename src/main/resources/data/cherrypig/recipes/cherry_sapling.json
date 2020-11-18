@@ -1,0 +1,20 @@
+{
+  "type": "crafting_shaped",
+  "group": "wooden_stairs",
+  "pattern": [
+    "xxx",
+    "xyx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:porkchop"
+    },
+	"y": {
+      "tag": "minecraft:saplings"
+    }
+  },
+  "result": {
+    "item": "cherrypig:cherry_sapling"
+  }
+}

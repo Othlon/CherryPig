@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "cherrypig:block/flint_block" }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "axis=y":  { "model": "cherrypig:block/cherrywood_log" },
+    "axis=z":   { "model": "cherrypig:block/cherrywood_log", "x": 90 },
+    "axis=x":   { "model": "cherrypig:block/cherrywood_log", "x": 90, "y": 90 }
+  }
+}

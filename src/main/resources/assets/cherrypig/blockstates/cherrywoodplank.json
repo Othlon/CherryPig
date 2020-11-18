@@ -1,6 +1,0 @@
-{
-  "variants": {
-    "half=bottom": { "model": "cherrypig:blockCaminiteBrickSlabDouble" },
-    "half=top": { "model": "cherrypig:blockCaminiteBrickSlabDouble" }
-  }
-}

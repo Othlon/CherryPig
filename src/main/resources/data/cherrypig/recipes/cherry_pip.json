@@ -1,0 +1,11 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cherrypig:cherry_fruit"
+    }
+  ],
+  "result": {
+    "item": "cherrypig:cherry_pip"
+  }
+}
