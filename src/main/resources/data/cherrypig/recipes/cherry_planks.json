@@ -1,0 +1,13 @@
+{
+  "type": "crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "item": "cherrypig:cherry_log"
+    }
+  ],
+  "result": {
+    "item": "cherrypig:cherry_wood_plank",
+    "count": 4
+  }
+}

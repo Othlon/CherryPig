@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "type=bottom": { "model": "cherrypig:block/half_slab_cherrywood" },
+    "type=top": { "model": "cherrypig:block/upper_slab_cherrywood" },
+    "type=double": { "model": "cherrypig:block/cherrywood_planks" }
+  }
+}
