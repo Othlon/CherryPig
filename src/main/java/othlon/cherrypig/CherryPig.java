@@ -37,7 +37,7 @@ public class CherryPig {
 
         eventBus.addListener(EventPriority.LOWEST, this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
-//        CPTileEntites.doTheTileEntityThings(); There ain't any
+//      CPTileEntites.doTheTileEntityThings(); There ain't any
 
         DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
             eventBus.addListener(ClientHandler::registerRenders);
